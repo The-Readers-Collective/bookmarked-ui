@@ -28,3 +28,4 @@ workflows:
       - cypress/run:
           start: npm start
       - build
+      
