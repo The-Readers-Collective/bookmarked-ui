@@ -3,6 +3,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.0.3
+  cypress: cypress-io/cypress@2.1.0
 
 jobs:
   build_and_test:
@@ -24,4 +25,6 @@ jobs:
 workflows:
   test_my_app:
     jobs:
-      - build_and_test
+      - cypress/run:
+          start: npm start
+      - build
