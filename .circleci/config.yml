@@ -6,7 +6,7 @@ orbs:
   cypress: cypress-io/cypress@2.1.0
 
 jobs:
-  build_and_test:
+  build:
     executor: node/default
     steps:
       - checkout
@@ -28,4 +28,3 @@ workflows:
       - cypress/run:
           start: npm start
       - build
-      
