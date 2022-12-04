@@ -19,7 +19,7 @@ const App = () => {
       </nav>
       <main>
         <Switch>
-          <Route path="/" render={() => 
+          <Route exact path="/" render={() => 
             <Dashboard />
           }/>
           <Route path="/browse" render={() => 

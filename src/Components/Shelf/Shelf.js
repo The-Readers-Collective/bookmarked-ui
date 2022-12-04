@@ -2,12 +2,16 @@ import React from 'react'
 import Cover from '../Cover/Cover'
 
 const Shelf = () => {
-    //map over array of books to produce a Cover component of each one
+    //const myBooks = array.map(book => {
+    //   return (
+    //     <Cover />
+    //   )
+    // })
     
   return (
     <div>
       <p>here's a shelf</p>
-      <Cover />
+      {/* {myBooks} */}
     </div>
   )
 }
