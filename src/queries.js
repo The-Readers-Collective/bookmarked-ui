@@ -2,71 +2,67 @@ import { gql } from '@apollo/client'
 
 const GET_DASHBOARD = gql`
     query GetDashboardBooks {
-        {
+        users {
+            id
+            name
             books {
-                title
-                cover
+                bookTitle
+                bookCover
                 author
                 status
-            }
-        }
-    }
-
-    query GetDashboardBookmarkedBooks {
-        {
-            books {
-                title
-                cover
-                author
-                status
+                isbn13
             }
         }
     }
 `;
+//one query will return all books-- from there, we will need to filter books by status
 
 const GET_SINGLE_BOOK = gql`
-    query GetSingleBook {
-        {
-            book {
-                title
-                cover
+    query GetSingleBook ($id: String!) {
+        users {
+            books(id: $id) {
+                bookTitle
+                bookCover
                 author
-                genre
+                genre // categories?
                 status
                 pageCount
                 synopsis
                 condition
+                isbn13
             }
         }
     }
 `;
+//isAvailable ??
 
 const GET_BROWSE_ALL_BOOKS = gql`
     query GetBrowseAllBooks {
-        {
+        users {
             books {
-                title
-                cover
+                bookTitle
+                bookCover
                 author
                 status
             }
         }
     }
 `;
-
-//Passing in book title, author, and genre in as search queries as arguments
+//going through every user to get every book they have
+//querying whole database, then filtering those results on the front-end based on user's inputs of author, title, and genre
 
 const GET_SEARCH_BOOKS = gql`
     query GetSearchBooks {
-        {
-            books {
-                title
-                cover
-                author
-                status
-            }
+        books {
+            bookTitle
+            bookCover
+            author
+            categories
+            status
         }
     }
 `;
+//from mothership google book api
+//category === genre
 
 export { GET_DASHBOARD, GET_SINGLE_BOOK, GET_BROWSE_ALL_BOOKS, GET_SEARCH_BOOKS }
