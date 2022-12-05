@@ -1,7 +1,5 @@
 import { gql } from '@apollo/client'
-// DASHBOARD
-// -pulling in a user's book'screen, whether available and unavailable
-// title cover author status
+
 const GET_DASHBOARD = gql`
     query GetDashboardBooks {
         {
@@ -70,3 +68,5 @@ const GET_SEARCH_BOOKS = gql`
         }
     }
 `;
+
+export { GET_DASHBOARD, GET_SINGLE_BOOK, GET_BROWSE_ALL_BOOKS, GET_SEARCH_BOOKS }
