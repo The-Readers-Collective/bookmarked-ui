@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql, HttpLink } from '@apollo/client';
 import './index.css';
 import App from './Pages/App/App';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 const client = new ApolloClient({
   uri: 'https://flyby-gateway.herokuapp.com/',
@@ -13,8 +13,8 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
-    <HashRouter base="/">
+    <BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </ApolloProvider>
 );
