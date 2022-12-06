@@ -4,9 +4,11 @@ import App from './App';
 
 test('renders learn react link', () => {
   render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ApolloProvider>
   );
   const linkElement = screen.getByText("Bookmarked");
   expect(linkElement).toBeInTheDocument();
