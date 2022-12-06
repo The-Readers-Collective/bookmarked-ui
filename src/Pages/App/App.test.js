@@ -16,6 +16,6 @@ test('renders learn react link', () => {
       </BrowserRouter>
     </ApolloProvider>
   );
-  const linkElement = screen.getByText(/Bookmarked/);
+  const linkElement = screen.getByText(/The Reader's Collective/);
   expect(linkElement).toBeInTheDocument();
 });
