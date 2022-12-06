@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { useQuery, gql } from '@apollo/client'
+import React from 'react'
+// import { useState, useEffect } from 'react'
+// import { useQuery, gql } from '@apollo/client'
 import { Link, Route, Switch, useLocation } from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard'
 import BrowseAllBooks from '../BrowseAllBooks/BrowseAllBooks'
@@ -9,7 +10,7 @@ import PageNotFound from '../PageNotFound/PageNotFound'
 
 const App = () => {
   let location = useLocation()
-  const homeLink = location.pathname != "/" && <Link to="/">Return Home</Link>
+  const homeLink = location.pathname !== "/" && <Link to="/">Return Home</Link>
   let pageName;
 
   if (location.pathname === "/") {

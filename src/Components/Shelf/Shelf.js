@@ -1,5 +1,5 @@
 import React from 'react'
-import Cover from '../Cover/Cover'
+// import Cover from '../Cover/Cover'
 
 const Shelf = ({ myShelfBooks }) => {
   //const myBooks = ARRAY.map(book => {

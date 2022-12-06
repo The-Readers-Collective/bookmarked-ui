@@ -1,5 +1,5 @@
 import React from 'react'
-import Result from '../../Components/Result/Result'
+// import Result from '../../Components/Result/Result'
 
 const AddBook = () => {
   // const result = array.map(result => {
