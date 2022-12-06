@@ -8,7 +8,7 @@ import AddBook from '../AddBook/AddBook'
 import PageNotFound from '../PageNotFound/PageNotFound'
 
 const App = () => {
-  const location = useLocation()
+  let location = useLocation()
   const homeLink = location.pathname != "/" && <Link to="/">Return Home</Link>
   let pageName;
 
