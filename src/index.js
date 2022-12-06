@@ -12,9 +12,9 @@ const client = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ApolloProvider client={client}>
-    <HashRouter base="/">
+  <BrowserRouter>
+    <ApolloProvider client={client}>
       <App />
-    </HashRouter>
-  </ApolloProvider>
+    </ApolloProvider>
+  </BrowserRouter>
 );
