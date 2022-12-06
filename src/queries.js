@@ -1,16 +1,20 @@
 import { gql } from '@apollo/client'
 
 const GET_DASHBOARD = gql`
-    query GetDashboardBooks {
-        users {
+    query GetDashboardBooks ($id: String!) {
+        user (id: $id) {
             id
             name
-            books {
-                bookTitle
-                bookCover
-                author
-                status
-                isbn13
+            userBooks {
+                bookId
+                book {
+                    id
+                    bookTitle
+                    bookCover
+                    author
+                    status
+                    isbn13
+                }
             }
         }
     }
@@ -20,30 +24,38 @@ const GET_DASHBOARD = gql`
 const GET_SINGLE_BOOK = gql`
     query GetSingleBook ($id: String!) {
         users {
-            books(id: $id) {
-                bookTitle
-                bookCover
-                author
-                genre // categories?
-                status
-                pageCount
-                synopsis
-                condition
-                isbn13
+            userBooks {
+                bookId
+                book (id: $id) {
+                    bookTitle
+                    bookCover
+                    author
+                    category
+                    status
+                    pageCount
+                    synopsis
+                    condition
+                    isbn13
+                    available
+                }
             }
         }
     }
 `;
 //isAvailable ??
+//alphabatize properties
 
 const GET_BROWSE_ALL_BOOKS = gql`
     query GetBrowseAllBooks {
         users {
-            books {
-                bookTitle
-                bookCover
-                author
-                status
+            userBooks {
+                book {
+                    bookTitle
+                    bookCover
+                    author
+                    available
+                    status
+                }
             }
         }
     }
@@ -57,7 +69,7 @@ const GET_SEARCH_BOOKS = gql`
             bookTitle
             bookCover
             author
-            categories
+            category
             status
         }
     }
