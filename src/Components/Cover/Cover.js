@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Cover = () => {
+const Cover = ({ author }) => {
   return (
     <div>
-      <p>I'm a book cover</p>
+      <p>Cover!</p>
     </div>
   )
 }
