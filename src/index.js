@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 //don't forget to re-import gql if we use it
 
 const client = new ApolloClient({
-  uri: 'https://flyby-gateway.herokuapp.com/',
+  uri: 'https://bookmarked-api.herokuapp.com/graphql',
   cache: new InMemoryCache(),
   });
 

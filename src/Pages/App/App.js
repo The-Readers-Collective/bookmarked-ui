@@ -19,7 +19,8 @@ const App = () => {
     pageName = "Browse All Books"
   } else if (location.pathname === "/add") {
     pageName = "Add a Book"
-  } else if (location.pathname === "/:id") {
+  } else if (location.pathname === "/single") {
+    //change path to :id
     pageName = "Book View"
   } else {
     pageName = "oops"
@@ -45,13 +46,13 @@ const App = () => {
           <Route path="/add" render={() =>
             <AddBook />
           }/>
+          <Route path="/single" render={() => 
+          //change path back to :id
+            <SingleBookView />
+          }/>
           <Route path="*" render={() => 
             <PageNotFound />
           }/>
-          <Route path="/:id" render={() => 
-            <SingleBookView />
-          }/>
-     
         </Switch>
       </main>
       <footer>
