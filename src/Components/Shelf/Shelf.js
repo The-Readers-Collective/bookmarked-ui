@@ -4,7 +4,7 @@ import React from 'react'
 const Shelf = ({ myShelfBooks }) => {
   //const myBooks = ARRAY.map(book => {
   //   return (
-  //     <Cover />
+  //     <Link><Cover fromShelf={true}/></Link>
   //   )
   // })
   //since we're filtering the mass array of books based on their status, maybe use filter instead of map?
