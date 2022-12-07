@@ -1,7 +1,37 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import { gql, useQuery } from '@apollo/client'
+
 
 const SingleBookView = ({fromShelf}) => {
+    const GET_SINGLE_BOOK = gql`
+        query getSingleBook {
+            users {
+                userBooks {
+                    bookId
+                    status
+                    book {
+                        id
+                        bookTitle
+                        bookCover
+                        author
+                        category
+                    
+                        
+                        condition
+                        isbn13
+                        available
+                    }
+                }
+            }
+        }
+    `;
+    //Add pageCount and synopsis back in
+
+    const { loading, error, data } = useQuery(GET_SINGLE_BOOK)
+
+    console.log('single book data', data)
+    console.log('single book error', error)
     const location = useLocation();
     let dynamicButton;
 
