@@ -27,8 +27,14 @@ const Dashboard = () => {
 `;
   
   const { loading, error, data } = useQuery(GET_DASHBOARD)
+  if (error) return <p>Error : {error.message}</p>
+  if (loading) return <p>Loading...</p>
+  
+  
+  if (data) {
+    console.log(data)
+  }
 
-  console.log(data)
 
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">
