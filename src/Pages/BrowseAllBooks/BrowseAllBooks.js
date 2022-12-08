@@ -28,12 +28,6 @@ const BrowseAllBooks = () => {
   
   
   if (data) {
-    // let books = []
-    // const users = data.users.forEach(user => {
-    //   books.push(user.userBooks)
-    // })
-    // const allBooks = books.flat()
-
     allBrowsedCovers = data.books.map(userBook => {
         return (
           <Cover 
