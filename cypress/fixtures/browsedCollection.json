@@ -1,0 +1,95 @@
+{ "data": {
+  "users": [
+    {
+      "id": "1",
+      "email": "sandy@gmail.com",
+      "name": "Sandy M",
+      "zipcode": "80241",
+      "updatedAt": "2022-12-06T06:39:38Z",
+      "userBooks": [
+        {
+          "id": "1",
+          "userId": "1",
+          "bookId": "1",
+          "status": 0,
+          "book": {
+            "id": "1",
+            "googleBookId": "tXGRBgwxAHIC",
+            "isbn13": "9780316202275",
+            "author": "James S. A. Corey",
+            "bookTitle": "Caliban's War",
+            "bookCover": "http://books.google.com/books/content?id=tXGRBgwxAHIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+            "category": "Sci-Fi",
+            "condition": "Excellent",
+            "available": true,
+            "updatedAt": "2022-12-06T06:39:38Z"
+          }
+        },
+        {
+          "id": "2",
+          "userId": "1",
+          "bookId": "2",
+          "status": 0,
+          "book": {
+            "id": "2",
+            "googleBookId": "aWZzLPhY4o0C",
+            "isbn13": "9780547952017",
+            "author": "J.R.R. Tolkien",
+            "bookTitle": "The Fellowship Of The Ring",
+            "bookCover": "http://books.google.com/books/content?id=aWZzLPhY4o0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+            "category": "Adventure",
+            "condition": "Good",
+            "available": true,
+            "updatedAt": "2022-12-06T06:39:38Z"
+          }
+        },
+        {
+          "id": "3",
+          "userId": "1",
+          "bookId": "4",
+          "status": 1,
+          "book": {
+            "id": "4",
+            "googleBookId": "1q_xAwAAQBAJ",
+            "isbn13": "9780385371988",
+            "author": "Dr. Seuss",
+            "bookTitle": "Oh, the Places You'll Go!",
+            "bookCover": "http://books.google.com/books/content?id=1q_xAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+            "category": "Childrens Book",
+            "condition": "Poor",
+            "available": true,
+            "updatedAt": "2022-12-06T06:39:38Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "email": "Bob@gmail.com",
+      "name": "Joe B",
+      "zipcode": "80020",
+      "updatedAt": "2022-12-06T06:39:38Z",
+      "userBooks": [
+        {
+          "id": "4",
+          "userId": "2",
+          "bookId": "3",
+          "status": 0,
+          "book": {
+            "id": "3",
+            "googleBookId": "hffZtgAACAAJ",
+            "isbn13": "9780007428540",
+            "author": "George R. R. Martin",
+            "bookTitle": "A Game of Thrones",
+            "bookCover": "http://books.google.com/books/content?id=hffZtgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "category": "Fantasy",
+            "condition": "Good",
+            "available": true,
+            "updatedAt": "2022-12-06T06:39:38Z"
+          }
+        }
+      ]
+    }
+  ]
+}
+}
