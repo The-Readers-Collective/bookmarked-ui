@@ -6,20 +6,16 @@ import Cover from '../../Components/Cover/Cover.js'
 const BrowseAllBooks = () => {
   const GET_BROWSE_ALL_BOOKS = gql`
     query GetBrowseAllBooks {
-      users {
-        userBooks {
-          status
-          bookId
-          book {
-            id
-            bookTitle
-            bookCover
-            author
-            available
-          }
+        books {
+          id
+          googleBookId
+          author
+          bookTitle
+          bookCover
+          condition
+          available
         }
       }
-    }
   `;
 
   let allBrowsedCovers;
@@ -32,20 +28,20 @@ const BrowseAllBooks = () => {
   
   
   if (data) {
-    let books = []
-    const users = data.users.forEach(user => {
-      books.push(user.userBooks)
-    })
-    const allBooks = books.flat()
+    // let books = []
+    // const users = data.users.forEach(user => {
+    //   books.push(user.userBooks)
+    // })
+    // const allBooks = books.flat()
 
-    allBrowsedCovers = allBooks.map(userBook => {
+    allBrowsedCovers = data.books.map(userBook => {
         return (
           <Cover 
-          id={userBook.book.id}
-          key={userBook.bookId} 
-          author={userBook.book.author} 
-          title={userBook.book.bookTitle} 
-          cover={userBook.book.bookCover}
+          id={userBook.id}
+          key={userBook.id} 
+          author={userBook.author} 
+          title={userBook.bookTitle} 
+          cover={userBook.bookCover}
           />
         )
       })
