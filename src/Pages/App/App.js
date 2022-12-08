@@ -11,6 +11,7 @@ import PageNotFound from '../PageNotFound/PageNotFound'
 const App = () => {
   let location = useLocation()
   const homeLink = location.pathname !== "/" && <Link to="/">Return Home</Link>
+  const browseLink = location.pathname !== "/browse" && location.pathname !== "/" && <Link to="/browse">Browse</Link>
   let pageName;
 
   if (location.pathname === "/") {
@@ -34,6 +35,7 @@ const App = () => {
         <h2>Where Book Lovers Gather</h2>
         <h3>{pageName}</h3>
         <h3>{homeLink}</h3>
+        <h3>{browseLink}</h3>
       </nav>
       <main>
         <Switch>
