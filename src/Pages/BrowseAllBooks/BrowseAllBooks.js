@@ -41,6 +41,7 @@ const BrowseAllBooks = () => {
     allBrowsedCovers = allBooks.map(userBook => {
         return (
           <Cover 
+          id={userBook.book.id}
           key={userBook.bookId} 
           author={userBook.book.author} 
           title={userBook.book.bookTitle} 
