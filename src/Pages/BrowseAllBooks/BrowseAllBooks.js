@@ -7,41 +7,56 @@ const BrowseAllBooks = () => {
   const GET_BROWSE_ALL_BOOKS = gql`
     query GetBrowseAllBooks {
       users {
-          userBooks {
-            status
-              book {
-                  bookTitle
-                  bookCover
-                  author
-                  available
-              }
+        userBooks {
+          status
+          bookId
+          book {
+            id
+            bookTitle
+            bookCover
+            author
+            available
           }
+        }
       }
-  }
+    }
   `;
 
-    const { loading, error, data } = useQuery(GET_BROWSE_ALL_BOOKS)
-    console.log('browse data',  data)
-    console.log('browse error', error)
+  let allBrowsedCovers;
 
-    // let allBrowsedCovers;
-    // data.users.forEach(user => {
-    //   allBrowsedCovers = user.userBooks.map(book => {
-    //     return (
-    //       <Cover />
-    //     )
-    //     console.log(32, allBrowsedCovers)
-    //     console.log(user)
-    //   })
-    // })
+  
+  const { loading, error, data } = useQuery(GET_BROWSE_ALL_BOOKS)
+  
+  if (error) return <p>Error : {error.message}</p>
+  if (loading) return <p>Loading...</p>
+  
+  
+  if (data) {
+    let books = []
+    const users = data.users.forEach(user => {
+      books.push(user.userBooks)
+    })
+    const allBooks = books.flat()
 
-  return (
-    <div>
+    allBrowsedCovers = allBooks.map(userBook => {
+        return (
+          <Cover 
+          key={userBook.bookId} 
+          author={userBook.book.author} 
+          title={userBook.book.bookTitle} 
+          cover={userBook.book.bookCover}
+          />
+        )
+      })
+    }
+      
+      return (
+        <div>
       <p>Browse all books</p>
       <SearchAllBooks />
-      {/* {allBrowsedCovers} */}
+      {allBrowsedCovers}
     </div>
   )
-}
+} 
 
 export default BrowseAllBooks

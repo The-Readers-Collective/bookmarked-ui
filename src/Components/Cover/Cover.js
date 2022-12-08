@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Cover = ({ author }) => {
+const Cover = ({ cover }) => {
   return (
     <div>
-      <p>Cover!</p>
+      <img src={cover} alt='book name'/>
     </div>
   )
 }
