@@ -1,11 +1,10 @@
 import User from '../fixtures/dashboard.json'
 
-describe('empty spec', () => {
-  
   describe('Dashboard', () => {
     beforeEach(() => {
       cy.visit('localhost:3000')
     })
+
     it('should have a title', () => {
       cy.get('h1').should('be.visible')
     })
@@ -50,7 +49,7 @@ describe('empty spec', () => {
         
     })
 
-    it.only('should be able to use the browser arrow buttons to go between pages', () => {
+    it('should be able to use the browser arrow buttons to go between pages', () => {
       cy.visit("http://localhost:3000/")
       cy.get('[data-cy="browse-button"]')
         .click()
@@ -68,4 +67,4 @@ describe('empty spec', () => {
     })
 
     
-  })
+
