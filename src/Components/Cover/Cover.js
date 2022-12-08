@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Cover = ({ cover }) => {
+const Cover = ({ cover, id }) => {
   return (
-    <div>
-      <img src={cover} alt='book name'/>
-    </div>
+    <Link to={`/${id}`}> 
+      <div>
+        <img src={cover} alt='book name'/>
+      </div>
+    </Link>
   )
 }
 
