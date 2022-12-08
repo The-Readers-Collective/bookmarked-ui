@@ -3,7 +3,7 @@ import React from 'react'
 const Cover = ({ cover }) => {
   return (
     <div>
-      <img src={cover}/>
+      <img src={cover} alt='book name'/>
     </div>
   )
 }
