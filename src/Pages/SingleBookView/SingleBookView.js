@@ -18,6 +18,7 @@ const SingleBookView = ({fromShelf, id }) => {
                     }
                 }
     `;
+
     //Add pageCount and synopsis back in
 
     const { loading, error, data } = useQuery(GET_SINGLE_BOOK, {variables: {id: id}})
@@ -42,8 +43,8 @@ const SingleBookView = ({fromShelf, id }) => {
                 <p>Title: {data.book.bookTitle}</p>
                 <p>Author: {data.book.author}</p>
                 <p>Genre: {data.book.category}</p> 
-                {/* <p>Page Count:{data.book.pageCount}</p>
-                <p>Synopsis:{data.book.description}</p> */}
+                {/* <p>Page Count:{data.book.pgCount}</p> */}
+                {/* <p>Synopsis:{data.book.description}</p> */}
                 <p>Condition: {data.book.condition}</p>
             </article>
         </div>
