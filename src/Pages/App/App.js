@@ -21,9 +21,10 @@ const App = () => {
     pageName = "Add a Book"
   } else if (location.pathname === "/:id") {
     pageName = "Book View"
-  }else {
-    pageName = "oops"
   }
+  // else {
+  //   pageName = "oops"
+  // }
   //Once we have single book view working, test that lines 21 and 22 are functional
 
   return (
