@@ -3,54 +3,49 @@ import { useLocation } from 'react-router-dom'
 import { gql, useQuery } from '@apollo/client'
 
 
-const SingleBookView = ({fromShelf}) => {
+const SingleBookView = ({fromShelf, id }) => {
     const GET_SINGLE_BOOK = gql`
-        query getSingleBook {
-            users {
-                userBooks {
-                    bookId
-                    status
-                    book {
+        query getSingleBook ($id: ID!){
+                    book(id: $id) {
                         id
                         bookTitle
                         bookCover
                         author
                         category
-                    
-                        
                         condition
                         isbn13
                         available
                     }
                 }
-            }
-        }
     `;
     //Add pageCount and synopsis back in
 
-    const { loading, error, data } = useQuery(GET_SINGLE_BOOK)
+    const { loading, error, data } = useQuery(GET_SINGLE_BOOK, {variables: {id: id}})
+    const location = useLocation();
+    
+    if (error) return <p>Error : {error.message}</p>
+    if (loading) return <p>Loading...</p>
 
     console.log('single book data', data)
     console.log('single book error', error)
-    const location = useLocation();
     let dynamicButton;
 
-    if (fromShelf ) {
+    if (fromShelf) {
         return <button>Delete</button>
     }
 
     return (
         <div>
             <p>Single book view</p>
-            {/* <img src={source} alt="Book Cover" className="book-cover" />
+            <img src={data.book.bookCover} alt="Book Cover" className="book-cover" />
             <article className="book-details-container">
-                <p>Title:{title}</p>
-                <p>Author:{author}</p>
-                <p>Genre:{genre}</p> 
-                <p>Page Count:{pageCount}</p>
-                <p>Synopsis:{synopsis}</p>
-                <p>Condition:{condition}</p>
-            </article> */}
+                <p>Title: {data.book.bookTitle}</p>
+                <p>Author: {data.book.author}</p>
+                <p>Genre: {data.book.category}</p> 
+                {/* <p>Page Count:{data.book.pageCount}</p>
+                <p>Synopsis:{data.book.description}</p> */}
+                <p>Condition: {data.book.condition}</p>
+            </article>
         </div>
     )
 }
