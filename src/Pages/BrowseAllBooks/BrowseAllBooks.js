@@ -42,11 +42,11 @@ const BrowseAllBooks = () => {
     }
       
       return (
-        <div>
-      <p>Browse all books</p>
-      <SearchAllBooks />
-      {allBrowsedCovers}
-    </div>
+        <div data-cy="browse-books-container" className="browse-books-container">
+          <p data-cy="browse-header" className="browse-header">Browse all books</p>
+          <SearchAllBooks />
+          {allBrowsedCovers}
+        </div>
   )
 } 
 
