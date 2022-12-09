@@ -1,7 +1,9 @@
 import SearchAllBooks from '../../Components/SearchAllBooks/SearchAllBooks'
 import { gql, useQuery } from '@apollo/client'
 import Cover from '../../Components/Cover/Cover.js'
+import './BrowseAllBooks.css'
 import React, { useState } from "react";
+
 
 const BrowseAllBooks = () => {
   const [searchTitle, setSearchTitle] = useState('')
@@ -22,6 +24,7 @@ const BrowseAllBooks = () => {
   `;
 
   let allBrowsedCovers;
+
   const { loading, error, data } = useQuery(GET_BROWSE_ALL_BOOKS)
   
   if (error) return <p>Error : {error.message}</p>
@@ -67,14 +70,15 @@ const BrowseAllBooks = () => {
       return (
         <div data-cy="browse-books-container" className="browse-books-container">
           <p data-cy="browse-header" className="browse-header">Browse all books</p>
-          {console.log(results)}
+     
           <SearchAllBooks 
             searchTitle={searchTitle}
             setSearchTitle={setSearchTitle}
             filteredSearch={filteredSearch}
           />
-          {searchTitle ? searchResults : allBrowsedCovers} 
-
+          <div data-cy="all-books-container" className="all-books-container">
+            {searchTitle ? searchResults : allBrowsedCovers} 
+          </div> 
         </div>
   )
 } 
