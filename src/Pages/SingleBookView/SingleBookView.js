@@ -27,8 +27,7 @@ const SingleBookView = ({fromShelf, id }) => {
     if (error) return <p>Error : {error.message}</p>
     if (loading) return <p>Loading...</p>
 
-    console.log('single book data', data)
-    console.log('single book error', error)
+
     let dynamicButton;
 
     if (fromShelf) {
@@ -38,16 +37,16 @@ const SingleBookView = ({fromShelf, id }) => {
     return (
         <div>
             <p>Single book view</p>
-            <img src={data.book.bookCover} alt="Book Cover" className="book-cover" />
-            <button>bookmark!</button>
+            <button>bookmark!<button>
+            <img  data-cy="book-cover"  src={data.book.bookCover} alt="Book Cover" className="book-cover" />
             <article className="book-details-container">
-                <p>Title: {data.book.bookTitle}</p>
-                <p>Author: {data.book.author}</p>
+                <p data-cy="book-title" className="book-title">Title: {data.book.bookTitle}</p>
+                <p data-cy="book-author" className="book-author">Author: {data.book.author}</p>
                 <p>Synopsis: {data.book.description}</p> 
-                <p>Genre: {data.book.category}</p> 
-                <p>Page Count: {data.book.pgCount}</p> 
-                <p>ISBN: {data.book.isbn13}</p> 
-                <p>Condition: {data.book.condition}</p>
+                <p data-cy="book-details" className="book-details">Genre: {data.book.category}</p> 
+                <p data-cy="book-details" className="book-details">Page Count: {data.book.pgCount}</p> 
+                <p data-cy="book-details" className="book-details">ISBN: {data.book.isbn13}</p> 
+                <p data-cy="book-details" className="book-details">Condition: {data.book.condition}</p>
             </article>
         </div>
     )
