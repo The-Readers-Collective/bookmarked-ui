@@ -15,11 +15,11 @@ const SingleBookView = ({fromShelf, id }) => {
                         condition
                         isbn13
                         available
+                        pgCount
+                        description
                     }
                 }
     `;
-
-    //Add pageCount and synopsis back in
 
     const { loading, error, data } = useQuery(GET_SINGLE_BOOK, {variables: {id: id}})
     const location = useLocation();
@@ -39,12 +39,14 @@ const SingleBookView = ({fromShelf, id }) => {
         <div>
             <p>Single book view</p>
             <img src={data.book.bookCover} alt="Book Cover" className="book-cover" />
+            <button>bookmark!</button>
             <article className="book-details-container">
                 <p>Title: {data.book.bookTitle}</p>
                 <p>Author: {data.book.author}</p>
+                <p>Synopsis: {data.book.description}</p> 
                 <p>Genre: {data.book.category}</p> 
-                {/* <p>Page Count:{data.book.pgCount}</p> */}
-                {/* <p>Synopsis:{data.book.description}</p> */}
+                <p>Page Count: {data.book.pgCount}</p> 
+                <p>ISBN: {data.book.isbn13}</p> 
                 <p>Condition: {data.book.condition}</p>
             </article>
         </div>
