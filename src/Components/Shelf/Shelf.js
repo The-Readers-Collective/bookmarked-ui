@@ -4,7 +4,6 @@ import Cover from '../Cover/Cover'
 const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks }) => {
 
   const bookCovers = (books) => books.map(book => {
-    console.log('book', book)
     return (
       <Cover 
         fromShelf={true}
