@@ -26,8 +26,6 @@ import User from '../fixtures/dashboard.json'
         .get(':nth-child(4) > a')
         .click()
     })
-        
-    })
 
     it.skip('should display a users shelf', () => {
       cy.get('card')
@@ -66,5 +64,5 @@ import User from '../fixtures/dashboard.json'
         
     })
 
-    
+  }) 
 
