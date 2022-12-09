@@ -11,6 +11,7 @@ import PageNotFound from '../PageNotFound/PageNotFound'
 const App = () => {
   let location = useLocation()
   const homeLink = location.pathname !== "/" && <Link to="/">Return Home</Link>
+  const browseLink = location.pathname !== "/browse" && location.pathname !== "/" && <Link to="/browse">Browse</Link>
   let pageName;
 
   if (location.pathname === "/") {
@@ -19,21 +20,22 @@ const App = () => {
     pageName = "Browse All Books"
   } else if (location.pathname === "/add") {
     pageName = "Add a Book"
-  } else if (location.pathname === "/single") {
-    //change path to :id
+  } else if (location.pathname === "/:id") {
     pageName = "Book View"
-  } else {
-    pageName = "oops"
   }
+  // else {
+  //   pageName = "oops"
+  // }
   //Once we have single book view working, test that lines 21 and 22 are functional
 
   return (
     <div>
       <nav>
         <h1>Bookmarked</h1>
-        <h2>tagline here</h2>
+        <h2>Where Book Lovers Gather</h2>
         <h3>{pageName}</h3>
         <h3>{homeLink}</h3>
+        <h3>{browseLink}</h3>
       </nav>
       <main>
         <Switch>
@@ -46,9 +48,8 @@ const App = () => {
           <Route path="/add" render={() =>
             <AddBook />
           }/>
-          <Route path="/single" render={() => 
-          //change path back to :id
-            <SingleBookView />
+          <Route exact path="/:id" render={({match}) => 
+            <SingleBookView id={match.params.id} />
           }/>
           <Route path="*" render={() => 
             <PageNotFound />
