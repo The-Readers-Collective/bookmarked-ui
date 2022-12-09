@@ -1,0 +1,58 @@
+h1 {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 35px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin-top: 0;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+  }
+  a:visited {
+     color: black;
+  }
+
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 35px;
+  }
+
+.app-info-container {
+    display: flex;
+    align-items: flex-end
+}
+
+.app-name-tagline {
+    border-right: 2px solid black;
+    height: 7vh; 
+    padding-right: 15px;
+ } 
+
+ .page-name {
+    padding-left: 5px;
+ }
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .footer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+  }
