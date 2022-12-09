@@ -27,8 +27,7 @@ const SingleBookView = ({fromShelf, id }) => {
     if (error) return <p>Error : {error.message}</p>
     if (loading) return <p>Loading...</p>
 
-    console.log('single book data', data)
-    console.log('single book error', error)
+
     let dynamicButton;
 
     if (fromShelf) {
