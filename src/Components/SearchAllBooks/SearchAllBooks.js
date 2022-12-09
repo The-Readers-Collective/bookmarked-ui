@@ -1,19 +1,21 @@
 import React from 'react'
+import browsedBooks from '../../Pages/BrowseAllBooks/BrowseAllBooks'
 
-const SearchAllBooks = () => {
-  // const option = ARRAY.map(category => {
-  //   return <option value="category">category</option>
-  // })
-
+const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch }) => {
   return (
-    <div>
-      <input type="text" placeholder='Title'></input>
-      <input type="text" placeholder='Author'></input>
-      <label>Genre</label>
-      <select>
-        {/* {option} */}
-      </select>
-    </div>
+    <form>
+      <input 
+        type="text" 
+        placeholder='Title'
+        name='title'
+        value={searchTitle}
+        data-cy='input'
+        onChange={event => setSearchTitle(event.target.value)}    
+        >
+      </input>
+      <button onClick={event => filteredSearch(event)}>Submit</button>
+    </form>
+    
   )
 }
 

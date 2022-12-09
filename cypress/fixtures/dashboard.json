@@ -1,0 +1,31 @@
+{
+  "data": {
+    "user": {
+      "id": "2",
+      "email": "Bob@gmail.com",
+      "name": "Bob Joe",
+      "zipcode": "80020",
+      "updatedAt": "2022-12-06T07:23:54Z",
+      "userBooks": [
+        {
+          "id": "4",
+          "userId": "2",
+          "bookId": "3",
+          "status": 0,
+          "book": {
+            "id": "3",
+            "isbn13": "9780007428540",
+            "bookCover": "http://books.google.com/books/content?id=hffZtgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "bookTitle": "A Game of Thrones",
+            "author": "George R. R. Martin",
+            "googleBookId": "hffZtgAACAAJ",
+            "category": "Fantasy",
+            "condition": "Good",
+            "available": true,
+            "updatedAt": "2022-12-06T06:39:38Z"
+          } 
+        }
+      ]
+    }
+  }
+}

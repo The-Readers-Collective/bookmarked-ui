@@ -10,8 +10,8 @@ import PageNotFound from '../PageNotFound/PageNotFound'
 
 const App = () => {
   let location = useLocation()
-  const homeLink = location.pathname !== "/" && <Link to="/">Return Home</Link>
-  const browseLink = location.pathname !== "/browse" && location.pathname !== "/" && <Link to="/browse">Browse</Link>
+  const homeLink = location.pathname !== "/" && <Link data-cy="return-home-text" to="/">Return Home</Link>
+  const browseLink = location.pathname !== "/browse" && location.pathname !== "/" && <Link data-cy="browse-text" to="/browse">Browse</Link>
   let pageName;
 
   if (location.pathname === "/") {
@@ -57,7 +57,7 @@ const App = () => {
         </Switch>
       </main>
       <footer>
-        <p>Visit us at <a href="https://github.com/The-Readers-Collective">The Reader's Collective</a></p>
+        <p data-cy="footer-text">Visit us at <a  href="https://github.com/The-Readers-Collective">The Reader's Collective</a></p>
       </footer>
     </div>
 
