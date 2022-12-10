@@ -26,7 +26,6 @@ const Dashboard = () => {
   }
 `;
 
-
   const DELETE_BOOK = gql`
     mutation destroyBook($input: DestroyBookInput!) {
       destroyBook(input: $input) {
@@ -38,7 +37,6 @@ const Dashboard = () => {
   const [ destroyBook, { deleteError, deleteLoading }] = useMutation(DELETE_BOOK)
 
   function DeleteBook(id) {
-
     if (deleteError) return <p>Error : {error.message}</p>
     if (deleteLoading) return <p>Loading...</p>
     
@@ -66,7 +64,6 @@ const Dashboard = () => {
     })
   }
   
-
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">
       <Link to="/browse">
@@ -86,6 +83,5 @@ const Dashboard = () => {
     </div>
   )
 }
-
 
 export default Dashboard
