@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { gql, useQuery } from '@apollo/client'
-import { useMutation } from '@apollo/client';
+// import { useMutation } from '@apollo/client';
+import { useLazyQuery } from "@apollo/client";
 // import Result from '../../Components/Result/Result'
 
 const AddBookForm = () => {
@@ -25,26 +26,24 @@ const AddBookForm = () => {
   // const [addBook, { loading, error}] = useMutation(ADD_BOOK)
 
   
-  const { loading, error, data } = useQuery(SEARCH_BOOK, 
-    {variables: { title: bookSearchTerm }}
-    )
-    
+  // const { loading, error, data } = useQuery(SEARCH_BOOK, 
+  //   )
+  
+ 
+    const [
+      getSearchResults,
+      { loading, data, error }
+    ] = useLazyQuery(SEARCH_BOOK)
     if (error) return <p>Error : {error.message}</p>
-    if (loading) return <p>Loading...</p>
-    
-    let singleBookData = data.googleBooks
-      
-    const filteredSearch = (event) => {
-      event.preventDefault()
-      const filterBooks = singleBookData.filter((book) => {
-         return book.bookTitle.toUpperCase().includes(bookSearchTerm.toUpperCase())
-      })
-      setSearchResults(filterBooks)
+    if (loading) return <p>Loading...</p>;
+    if (data) {
+      console.log(data)
+      console.log(error)
     }
   
-    const clearInputs = () => {
-      setSearchResults([])
-    }
+    // const clearInputs = () => {
+    //   setSearchResults([])
+    // }
     // const clearInputs = () => {
   //   setBookSearchTerm('')
   // }
@@ -76,14 +75,14 @@ const AddBookForm = () => {
   return (
     <div className='add-book-container' data-cy='add-book-container'>
       <h3 className='title' data-cy='add-book-title'>Search books to add to your shelf!</h3>
-      <img  data-cy="book-cover"  src={data.googleBooks.bookTitle} alt="Book Cover" className="book-cover" />
+      {/* <img  data-cy="book-cover"  src={data.googleBooks.bookTitle} alt="Book Cover" className="book-cover" /> */}
       <input 
         type="text" 
         placeholder='Book Name'
         value={bookSearchTerm}
         onChange={(event) => setBookSearchTerm(event.target.value)}
       />
-      <button onClick={event => filteredSearch(event)}>Search for results</button>
+      <button onClick={() => getSearchResults( {variables: { title: bookSearchTerm.toUpperCase() }})}>Search for results</button>
       
       {/* This second button will appear on each individual search result: not on screen until user hits filter button */}
       <button 
