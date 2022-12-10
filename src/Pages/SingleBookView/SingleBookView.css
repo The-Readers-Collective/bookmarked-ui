@@ -1,0 +1,53 @@
+.book-synopsis,
+.book-details {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.book-title,
+.book-author {
+    font-family: 'Libre Caslon Text', serif;
+}
+
+.book-title {
+    font-size: 22px;
+}
+
+.book-author {
+    font-size: 18px;
+}
+
+.book-synopsis {
+    font-size: 16px;
+}
+
+.book-details {
+    font-size: 14px;
+}
+
+.book-minor-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.book-details {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.single-book-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-single-book-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.book-cover{
+    height: 280px;
+    width: 175px;
+    border-radius: 5%;
+}
