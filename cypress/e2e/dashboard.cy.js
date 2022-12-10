@@ -3,20 +3,18 @@ import User from '../fixtures/dashboard.json'
   describe('Dashboard', () => {
     beforeEach(() => {
       cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', { fixture: 'dashboard.json' }).as('userBooks')
-    cy.visit('/')
-    cy.wait('@userBooks')
       cy.visit('/')
-
+      cy.wait('@userBooks')
     })
 
     it.skip('should have a title and tagline', () => {
       cy.get('[data-cy="app-title"]').contains('Bookmarked')
       cy.get('[data-cy="app-tagline"]').contains('Where Book Lovers Gather')
-
     })
 
     it.skip('should have a button that takes a user to the browsing collection view when clicked', () => {
-      cy.get('[data-cy="browse-button"]')
+      cy
+        .get('[data-cy="browse-button"]')
         .click()
         .get('[data-cy="browse-header"]').contains('Browse all books')
     })
@@ -27,9 +25,20 @@ import User from '../fixtures/dashboard.json'
       cy.get('[data-cy="page-name"]').contains('Add a Book')
     })
 
-    it('should display a users shelf', () => {
-      cy.get('card')
-       
+    it.skip(`should display a user's bookshelf separated by 'My Books' and 'My Bookmarks'`, () => {
+      cy
+        .get('[data-cy="shelf-container"]').find('[data-cy="My Books"]')
+      cy
+        .get('[href="/3"] > [data-cy="cover"] > [data-cy="cover-image"]')
+        .get('[data-cy="cover-image"]').should('be.visible')
+      cy
+        .get('[href="/9"] > [data-cy="cover"] > [data-cy="cover-image"]')
+        .get('[data-cy="cover-image"]').should('be.visible')
+
+      cy
+        .get('[data-cy="shelf-container"]').find('[data-cy="My Bookmarked Books"]')
+        .get(':nth-child(4) > a > [data-cy="cover"]')
+        .get('[data-cy="cover-image"]').should('be.visible')
     })
 
     it.skip('should display a users book marked books shelf with available and non available books', () => {
@@ -37,8 +46,10 @@ import User from '../fixtures/dashboard.json'
         
     })
 
-    it.skip('should be able to click on a book cover and be lead to the Single Book View page', () => {
-      cy.get('card')
+    it('should be able to click on a book cover and be led to the Single Book View page', () => {
+      cy
+        .get('[href="/3"] > [data-cy="cover"] > [data-cy="cover-image"]').first().click()
+        .url().should('eq', 'http://localhost:3000/3')
         
     })
 
