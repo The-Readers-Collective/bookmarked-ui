@@ -37,7 +37,7 @@ const SingleBookView = ({fromShelf, id }) => {
     return (
         <div>
             <p>Single book view</p>
-            <button>bookmark!<button>
+            <button>bookmark!</button>
             <img  data-cy="book-cover"  src={data.book.bookCover} alt="Book Cover" className="book-cover" />
             <article className="book-details-container">
                 <p data-cy="book-title" className="book-title">Title: {data.book.bookTitle}</p>
