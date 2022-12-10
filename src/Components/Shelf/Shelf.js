@@ -1,7 +1,7 @@
 import React from 'react'
 import Cover from '../Cover/Cover'
 
-const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks }) => {
+const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, deleteBook }) => {
 
   const bookCovers = (books) => books.map(book => {
     return (
@@ -11,6 +11,7 @@ const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks }) => {
         id={book.book.id}
         key={book.book.id}
         available={book.book.available}
+        deleteBook={deleteBook}
       />
     )
   }) 
