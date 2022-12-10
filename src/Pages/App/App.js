@@ -36,8 +36,8 @@ const App = () => {
       <nav data-cy='nav-bar' className='nav-bar'>
         <div data-cy='app-info-container' className='app-info-container'>
           <div data-cy='app-name-tagline' className='app-name-tagline'>
-            <h1>Bookmarked</h1>
-            <h2>Where Book Lovers Gather</h2>
+            <h1 data-cy='app-title'>Bookmarked</h1>
+            <h2 data-cy='app-tagline'>Where Book Lovers Gather</h2>
           </div>
           <h3 data-cy='page-name' className='page-name'>{pageName}</h3>
         </div>
