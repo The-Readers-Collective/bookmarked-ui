@@ -35,25 +35,24 @@ const Dashboard = () => {
     }
   `;
 
-  const [ destroyBook, { deleteError, deleteLoading }] = useMutation(DELETE_BOOK, {
-    refetchQueries: [ 
-      {query: GET_DASHBOARD,
-        variables:{id: 1}
-      }
-    ]
-  })
+  const [ destroyBook, { deleteError, deleteLoading }] = useMutation(DELETE_BOOK)
 
   function DeleteBook(id) {
 
     if (deleteError) return <p>Error : {error.message}</p>
     if (deleteLoading) return <p>Loading...</p>
     
-    // const handleClick = () => {
-      destroyBook({input: parseInt(id)})
-    // }
+    destroyBook({
+      variables: {
+        input: {
+          id: id
+        }
+      }
+    })
+    refetch()
   }
   
-  const { loading, error, data } = useQuery(GET_DASHBOARD)
+  const { loading, error, data, refetch } = useQuery(GET_DASHBOARD)
   if (error) return <p>Error : {error.message}</p>
   if (loading) return <p>Loading...</p>
   
