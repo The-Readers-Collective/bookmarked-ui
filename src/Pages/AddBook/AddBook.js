@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { gql, useQuery } from '@apollo/client'
-// import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { useLazyQuery } from "@apollo/client";
 import Result from '../../Components/Result/Result'
 
@@ -22,12 +22,42 @@ const AddBookForm = () => {
       }
   }
   `
-  
-  // const [addBook, { loading, error}] = useMutation(ADD_BOOK)
 
+  // const ADD_BOOK = gql`
+  // mutation addBook($input: CreateBookInput!) {
+  //   createBook(input: $input) {
+  //       googleBookId: "E-kdBQAAQBAJ"
+  //       isbn13: "9781619634459"
+  //       author: "Sarah J. Maas"
+  //       bookTitle: "A Court of Thorns and Roses"
+  //       bookCover: "http://books.google.com/books/content?id=E-kdBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+  //       pgCount: 356
+  //       description: "Placeholding description"
+  //       category: "Fiction"
+  //       condition: "Excellent"
+  //       available: true
+  //     }){
+  //     book {
+  //       id,
+  //       googleBookId,
+  //       isbn13,
+  //       author,
+  //       bookTitle,
+  //       bookCover,
+  //       pgCount,
+  //       description,
+  //       category,
+  //       condition,
+  //       available,
+  //       updatedAt
+  //     }
+  //     errors
+  //   }
+  // }
+  // `
+
+  // const [addBook, { loading, error}] = useMutation(ADD_BOOK)
   
-  // const { loading, error, data } = useQuery(SEARCH_BOOK, 
-  //   )
   let bookResults;
  
     const [
@@ -51,32 +81,6 @@ const AddBookForm = () => {
     // const clearInputs = () => {
     //   setSearchResults([])
     // }
-    // const clearInputs = () => {
-  //   setBookSearchTerm('')
-  // }
-
-  // const handleClick = (event) => {
-  //   event.preventDefault()
-  //     if (bookSearchTerm) {
-  //       addBook({
-  //         variables: {
-  //           input: {
-  //             bookTitle: `${bookTitle}`,
-  //             bookCover: `${bookCover}`,
-  //             author: `${author}`,
-  //             category: `${category}`,
-  //             description: `${description}`,
-  //             googleBookId: `${googleBookId}`,
-  //             isbn13: `${isbn}`,
-  //             pageCount: `${pageCount}`
-  //           }
-  //         }
-  //       })
-  //     }
-  //   refetch()
-  //   clearSearchInput()
-  // }
-
 
   
   return (
@@ -90,7 +94,8 @@ const AddBookForm = () => {
       />
       <button onClick={() => getSearchResults( {variables: { title: bookSearchTerm.toUpperCase() }})}>Search for results</button>
       <div data-cy="searched-books-container" className="searched-books-container">
-        {bookResults}
+         {bookResults && <><p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p> <div> {bookResults}
+          </div></>}
       </div>
     </div>
   )
