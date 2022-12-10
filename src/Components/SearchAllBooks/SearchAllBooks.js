@@ -1,7 +1,12 @@
 import React from 'react'
 import browsedBooks from '../../Pages/BrowseAllBooks/BrowseAllBooks'
 
-const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch }) => {
+const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResults }) => {
+
+  const clearInputs = () => {
+    setResults([])
+  }
+
   return (
     <form>
       <input 
@@ -14,6 +19,7 @@ const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch }) => {
         >
       </input>
       <button onClick={event => filteredSearch(event)}>Submit</button>
+      <button onClick={event => clearInputs(event)}>Reset Search</button>
     </form>
     
   )
