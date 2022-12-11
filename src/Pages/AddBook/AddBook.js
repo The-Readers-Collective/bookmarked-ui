@@ -90,11 +90,11 @@ const AddBookForm = () => {
       <h3 className='title' data-cy='add-book-title'>Search books to add to your shelf!</h3>
       <input 
         type="text" 
-        placeholder='Book Name -- Required'
+        placeholder='Book Name or Author'
         value={bookSearchTerm}
         onChange={(event) => setBookSearchTerm(event.target.value)}
       />
-      <button onClick={() => bookSearchTerm ? getSearchResults( {variables: { title: bookSearchTerm.toUpperCase()}}) : undefined }>Search for results</button>
+      <button disabled={!bookSearchTerm} onClick={() => getSearchResults( {variables: { title: bookSearchTerm.toUpperCase()}})}>Search for results</button>
      <div data-cy="searched-books-container" className="searched-books-container">
       {!bookResults && error && <p>No results found. Please modify your search and try again.</p>}
       {bookResults && <p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p>}
