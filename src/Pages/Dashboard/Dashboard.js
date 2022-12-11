@@ -67,7 +67,7 @@ const Dashboard = ({ setUserId }) => {
   if (data) {
     const books = data.user.userBooks
     books.forEach(book => {
-      book.status === 0 ? owned.push(book) : bookmarked.push(book)
+      book.status === 'OWNED' ? owned.push(book) : bookmarked.push(book)
     })
   }
 
