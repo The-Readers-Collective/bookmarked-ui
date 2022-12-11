@@ -7,6 +7,7 @@ import BrowseAllBooks from '../BrowseAllBooks/BrowseAllBooks'
 import SingleBookView from '../SingleBookView/SingleBookView'
 import AddBook from '../AddBook/AddBook'
 import PageNotFound from '../PageNotFound/PageNotFound'
+import logo from '../../Images/bookmarked-logo.png'
 import './App.css'
 
 const App = () => {
@@ -34,12 +35,15 @@ const App = () => {
   return (
     <div>
       <nav data-cy='nav-bar' className='nav-bar'>
-        <div data-cy='app-info-container' className='app-info-container'>
-          <div data-cy='app-name-tagline' className='app-name-tagline'>
-            <h1>Bookmarked</h1>
-            <h2>Where Book Lovers Gather</h2>
+        <div className='app-info'>
+          <img data-cy='logo-image' className='logo-image' src={logo} alt='logo design' />
+          <div data-cy='app-info-container' className='app-info-container'>
+            <div data-cy='app-name-tagline' className='app-name-tagline'>
+              <h1>Bookmarked</h1>
+              <h2>Where Book Lovers Gather</h2>
+            </div>
+            <h3 data-cy='page-name' className='page-name'>{pageName}</h3>
           </div>
-          <h3 data-cy='page-name' className='page-name'>{pageName}</h3>
         </div>
         <div data-cy='nav-links' className='nav-links'>
           <h3>{homeLink}</h3>
@@ -65,7 +69,7 @@ const App = () => {
           }/>
         </Switch>
       </main>
-      <footer>
+      <footer data-cy='footer-container' className='footer-container'>
         <p data-cy='footer' className='footer'>Visit us at <a href="https://github.com/The-Readers-Collective">The Reader's Collective</a></p>
       </footer>
     </div>
