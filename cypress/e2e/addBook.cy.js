@@ -24,7 +24,7 @@ describe('Browsed Collection', () => {
 
     })
 
-    it.skip('should be able to add condition to a book, and hit the button to add the book to the shelf', () => {
+    it('should be able to add condition to a book, and hit the button to add the book to the shelf', () => {
       cy.get('[data-cy="add-book-title"]').should('be.visible')
         .get('input')
         .type('yellow')
@@ -33,7 +33,8 @@ describe('Browsed Collection', () => {
         .get('[data-cy="searched-books-container"] > p').should('be.visible')
         .get(':nth-child(2) > [data-cy="book-cover"]').should('be.visible')
         .get(':nth-child(2) > [data-cy="select-search"]')
-        .click()        
+        .select(1)
+        cy.get('#gAuXDwAAQBAJ > [data-cy="search-add-book-btn"]')
     })
 
     it('should be able to return back home and see the book added to users shelf, ', () => {
