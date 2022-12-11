@@ -93,9 +93,9 @@ const AddBookForm = () => {
         onChange={(event) => setBookSearchTerm(event.target.value)}
       />
       <button onClick={() => getSearchResults( {variables: { title: bookSearchTerm.toUpperCase() }})}>Search for results</button>
-      <div data-cy="searched-books-container" className="searched-books-container">
-         {bookResults && <><p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p> <div> {bookResults}
-          </div></>}
+     <div data-cy="searched-books-container" className="searched-books-container">
+      {bookResults && <p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p>}
+{bookResults}
       </div>
     </div>
   )

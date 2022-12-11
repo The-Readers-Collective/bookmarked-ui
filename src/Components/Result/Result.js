@@ -2,7 +2,7 @@ import React from 'react'
 
 const Result = ({id, key, cover}) => {
   return (
-    <div className='result' data-cy='result'>
+    <div id={id} key={key} className='result' data-cy='result'>
       <img data-cy="book-cover" src={cover} alt="Book Cover" className="book-cover" />
       <select name='book' id='book-condition'>
         <option value=''>Select Book Condition</option>
