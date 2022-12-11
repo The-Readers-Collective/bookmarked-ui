@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Shelf from '../../Components/Shelf/Shelf'
 import { useQuery, useMutation, gql } from '@apollo/client'
 
-const Dashboard = () => {
+const Dashboard = ({ setUserId }) => {
 
   const GET_DASHBOARD = gql`
   query getDashboardBooks {
@@ -51,6 +51,13 @@ const Dashboard = () => {
   }
   
   const { loading, error, data, refetch } = useQuery(GET_DASHBOARD)
+  
+  useEffect(() => {
+    if (data && data.user) {
+      setUserId(data.user.id)
+    }
+  }, [data])
+  
   if (error) return <p>Error : {error.message}</p>
   if (loading) return <p>Loading...</p>
   
@@ -60,9 +67,10 @@ const Dashboard = () => {
   if (data) {
     const books = data.user.userBooks
     books.forEach(book => {
-      book.status === 0 ? owned.push(book) : bookmarked.push(book)
+      book.status === 'OWNED' ? owned.push(book) : bookmarked.push(book)
     })
   }
+
   
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">

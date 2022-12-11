@@ -46,17 +46,12 @@ const BrowseAllBooks = () => {
     
     let bookData = data.books
     
-//  const clearInputs = () => {
-//       setSearchTitle('')
-//     }
-
     const filteredSearch = (event) => {
       event.preventDefault()
       const filterBooks = bookData.filter((book) => {
          return book.bookTitle.toUpperCase().includes(searchTitle.toUpperCase())
       })
       setResults(filterBooks)
-      // clearInputs()
     }
 
 

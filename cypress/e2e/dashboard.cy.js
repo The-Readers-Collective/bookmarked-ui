@@ -41,11 +41,6 @@ import User from '../fixtures/dashboard.json'
         .get('[data-cy="cover-image"]').should('be.visible')
     })
 
-    it.skip('should display a users book marked books shelf with available and non available books', () => {
-      cy.get('card')
-        
-    })
-
     it('should be able to click on a book cover and be led to the Single Book View page', () => {
       cy
         .get('[href="/3"] > [data-cy="cover"] > [data-cy="cover-image"]').first().click()
