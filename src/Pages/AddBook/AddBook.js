@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { gql, useQuery } from '@apollo/client'
+import { gql, useLazyQuery } from '@apollo/client'
 import { useMutation } from '@apollo/client';
-import { useLazyQuery } from "@apollo/client";
 import Result from '../../Components/Result/Result'
 
-const AddBookForm = () => {
+const AddBook = ({ userId }) => {
   const [bookSearchTerm, setBookSearchTerm] = useState('')
-  const [ searchResults, setSearchResults ] = ([])
-
+  // const [ searchResults, setSearchResults ] = useState([])
+  const [conditionInput, setConditionInput] = useState(undefined)
 
   const SEARCH_BOOK = gql `
     query SEARCH_BOOK($title: String!) {
@@ -21,69 +20,89 @@ const AddBookForm = () => {
         isbn13
         pgCount
       }
+    }
+  `;
+
+  const ADD_BOOK = gql`
+  mutation createBook($input: CreateBookInput!) {
+    createBook(input: $input) {
+      book {
+        id,
+        googleBookId,
+        isbn13,
+        author,
+        bookTitle,
+        bookCover,
+        pgCount,
+        description,
+        category,
+        condition,
+        available,
+        updatedAt
+      }
+      errors
+      }
+    }
+  `;
+
+  let bookResults
+  let searchResultData
+
+  const [createBook, { addBookLoading, addBookError}] = useMutation(ADD_BOOK)
+
+  function AddBookToShelf(id) {
+    if (addBookError) return <p>Error : {error.message}</p>
+    if (addBookLoading) return <p>Loading...</p>
+
+    const selectedBook = searchResultData.find(book => book.googleBookId === id)
+
+    createBook({
+      variables: {
+        input: {
+          googleBookId: selectedBook.googleBookId,
+          isbn13: selectedBook.isbn13,
+          author: selectedBook.author,
+          bookTitle: selectedBook.bookTitle,
+          bookCover: selectedBook.bookCover,
+          pgCount: selectedBook.pgCount,
+          description: selectedBook.description,
+          category: selectedBook.category,
+          condition: conditionInput,
+          available: true,
+          userId: parseInt(userId)
+        }
+      }
+    })
+    refetch()
   }
-  `
-
-  // const ADD_BOOK = gql`
-  // mutation addBook($input: CreateBookInput!) {
-  //   createBook(input: $input) {
-  //       googleBookId: "E-kdBQAAQBAJ"
-  //       isbn13: "9781619634459"
-  //       author: "Sarah J. Maas"
-  //       bookTitle: "A Court of Thorns and Roses"
-  //       bookCover: "http://books.google.com/books/content?id=E-kdBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-  //       pgCount: 356
-  //       description: "Placeholding description"
-  //       category: "Fiction"
-  //       condition: "Excellent"
-  //       available: true
-  //       userId: 1
-  //     }){
-  //     book {
-  //       id,
-  //       googleBookId,
-  //       isbn13,
-  //       author,
-  //       bookTitle,
-  //       bookCover,
-  //       pgCount,
-  //       description,
-  //       category,
-  //       condition,
-  //       available,
-  //       updatedAt
-  //     }
-  //     errors
-  //   }
-  // }
-  // `
-
-  // const [addBook, { loading, error}] = useMutation(ADD_BOOK)
   
-  let bookResults;
- 
-    const [
-      getSearchResults,
-      { loading, data, error }
-    ] = useLazyQuery(SEARCH_BOOK)
-    if (loading) return <p>Loading...</p>;
-    if (data) {
-     bookResults = data.googleBooks.map((bookResult) => {
+  const [
+    getSearchResults,
+    { loading, data, error, refetch }
+  ] = useLazyQuery(SEARCH_BOOK)
+  if (loading) return <p>Loading...</p>
+  if (data) {
+    searchResultData = [...data.googleBooks]
+    bookResults = data.googleBooks.map((bookResult) => {
       return (
         <Result 
-          id={bookResult.id}
-          key={bookResult.id} 
+          id={bookResult.googleBookId}
+          key={Math.random()} 
           cover={bookResult.bookCover}
+          conditionInput={conditionInput}
+          setConditionInput={setConditionInput}
+          addBookToShelf={AddBookToShelf}
         />
       )
-     })
-    }
-  
-    // const clearInputs = () => {
-    //   setSearchResults([])
-    // }
+    })
+  }
 
-
+  const handleSearch = (event) => {
+    getSearchResults({
+      variables: { title: bookSearchTerm.toUpperCase()}
+    })
+    event.preventDefault()
+  }
   
   return (
     <div className='add-book-container' data-cy='add-book-container'>
@@ -94,7 +113,7 @@ const AddBookForm = () => {
         value={bookSearchTerm}
         onChange={(event) => setBookSearchTerm(event.target.value)}
       />
-      <button data-cy="searched-result-button" className="searched-result-button" disabled={!bookSearchTerm} onClick={() => getSearchResults( {variables: { title: bookSearchTerm.toUpperCase()}})}>Search for results</button>
+      <button data-cy="searched-result-button" className="searched-result-button" disabled={!bookSearchTerm} onClick={(event) => handleSearch(event)}>Search for results</button>
      <div data-cy="searched-books-container" className="searched-books-container">
       {!bookResults && error && <p>No results found. Please modify your search and try again.</p>}
       {bookResults && <p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p>}
@@ -104,4 +123,4 @@ const AddBookForm = () => {
   )
 }
 
-export default AddBookForm
+export default AddBook

@@ -1,5 +1,5 @@
 import React from 'react'
-// import { useState, useEffect } from 'react'
+import { useState } from 'react'
 // import { useQuery, gql } from '@apollo/client'
 import { Link, Route, Switch, useLocation } from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard'
@@ -15,8 +15,8 @@ const App = () => {
   const homeLink = location.pathname !== "/" && <Link data-cy="return-home-text" to="/">Return Home</Link>
   const browseLink = location.pathname !== "/browse" && location.pathname !== "/" && <Link data-cy="browse-text" to="/browse">Browse</Link>
   let pageName;
-  const hasNumber = /\d/
-  // const isBookPage = hasNumber.test(location.pathname);
+
+  const [ userId, setUserId ] = useState(0)
 
   if (location.pathname === "/") {
     pageName = "My Bookshelf"
@@ -31,6 +31,7 @@ const App = () => {
   //   pageName = "oops"
   // }
   //Once we have single book view working, test that lines 21 and 22 are functional
+
 
   return (
     <div>
@@ -53,13 +54,17 @@ const App = () => {
       <main>
         <Switch>
           <Route exact path="/" render={() => 
-            <Dashboard />
+            <Dashboard 
+              setUserId={setUserId}
+            />
           }/>
           <Route path="/browse" render={() => 
             <BrowseAllBooks />
           }/>
           <Route path="/add" render={() =>
-            <AddBook />
+            <AddBook 
+              userId={userId}
+            />
           }/>
           <Route exact path="/:id" render={({match}) => 
             <SingleBookView id={match.params.id} />

@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
+const Result = ({id, key, cover, conditionInput, setConditionInput, addBookToShelf}) => {
 
-const Result = ({id, key, cover}) => {
-  const [searchInput, setSearchInput] = useState(undefined)
 
+  
   return (
-    <div id={id} key={key} className='result' data-cy='result'>
+    <div id={id} className='result' data-cy='result'>
       <img data-cy="book-cover" src={cover} alt="Book Cover" className="book-cover" />
           <select data-cy="select-search" className="select-search" name='condition'
-            value={searchInput} 
-            onChange={(event) => setSearchInput(event.target.value)} 
+            value={conditionInput} 
+            onChange={(event) => setConditionInput(event.target.value)} 
           >
-            <option data-cy="select-condition" value=''>Select Book Condition</option>
-            <option value='0'>Excellent</option>
-            <option value='1'>Good</option>
-            <option value='2'>Poor</option>
+            <option value=''>Select Book Condition</option>
+            <option value='POOR'>Poor</option>
+            <option value='GOOD'>Good</option>
+            <option value='EXCELLENT'>Excellent</option>
           </select>
       <button 
-        data-cy='search-add-book-btn' disabled={!searchInput}> 
+        data-cy='search-add-book-btn' disabled={!conditionInput} onClick={()=> addBookToShelf(id)}> 
         Add this book to my shelf!
-        {/* // onClick={(event)=> handleClick(event)}>Search */}
       </button>
     </div>
   )
