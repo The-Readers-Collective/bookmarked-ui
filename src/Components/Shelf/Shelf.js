@@ -16,7 +16,7 @@ const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, deleteBook }) => {
           fromShelf={true}
           cover={book.book.bookCover}
           id={book.book.id}
-          key={book.book.id}
+          key={Math.random()}
           available={book.book.available}
           deleteBook={deleteBook}
         />

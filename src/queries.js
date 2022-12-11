@@ -19,7 +19,6 @@ const GET_DASHBOARD = gql`
         }
     }
 `;
-//one query will return all books-- from there, we will need to filter books by status
 
 const GET_SINGLE_BOOK = gql`
     query GetSingleBook ($id: String!) {
