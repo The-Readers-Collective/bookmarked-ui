@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import { gql, useQuery } from '@apollo/client'
 import { useMutation } from '@apollo/client';
-// import Result from '../../Components/Result/Result'
+import { useLazyQuery } from "@apollo/client";
+import Result from '../../Components/Result/Result'
 
-const AddBookForm = ({ refetch }) => {
+const AddBookForm = () => {
   const [bookSearchTerm, setBookSearchTerm] = useState('')
+  const [ searchResults, setSearchResults ] = ([])
 
   const SEARCH_BOOK = gql `
-    query SEARCH_BOOK {
-      googleBooks(bookTitle: String) {
+    query SEARCH_BOOK($title: String!) {
+      googleBooks(title: $title)   {
         bookTitle
         bookCover
         author
@@ -16,47 +18,70 @@ const AddBookForm = ({ refetch }) => {
         description
         googleBookId
         isbn13
-        pageCount
+        pgCount
       }
   }
   `
-  
-  // const [addBook, { loading, error}] = useMutation(ADD_BOOK)
 
-  const { loading, error, data } = useQuery(SEARCH_BOOK)
-
-  if (error) return <p>Error : {error.message}</p>
-  if (loading) return <p>Loading...</p>
-
-  const clearInputs = () => {
-    setBookSearchTerm('')
-  }
-
-  // const handleClick = (event) => {
-  //   event.preventDefault()
-  //     if (bookSearchTerm) {
-  //       addBook({
-  //         variables: {
-  //           input: {
-  //             bookTitle: `${bookTitle}`,
-  //             bookCover: `${bookCover}`,
-  //             author: `${author}`,
-  //             category: `${category}`,
-  //             description: `${description}`,
-  //             googleBookId: `${googleBookId}`,
-  //             isbn13: `${isbn}`,
-  //             pageCount: `${pageCount}`
-  //           }
-  //         }
-  //       })
+  // const ADD_BOOK = gql`
+  // mutation addBook($input: CreateBookInput!) {
+  //   createBook(input: $input) {
+  //       googleBookId: "E-kdBQAAQBAJ"
+  //       isbn13: "9781619634459"
+  //       author: "Sarah J. Maas"
+  //       bookTitle: "A Court of Thorns and Roses"
+  //       bookCover: "http://books.google.com/books/content?id=E-kdBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+  //       pgCount: 356
+  //       description: "Placeholding description"
+  //       category: "Fiction"
+  //       condition: "Excellent"
+  //       available: true
+  //     }){
+  //     book {
+  //       id,
+  //       googleBookId,
+  //       isbn13,
+  //       author,
+  //       bookTitle,
+  //       bookCover,
+  //       pgCount,
+  //       description,
+  //       category,
+  //       condition,
+  //       available,
+  //       updatedAt
   //     }
-  //   refetch()
-  //   clearSearchInput()
+  //     errors
+  //   }
   // }
+  // `
 
-  const clearSearchInput = () => {
-    setBookSearchTerm('')
-  }
+  // const [addBook, { loading, error}] = useMutation(ADD_BOOK)
+  
+  let bookResults;
+ 
+    const [
+      getSearchResults,
+      { loading, data, error }
+    ] = useLazyQuery(SEARCH_BOOK)
+    if (error) return <p>Error : {error.message}</p>
+    if (loading) return <p>Loading...</p>;
+    if (data) {
+     bookResults = data.googleBooks.map((bookResult) => {
+      return (
+        <Result 
+          id={bookResult.id}
+          key={bookResult.id} 
+          cover={bookResult.bookCover}
+        />
+      )
+     })
+    }
+  
+    // const clearInputs = () => {
+    //   setSearchResults([])
+    // }
+
   
   return (
     <div className='add-book-container' data-cy='add-book-container'>
@@ -67,11 +92,11 @@ const AddBookForm = ({ refetch }) => {
         value={bookSearchTerm}
         onChange={(event) => setBookSearchTerm(event.target.value)}
       />
-      <button 
-        data-cy='search-add-book-btn'> 
-        {/* // onClick={(event)=> handleClick(event)}>Search */}
-        </button>
-        <button>Add this book to my shelf!</button>
+      <button onClick={() => getSearchResults( {variables: { title: bookSearchTerm.toUpperCase() }})}>Search for results</button>
+     <div data-cy="searched-books-container" className="searched-books-container">
+      {bookResults && <p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p>}
+{bookResults}
+      </div>
     </div>
   )
 }

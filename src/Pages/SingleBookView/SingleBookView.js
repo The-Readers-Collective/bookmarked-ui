@@ -28,9 +28,7 @@ const SingleBookView = ({fromShelf, id }) => {
     if (error) return <p>Error : {error.message}</p>
     if (loading) return <p>Loading...</p>
 
-
-    let dynamicButton;
-
+    // let dynamicButton;
     if (fromShelf) {
         return <button>Delete</button>
     }
