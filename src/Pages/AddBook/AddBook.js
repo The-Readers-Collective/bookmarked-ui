@@ -69,8 +69,8 @@ const AddBook = ({ userId }) => {
     bookResults = data.googleBooks.map((bookResult) => {
       return (
         <Result 
-          id={bookResult.id}
-          key={bookResult.id} 
+          id={bookResult.googleBookId}
+          key={bookResult.googleBookId} 
           cover={bookResult.bookCover}
         />
       )
