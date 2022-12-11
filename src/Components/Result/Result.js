@@ -6,9 +6,9 @@ const Result = ({id, key, cover}) => {
       <img data-cy="book-cover" src={cover} alt="Book Cover" className="book-cover" />
       <select name='book' id='book-condition'>
         <option value=''>Select Book Condition</option>
-        <option value='0'>Excellent</option>
+        <option value='0'>Poor</option>
         <option value='1'>Good</option>
-        <option value='2'>Poor</option>
+        <option value='2'>Excellent</option>
       </select>
       <button 
         data-cy='search-add-book-btn'> 
