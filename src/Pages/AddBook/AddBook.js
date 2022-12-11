@@ -8,6 +8,7 @@ const AddBookForm = () => {
   const [bookSearchTerm, setBookSearchTerm] = useState('')
   const [ searchResults, setSearchResults ] = ([])
 
+
   const SEARCH_BOOK = gql `
     query SEARCH_BOOK($title: String!) {
       googleBooks(title: $title)   {
@@ -64,7 +65,6 @@ const AddBookForm = () => {
       getSearchResults,
       { loading, data, error }
     ] = useLazyQuery(SEARCH_BOOK)
-    if (error) return <p>Error : {error.message}</p>
     if (loading) return <p>Loading...</p>;
     if (data) {
      bookResults = data.googleBooks.map((bookResult) => {
@@ -94,8 +94,9 @@ const AddBookForm = () => {
       />
       <button onClick={() => getSearchResults( {variables: { title: bookSearchTerm.toUpperCase() }})}>Search for results</button>
      <div data-cy="searched-books-container" className="searched-books-container">
+      {!bookResults && error && <p>No results found. Please modify your search and try again.</p>}
       {bookResults && <p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p>}
-{bookResults}
+      {bookResults}
       </div>
     </div>
   )
