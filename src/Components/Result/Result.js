@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 
 const Result = ({id, key, cover}) => {
-  const [searchInput, setSearchInput] = useState(null)
+  const [searchInput, setSearchInput] = useState(undefined)
 
   return (
     <div id={id} key={key} className='result' data-cy='result'>
       <img data-cy="book-cover" src={cover} alt="Book Cover" className="book-cover" />
-        <label for='condition'>
           <select name='condition'
             value={searchInput} 
             onChange={(event) => setSearchInput(event.target.value)} 
@@ -16,7 +15,6 @@ const Result = ({id, key, cover}) => {
             <option value='1'>Good</option>
             <option value='2'>Poor</option>
           </select>
-        </label>
       <button 
         data-cy='search-add-book-btn' disabled={!searchInput}> 
         Add this book to my shelf!
