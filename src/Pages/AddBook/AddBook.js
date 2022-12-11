@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import { gql, useQuery } from '@apollo/client'
-import { useMutation } from '@apollo/client';
-import { useLazyQuery } from "@apollo/client";
+import { gql, useLazyQuery } from '@apollo/client'
+// import { useMutation } from '@apollo/client';
 import Result from '../../Components/Result/Result'
 
-const AddBookForm = () => {
+const AddBook = ({ userId }) => {
   const [bookSearchTerm, setBookSearchTerm] = useState('')
-  const [ searchResults, setSearchResults ] = ([])
-
+  // const [ searchResults, setSearchResults ] = ([])
 
   const SEARCH_BOOK = gql `
     query SEARCH_BOOK($title: String!) {
@@ -62,13 +60,13 @@ const AddBookForm = () => {
   
   let bookResults;
  
-    const [
-      getSearchResults,
-      { loading, data, error }
-    ] = useLazyQuery(SEARCH_BOOK)
-    if (loading) return <p>Loading...</p>;
-    if (data) {
-     bookResults = data.googleBooks.map((bookResult) => {
+  const [
+    getSearchResults,
+    { loading, data, error }
+  ] = useLazyQuery(SEARCH_BOOK)
+  if (loading) return <p>Loading...</p>;
+  if (data) {
+    bookResults = data.googleBooks.map((bookResult) => {
       return (
         <Result 
           id={bookResult.id}
@@ -76,15 +74,13 @@ const AddBookForm = () => {
           cover={bookResult.bookCover}
         />
       )
-     })
-    }
+    })
+  }
   
     // const clearInputs = () => {
     //   setSearchResults([])
     // }
 
-
-  
   return (
     <div className='add-book-container' data-cy='add-book-container'>
       <h3 className='title' data-cy='add-book-title'>Search books to add to your shelf!</h3>
@@ -104,4 +100,4 @@ const AddBookForm = () => {
   )
 }
 
-export default AddBookForm
+export default AddBook
