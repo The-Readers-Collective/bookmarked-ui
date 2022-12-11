@@ -11,9 +11,9 @@ const Result = ({id, key, cover}) => {
             onChange={(event) => setSearchInput(event.target.value)} 
           >
             <option value=''>Select Book Condition</option>
-            <option value='0'>Excellent</option>
-            <option value='1'>Good</option>
-            <option value='2'>Poor</option>
+            <option value='POOR'>Poor</option>
+            <option value='GOOD'>Good</option>
+            <option value='EXCELLENT'>Excellent</option>
           </select>
       <button 
         data-cy='search-add-book-btn' disabled={!searchInput}> 
