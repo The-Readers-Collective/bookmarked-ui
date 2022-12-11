@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { gql, useLazyQuery } from '@apollo/client'
-// import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import Result from '../../Components/Result/Result'
 
 const AddBook = ({ userId }) => {
   const [bookSearchTerm, setBookSearchTerm] = useState('')
-  // const [ searchResults, setSearchResults ] = ([])
+  const [ searchResults, setSearchResults ] = ([])
+  const [conditionInput, setConditionInput] = useState(undefined)
 
   const SEARCH_BOOK = gql `
     query SEARCH_BOOK($title: String!) {
@@ -54,7 +55,7 @@ const AddBook = ({ userId }) => {
   //     errors
   //   }
   // }
-  // `
+  // `;
 
   // const [addBook, { loading, error}] = useMutation(ADD_BOOK)
   
@@ -72,6 +73,8 @@ const AddBook = ({ userId }) => {
           id={bookResult.googleBookId}
           key={bookResult.googleBookId} 
           cover={bookResult.bookCover}
+          conditionInput={conditionInput}
+          setConditionInput={setConditionInput}
         />
       )
     })
