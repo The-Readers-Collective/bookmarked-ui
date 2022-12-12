@@ -49,6 +49,38 @@ const Dashboard = ({ setUserId }) => {
     })
     refetch()
   }
+
+  const TOGGLE_AVAILABLE = gql `
+    mutation{
+      updateBook(input:{id: "2", attributes:{
+        available: false
+      }}) {
+        book {
+          id
+          available
+          updatedAt
+        }
+      }
+    }
+  `
+  const [ updateBook, { updateError, updateLoading }] = useMutation(TOGGLE_AVAILABLE)
+
+  function UpdateBook(id, available) {
+    console.log('jello')
+    console.log('here', available)
+    if (updateError) return <p>Error : {error.message}</p>
+    if (updateLoading) return <p>Loading...</p>
+
+   updateBook({
+      variables: {
+        input: {
+          id,
+          available
+        }
+      }
+    })
+    refetch()
+  }
   
   const { loading, error, data, refetch } = useQuery(GET_DASHBOARD)
   
@@ -81,12 +113,15 @@ const Dashboard = ({ setUserId }) => {
         <button data-cy="add-button" className="button">Add a Book</button>
       </Link>
       <Shelf 
+        owned={true}
         ownedBooks={owned}
         myShelfBooks={true}
         deleteBook={DeleteBook}
+        updateBook={UpdateBook}
       />
       <Shelf 
         bookmarkedBooks={bookmarked}
+        owned={false}
       />
     </div>
   )
