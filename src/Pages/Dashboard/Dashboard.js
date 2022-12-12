@@ -51,17 +51,13 @@ const Dashboard = ({ setUserId }) => {
   }
 
   const TOGGLE_AVAILABLE = gql `
-    mutation{
-      updateBook(input:{id: "2", attributes:{
-        available: false
-      }}) {
-        book {
-          id
-          available
-          updatedAt
-        }
-      }
-    }
+  mutation updateBook($input: UpdateBookInput!){
+    updateBook(input: $input) {
+      id, 
+      attributes{
+      available
+    }} 
+  }
   `
   const [ updateBook, { updateError, updateLoading }] = useMutation(TOGGLE_AVAILABLE)
 
@@ -74,13 +70,15 @@ const Dashboard = ({ setUserId }) => {
    updateBook({
       variables: {
         input: {
-          id,
-          available
+          id: id,
+          available: available
         }
       }
     })
     refetch()
   }
+
+  //on the update book we need it to have an if statement taht says if available === true return false else if available === false return true
   
   const { loading, error, data, refetch } = useQuery(GET_DASHBOARD)
   
