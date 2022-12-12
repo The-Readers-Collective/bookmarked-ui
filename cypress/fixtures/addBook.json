@@ -1,0 +1,21 @@
+{
+  "data": {
+    "createBook": {
+      "book": {
+        "id": "5",
+        "googleBookId": "E-kdBQAAQBAJ",
+        "isbn13": "9781619634459",
+        "author": "Sarah J. Maas",
+        "bookTitle": "A Court of Thorns and Roses",
+        "bookCover": "http://books.google.com/books/content?id=E-kdBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "pgCount": 356
+        "description": "Placeholding description"
+        "category": "Fiction",
+        "condition": "EXCELLENT",
+        "available": true,
+        "updatedAt": "2022-12-07T18:45:16Z"
+      },
+      "errors": []
+    }
+  }
+}

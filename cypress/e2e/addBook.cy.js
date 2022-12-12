@@ -1,3 +1,5 @@
+import addBook from '../fixtures/addBook.json'
+
 describe('Browsed Collection', () => {
   beforeEach(() => {
     cy.visit('localhost:3000/add')
