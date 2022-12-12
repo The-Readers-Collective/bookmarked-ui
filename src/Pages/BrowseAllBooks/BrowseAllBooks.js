@@ -39,6 +39,7 @@ const BrowseAllBooks = () => {
         author={userBook.author} 
         title={userBook.bookTitle} 
         cover={userBook.bookCover}
+        available={userBook.available}
         />
         )
       })
@@ -63,6 +64,7 @@ const BrowseAllBooks = () => {
       author={userBook.author} 
       title={userBook.bookTitle} 
       cover={userBook.bookCover}
+      available={userBook.available}
       />
       )
    })
