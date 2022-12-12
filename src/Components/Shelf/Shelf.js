@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, deleteBook }) => {
+const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, updateBook }) => {
 
   const bookCovers = (books) => books.map(book => {
     return (
@@ -19,6 +19,8 @@ const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, deleteBook }) => {
           key={Math.random()}
           available={book.book.available}
           deleteBook={deleteBook}
+          updateBook={updateBook}
+          owned={owned}
         />
       </SwiperSlide>
     )
