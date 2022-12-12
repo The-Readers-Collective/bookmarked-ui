@@ -34,7 +34,7 @@ const Dashboard = ({ setUserId }) => {
     }
   `;
 
-  const [ destroyBook, { deleteError, deleteLoading }] = useMutation(DELETE_BOOK)
+  const [ destroyBook, { deleteError, deleteLoading }] = useMutation(DELETE_BOOK, {refetchQueries: [GET_DASHBOARD]} )
 
   function DeleteBook(id) {
     if (deleteError) return <p>Error : {error.message}</p>
@@ -77,10 +77,9 @@ const Dashboard = ({ setUserId }) => {
     })
     refetch()
   }
-
   //on the update book we need it to have an if statement taht says if available === true return false else if available === false return true
   
-  const { loading, error, data, refetch } = useQuery(GET_DASHBOARD)
+  const { loading, error, data, refetch } = useQuery(GET_DASHBOARD, {fetchPolicy:"cache-and-network"})
   
   useEffect(() => {
     if (data && data.user) {
