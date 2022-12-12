@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { gql, useMutation, useQuery } from '@apollo/client'
+import { GET_DASHBOARD } from '../../queries'
 import './SingleBookView.css'
 
 
