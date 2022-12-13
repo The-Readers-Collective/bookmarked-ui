@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Shelf from '../../Components/Shelf/Shelf'
 import { useQuery, useMutation, gql } from '@apollo/client'
 
-const Dashboard = ({ setUserId }) => {
+const Dashboard = ({ setUserId, id, available }) => {
 
   const GET_DASHBOARD = gql`
   query getDashboardBooks {
@@ -34,6 +34,17 @@ const Dashboard = ({ setUserId }) => {
     }
   `;
 
+  const TOGGLE_AVAILABLE = gql `
+  mutation updateBook($input: UpdateBookInput!) {
+    updateBook(input: $input) {
+      book {
+        id
+        available
+      }
+    }
+  }
+  `
+
   const [ destroyBook, { deleteError, deleteLoading }] = useMutation(DELETE_BOOK, {refetchQueries: [GET_DASHBOARD]} )
 
   function DeleteBook(id) {
@@ -50,19 +61,10 @@ const Dashboard = ({ setUserId }) => {
     refetch()
   }
 
-  const TOGGLE_AVAILABLE = gql `
-  mutation updateBook($input: UpdateBookInput!){
-    updateBook(input: $input) {
-      id, 
-      attributes{
-      available
-    }} 
-  }
-  `
   const [ updateBook, { updateError, updateLoading }] = useMutation(TOGGLE_AVAILABLE)
 
-  function UpdateBook(id, available) {
-    console.log('jello')
+  function UpdateStatus(id, available) {
+    console.log('jello', id)
     console.log('here', available)
     if (updateError) return <p>Error : {error.message}</p>
     if (updateLoading) return <p>Loading...</p>
@@ -71,14 +73,14 @@ const Dashboard = ({ setUserId }) => {
       variables: {
         input: {
           id: id,
-          available: available
+          attributes: {
+            available: available
+          }
         }
       }
     })
-    refetch()
   }
-  //on the update book we need it to have an if statement taht says if available === true return false else if available === false return true
-  
+
   const { loading, error, data, refetch } = useQuery(GET_DASHBOARD, {fetchPolicy:"cache-and-network"})
   
   useEffect(() => {
@@ -114,7 +116,7 @@ const Dashboard = ({ setUserId }) => {
         ownedBooks={owned}
         myShelfBooks={true}
         deleteBook={DeleteBook}
-        updateBook={UpdateBook}
+        updateStatus={UpdateStatus}
       />
       <Shelf 
         bookmarkedBooks={bookmarked}
