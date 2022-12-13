@@ -4,7 +4,6 @@
       "id": "2",
       "email": "Bob@gmail.com",
       "name": "Bob Joe",
-      "zipcode": "80020",
       "updatedAt": "2022-12-06T07:23:54Z",
       "userBooks": [
         {

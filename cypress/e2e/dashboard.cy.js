@@ -12,16 +12,14 @@ import User from '../fixtures/dashboard.json'
       cy.get('[data-cy="app-tagline"]').contains('Where Book Lovers Gather')
     })
 
-    it.skip('should have a button that takes a user to the browsing collection view when clicked', () => {
+    it('should have a button that takes a user to the browsing collection view when clicked', () => {
       cy
-        .get('[data-cy="browse-button"]')
-        .click()
+        .get('[data-cy="browse-button"]').click()
         .get('[data-cy="browse-header"]').contains('Browse all books')
     })
 
     it.skip('should have a button that takes a user to add a book view when clicked', () => {
-      cy.get('[data-cy="add-button"]')
-        .click()
+      cy.get('[data-cy="add-button"]').click()
       cy.get('[data-cy="page-name"]').contains('Add a Book')
     })
 
@@ -41,7 +39,7 @@ import User from '../fixtures/dashboard.json'
         .get('[data-cy="cover-image"]').should('be.visible')
     })
 
-    it('should be able to click on a book cover and be led to the Single Book View page', () => {
+    it.skip('should be able to click on a book cover and be led to the Single Book View page', () => {
       cy
         .get('[href="/3"] > [data-cy="cover"] > [data-cy="cover-image"]').first().click()
         .url().should('eq', 'http://localhost:3000/3')
