@@ -59,7 +59,7 @@ const App = () => {
             />
           }/>
           <Route path="/browse" render={() => 
-            <BrowseAllBooks />
+            <BrowseAllBooks userId={userId} />
           }/>
           <Route path="/add" render={() =>
             <AddBook 
@@ -67,7 +67,7 @@ const App = () => {
             />
           }/>
           <Route exact path="/:id" render={({match}) => 
-            <SingleBookView id={match.params.id} />
+            <SingleBookView id={match.params.id} userId={userId} />
           }/>
           <Route path="*" render={() => 
             <PageNotFound />
