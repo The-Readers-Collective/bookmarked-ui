@@ -5,7 +5,7 @@ const Result = ({id, key, cover, conditionInput, setConditionInput, addBookToShe
   return (
     <div id={id} className='result' data-cy='result'>
       <img data-cy="book-cover" src={cover} alt="Book Cover" className="book-cover" />
-          <select name='condition'
+          <select data-cy="select-search" className="select-search" name='condition'
             value={conditionInput} 
             onChange={(event) => setConditionInput(event.target.value)} 
           >

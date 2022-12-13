@@ -113,7 +113,7 @@ const AddBook = ({ userId }) => {
         value={bookSearchTerm}
         onChange={(event) => setBookSearchTerm(event.target.value)}
       />
-      <button disabled={!bookSearchTerm} onClick={(event) => handleSearch(event)}>Search for results</button>
+      <button data-cy="searched-result-button" className="searched-result-button" disabled={!bookSearchTerm} onClick={(event) => handleSearch(event)}>Search for results</button>
      <div data-cy="searched-books-container" className="searched-books-container">
       {!bookResults && error && <p>No results found. Please modify your search and try again.</p>}
       {bookResults && <p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p>}
