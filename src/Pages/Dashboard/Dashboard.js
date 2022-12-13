@@ -58,7 +58,6 @@ const Dashboard = ({ setUserId, id, available }) => {
         }
       }
     })
-    refetch()
   }
 
   const [ updateBook, { updateError, updateLoading }] = useMutation(TOGGLE_AVAILABLE)
