@@ -1,6 +1,8 @@
-const Result = ({id, key, cover, conditionInput, setConditionInput, addBookToShelf}) => {
+import React, { useState } from 'react'
 
+const Result = ({id, cover, addBookToShelf}) => {
 
+  const [conditionInput, setConditionInput] = useState(undefined)
   
   return (
     <div id={id} className='result' data-cy='result'>
@@ -15,7 +17,7 @@ const Result = ({id, key, cover, conditionInput, setConditionInput, addBookToShe
             <option value='EXCELLENT'>Excellent</option>
           </select>
       <button 
-        data-cy='search-add-book-btn' disabled={!conditionInput} onClick={()=> addBookToShelf(id)}> 
+        data-cy='search-add-book-btn' disabled={!conditionInput} onClick={()=> addBookToShelf(id, conditionInput)}> 
         Add this book to my shelf!
       </button>
     </div>
