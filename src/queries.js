@@ -1,23 +1,24 @@
 import { gql } from '@apollo/client'
 
 const GET_DASHBOARD = gql`
-    query GetDashboardBooks ($id: String!) {
-        user (id: $id) {
-            id
-            name
-            userBooks {
-                bookId
-                book {
-                    id
-                    bookTitle
-                    bookCover
-                    author
-                    status
-                    isbn13
-                }
-            }
-        }
+query getDashboardBooks {
+  user(id: 1) {
+    id
+    name
+    userBooks {
+      bookId
+      status
+      book {
+        id
+        bookTitle
+        bookCover
+        author
+        isbn13
+        available
+      }
     }
+  }
+}
 `;
 
 const GET_SINGLE_BOOK = gql`
