@@ -1,19 +1,8 @@
 import React, { useState } from 'react'
 import './Result.css'
-import Modal from 'react-modal'
 
 const Result = ({id, cover, addBookToShelf}) => {
-  const [resultChoice, setResultChoice] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
   const [conditionInput, setConditionInput] = useState(undefined)
-  const [isClicked, setIsClicked] = useState(false)
-
-  const toggleConfirmationModal = () => {
-    setResultChoice(true)
-    setIsOpen(true)
-  }
-
-  const message = isClicked === true ? <p>Success!</p> : null
 
   return (
     <div id={id} className='result' data-cy='result'>
@@ -30,27 +19,14 @@ const Result = ({id, cover, addBookToShelf}) => {
       <button 
         data-cy='search-add-book-btn' className='search-add-book-button' disabled={!conditionInput} onClick={()=> {
             addBookToShelf(id, conditionInput) 
-            setIsClicked(true)
-            console.log(isClicked)
             }
           }
       > 
         Add this book to my shelf!
       </button>
-      {message}
+      Add to Shelf
     </div>
   )
 }
 
 export default Result
-
-{/* <Modal
-  isOpen={isOpen}
-  onRequestClose={toggleConfirmationModal}
-  contentLabel="My dialog"
-  className="mymodal"
-  overlayClassName="myoverlay"
-  closeTimeoutMS={500}
->
-  {resultChoice && <p>Success!</p> }
-</Modal> */}
