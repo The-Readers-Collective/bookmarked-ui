@@ -1,5 +1,6 @@
 import User from '../fixtures/Dashboard.json'
 import DeleteBook from '../fixtures/DeleteBook.json'
+import SingleBook from '../fixtures/SingleView.json'
 
   describe('Dashboard', () => {
     beforeEach(() => {
@@ -33,20 +34,21 @@ import DeleteBook from '../fixtures/DeleteBook.json'
 
     
     it('should be able to delete a book from the My Books or My Bookmarked Books shelves', () => {
-      cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', DeleteBook).as('DeleteBook')
       cy.get('.swiper-slide-prev > :nth-child(1) > [data-cy="delete-book-btn"]').first().click()
+      cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', DeleteBook).as('DeleteBook')
     })
     
     it('should display a footer with a link to GitHub', () => {
       cy.get('[data-cy="footer"]').contains(`Visit us at The Reader's Collective`)
     })
     
-    it('should be able to click on a book cover and be led to the Single Book View page', () => {
-      cy
-        .get('[href="/9"] > [data-cy="cover"] > [data-cy="cover-image"]').first().click()
-        .url().should('eq', 'http://localhost:3000/9')
-        
+    it.skipgit ('should be able to click on a book cover and be led to the Single Book View page', () => {
+      cy.get(':nth-child(3) > .swiper > .swiper-wrapper > .swiper-slide-next > :nth-child(1) > a > [data-cy="cover"] > [data-cy="cover-image"]').click()
+      cy.wait(1000)
+      cy.url().should('eq', '/9')
+      cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', SingleBook).as('SingleBook')
+      cy.get('[data-cy="book-title"]').contains(`Caliban's War`)
     })
-    
+
   }) 
   
