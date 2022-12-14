@@ -1,5 +1,6 @@
 import React from 'react'
 import Cover from '../Cover/Cover'
+import './Shelf.css'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Mousewheel, Keyboard } from "swiper";
 import "swiper/css";

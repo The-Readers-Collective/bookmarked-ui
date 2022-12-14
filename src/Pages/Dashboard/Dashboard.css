@@ -3,3 +3,39 @@
     justify-content: space-evenly;
 }
 
+.add-button, 
+.browse-button {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 40px;
+    margin: 3px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 180px;
+}
+
+.add-button:hover, 
+.browse-button:hover {
+background-color: #f7fafa;
+}
+
+.add-button:focus, 
+.browse-button:focus {
+border-color: #008296;
+box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+outline: 0;
+}
