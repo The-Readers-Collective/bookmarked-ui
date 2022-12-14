@@ -82,7 +82,7 @@ console.log(data)
             <p>Single book view</p>
             <div data-cy='top-single-book-container' className='top-single-book-container'>
                 <div data-cy='cover-image-container' className='cover-image-container'>
-                    <img  data-cy="book-cover"  src={data.book.bookCover} alt="Book Cover" className="book-cover" />
+                    <img data-cy="book-cover" src={data.book.bookCover} alt="Book Cover" className="book-cover" />
                     <button data-cy="bookmark-button"  className="bookmark-button" onClick={() => AddBookmark(data.book.id)}>bookmark!</button>
                 </div>
                 <article className="book-major-details-container">
