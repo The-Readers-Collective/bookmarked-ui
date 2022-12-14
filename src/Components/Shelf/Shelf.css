@@ -2,3 +2,12 @@
 .swiper-button-next::after { 
     color: #EBBA18; 
 }
+
+.shelf-container {
+    margin-bottom: 20px;
+}
+
+.shelf-name {
+    margin: 10px;
+    margin-bottom: 15px;
+}

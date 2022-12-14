@@ -1,5 +1,6 @@
 import React from 'react'
 import browsedBooks from '../../Pages/BrowseAllBooks/BrowseAllBooks'
+import './SearchAllBooks.css'
 
 const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResults }) => {
 
@@ -21,7 +22,6 @@ const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResult
       <button className='submit-button' onClick={event => filteredSearch(event)}>Submit</button>
       <button className='reset-button' onClick={event => clearInputs(event)}>Reset Search</button>
     </form>
-    
   )
 }
 
