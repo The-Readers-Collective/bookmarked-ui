@@ -1,4 +1,5 @@
 import User from '../fixtures/Dashboard.json'
+import DeleteBook from '../fixtures/DeleteBook.json'
 
   describe('Dashboard', () => {
     beforeEach(() => {
@@ -31,25 +32,13 @@ import User from '../fixtures/Dashboard.json'
     })
 
     
-    it.only('should be able to delete a book from the My Books or My Bookmarked Books shelves', () => {
-      cy.get('.swiper-slide-prev > :nth-child(1) > :nth-child(3)')
+    it('should be able to delete a book from the My Books or My Bookmarked Books shelves', () => {
+      cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', DeleteBook).as('DeleteBook')
+      cy.get('.swiper-slide-prev > :nth-child(1) > [data-cy="delete-book-btn"]').first().click()
     })
     
-    it.skip('should be able to use the browser arrow buttons to go between pages', () => {
-      cy.visit('/')
-      cy.get('[data-cy="browse-button"]')
-      .click()
-      .url().should('eq', '/browse')
-      .go('back')
-      .url().should('eq', '/')
-      .go('forward')
-      .url().should('eq', '/browse')
-    }) 
-    
-    it.skip('should display a footer with a link to github', () => {
+    it('should display a footer with a link to GitHub', () => {
       cy.get('[data-cy="footer"]').contains(`Visit us at The Reader's Collective`)
-      
-      
     })
     
     it('should be able to click on a book cover and be led to the Single Book View page', () => {
@@ -58,5 +47,6 @@ import User from '../fixtures/Dashboard.json'
         .url().should('eq', 'http://localhost:3000/9')
         
     })
+    
   }) 
   
