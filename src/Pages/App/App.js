@@ -39,9 +39,9 @@ const App = () => {
         <div className='app-info'>
           <img data-cy='logo-image' className='logo-image' src={logo} alt='logo design' />
           <div data-cy='app-info-container' className='app-info-container'>
-            <div data-cy='app-name-tagline' className='app-name-tagline'>
-              <h1>Bookmarked</h1>
-              <h2>Where Book Lovers Gather</h2>
+            <div data-cy='app-name' className='app-name-tagline'>
+              <h1 data-cy='app-title'>Bookmarked</h1>
+              <h2 data-cy='app-tagline'>Where Book Lovers Gather</h2>
             </div>
             <h3 data-cy='page-name' className='page-name'>{pageName}</h3>
           </div>
@@ -59,7 +59,7 @@ const App = () => {
             />
           }/>
           <Route path="/browse" render={() => 
-            <BrowseAllBooks />
+            <BrowseAllBooks userId={userId} />
           }/>
           <Route path="/add" render={() =>
             <AddBook 
@@ -67,7 +67,7 @@ const App = () => {
             />
           }/>
           <Route exact path="/:id" render={({match}) => 
-            <SingleBookView id={match.params.id} />
+            <SingleBookView id={match.params.id} userId={userId} />
           }/>
           <Route path="*" render={() => 
             <PageNotFound />

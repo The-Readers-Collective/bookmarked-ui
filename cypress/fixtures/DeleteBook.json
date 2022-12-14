@@ -40,20 +40,6 @@
             "author": "J.R.R. Tolkien",
             "available": true
           }
-        },
-        {
-          "id": "9",
-          "userId": "2",
-          "bookId": "9",
-          "status": "OWNED",
-          "book": {
-            "id": "9",
-            "isbn13": "9780061804816",
-            "bookCover": "http://books.google.com/books/content?id=Q69PhJN-TbwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-            "bookTitle": "The Poisonwood Bible",
-            "author": "Barbara Kingsolver",
-            "available": false
-          }
         }
       ]
     }
