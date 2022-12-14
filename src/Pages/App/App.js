@@ -22,9 +22,7 @@ const App = () => {
     pageName = "Browse All Books"
   } else if (location.pathname === "/add") {
     pageName = "Add a Book"
-  } else {
-    pageName = "oops"
-  }
+  } 
 
   return (
     <div>
