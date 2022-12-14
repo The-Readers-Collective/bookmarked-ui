@@ -41,12 +41,20 @@ const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, u
                 200: {
                   slidesPerView: 1,
                 },
-
-                500: {
+                400: {
                   slidesPerView: 2,
                 },
-                769: {
-                  slidesPerView: 3,
+                600: {
+                  slidesPerView: 4,
+                },
+                839: {
+                  slidesPerView: 6,
+                },
+                1000: {
+                  slidesPerView: 7,
+                },
+                1400: {
+                  slidesPerView: 8,
                 },
               }}
               slidesPerView={6}
