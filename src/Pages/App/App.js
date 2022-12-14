@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-// import { useQuery, gql } from '@apollo/client'
 import { Link, Route, Switch, useLocation } from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard'
 import BrowseAllBooks from '../BrowseAllBooks/BrowseAllBooks'
@@ -12,11 +11,10 @@ import './App.css'
 
 const App = () => {
   let location = useLocation()
+  let pageName;
+  const [ userId, setUserId ] = useState(0)
   const homeLink = location.pathname !== "/" && <Link data-cy="return-home-text" to="/">Return Home</Link>
   const browseLink = location.pathname !== "/browse" && location.pathname !== "/" && <Link data-cy="browse-text" to="/browse">Browse</Link>
-  let pageName;
-
-  const [ userId, setUserId ] = useState(0)
 
   if (location.pathname === "/") {
     pageName = "My Bookshelf"
@@ -24,14 +22,9 @@ const App = () => {
     pageName = "Browse All Books"
   } else if (location.pathname === "/add") {
     pageName = "Add a Book"
-  } else if (location.pathname === "/id") {
-    pageName = "Book View"
+  } else {
+    pageName = "oops"
   }
-  // else {
-  //   pageName = "oops"
-  // }
-  //Once we have single book view working, test that lines 21 and 22 are functional
-
 
   return (
     <div>
@@ -78,7 +71,6 @@ const App = () => {
         <p data-cy='footer' className='footer'> <a href="https://github.com/The-Readers-Collective">The Reader's Collective</a></p>
       </footer>
     </div>
-
   )
 }
 
