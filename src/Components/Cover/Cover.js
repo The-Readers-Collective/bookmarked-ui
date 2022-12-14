@@ -24,8 +24,8 @@ const handleSubmit = (event) => {
         <img data-cy='cover-image' className='cover-image' src={cover} alt='book name'/>
       </div>
     </Link>
-      { owned && <button onClick={(event) => handleSubmit(event)}>Update Availability</button>} 
-      { owned && <button onClick={() => deleteBook(id)}>Delete</button>}
+      { owned && <button data-cy='update-available-btn' onClick={(event) => handleSubmit(event)}>Update Availability</button>} 
+      { owned && <button data-cy='delete-book-btn' onClick={() => deleteBook(id)}>Delete</button>}
     </div>
   )
 }
