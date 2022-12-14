@@ -64,8 +64,6 @@ const Dashboard = ({ setUserId, id, available }) => {
   const [ updateBook, { updateError, updateLoading }] = useMutation(TOGGLE_AVAILABLE)
 
   function UpdateStatus(id, available) {
-    console.log('jello', id)
-    console.log('here', available)
     if (updateError) return <p>Error : {error.message}</p>
     if (updateLoading) return <p>Loading...</p>
 
@@ -107,10 +105,10 @@ const Dashboard = ({ setUserId, id, available }) => {
     <div data-cy="bookshelves-container" className="bookshelves-container">
       <div className="navigation-buttons">
         <Link to="/browse">
-          <button data-cy="browse-button" className="button">Browse</button>
+          <button data-cy="browse-button" className="browse-button">Browse</button>
         </Link>
         <Link to="/add">
-          <button data-cy="add-button" className="button">Add a Book</button>
+          <button data-cy="add-button" className="add-button">Add a Book</button>
         </Link>
       </div>
       <Shelf 
