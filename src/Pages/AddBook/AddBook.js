@@ -3,19 +3,9 @@ import { gql, useLazyQuery } from '@apollo/client'
 import { useMutation } from '@apollo/client';
 import Result from '../../Components/Result/Result'
 import './AddBook.css'
-// import Modal from 'react-modal'
 
 const AddBook = ({ userId }) => {
   const [bookSearchTerm, setBookSearchTerm] = useState('')
-  // const [resultChoice, setResultChoice] = useState(false)
-  // const [isOpen, setIsOpen] = useState(false)
-  // const [ searchResults, setSearchResults ] = useState([])
-  // const [conditionInput, setConditionInput] = useState(undefined)
-
-// const toggleConfirmationModal = () => {
-//   setResultChoice(true)
-//   setIsOpen(true)
-// }
 
   const SEARCH_BOOK = gql `
     query SEARCH_BOOK($title: String!) {
@@ -57,7 +47,6 @@ const AddBook = ({ userId }) => {
   let bookResults
   let searchResultData
 
-
   const [createBook, { addBookLoading, addBookError}] = useMutation(ADD_BOOK)
   
   function AddBookToShelf(id, conditionInput) {
@@ -85,13 +74,10 @@ const AddBook = ({ userId }) => {
       }
     })
     refetch()
-    // toggleConfirmationModal()
   }
   
-  const [
-    getSearchResults,
-    { loading, data, error, refetch }
-  ] = useLazyQuery(SEARCH_BOOK)
+  const [getSearchResults, { loading, data, error, refetch }] = useLazyQuery(SEARCH_BOOK)
+
   if (loading) return <p>Loading...</p>
   if (data) {
     searchResultData = [...data.googleBooks]
@@ -124,7 +110,7 @@ const AddBook = ({ userId }) => {
         onChange={(event) => setBookSearchTerm(event.target.value)}
       />
       <button data-cy="searched-result-button" className="searched-result-button" disabled={!bookSearchTerm} onClick={(event) => handleSearch(event)}>Search for results</button>
-     <div data-cy="searched-books-container" className="searched-books-container">
+      <div data-cy="searched-books-container" className="searched-books-container">
         {!bookResults && error && <p className='user-msg'>No results found. Please modify your search and try again.</p>}
         {bookResults && <p className='user-msg'>Please add a condition to the book you wish to save, then click "Add this book to my shelf" button</p>}
         {bookResults}

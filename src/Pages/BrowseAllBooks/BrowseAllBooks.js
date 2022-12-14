@@ -2,8 +2,7 @@ import SearchAllBooks from '../../Components/SearchAllBooks/SearchAllBooks'
 import { gql, useQuery } from '@apollo/client'
 import Cover from '../../Components/Cover/Cover.js'
 import './BrowseAllBooks.css'
-import React, { useState } from "react";
-
+import React, { useState } from 'react';
 
 const BrowseAllBooks = () => {
   const [searchTitle, setSearchTitle] = useState('')
@@ -46,7 +45,7 @@ const BrowseAllBooks = () => {
     }
     
   let bookData = data.books
-    
+  
   const filteredSearch = (event) => {
     event.preventDefault()
     const filterBooks = bookData.filter((book) => {
@@ -66,7 +65,7 @@ const BrowseAllBooks = () => {
       available={userBook.available}
       />
       )
-   })
+  })
    
   return (
     <div data-cy="browse-books-container" className="browse-books-container">

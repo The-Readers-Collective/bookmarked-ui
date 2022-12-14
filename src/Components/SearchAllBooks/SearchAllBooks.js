@@ -1,5 +1,4 @@
 import React from 'react'
-import browsedBooks from '../../Pages/BrowseAllBooks/BrowseAllBooks'
 import './SearchAllBooks.css'
 
 const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResults }) => {
