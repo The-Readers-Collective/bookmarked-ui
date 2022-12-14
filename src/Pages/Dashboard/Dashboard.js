@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Shelf from '../../Components/Shelf/Shelf'
 import { useQuery, useMutation, gql } from '@apollo/client'
+import './Dashboard.css'
 
 const Dashboard = ({ setUserId, id, available }) => {
 
@@ -58,14 +59,11 @@ const Dashboard = ({ setUserId, id, available }) => {
         }
       }
     })
-    refetch()
   }
 
   const [ updateBook, { updateError, updateLoading }] = useMutation(TOGGLE_AVAILABLE)
 
   function UpdateStatus(id, available) {
-    console.log('jello', id)
-    console.log('here', available)
     if (updateError) return <p>Error : {error.message}</p>
     if (updateLoading) return <p>Loading...</p>
 
@@ -105,12 +103,14 @@ const Dashboard = ({ setUserId, id, available }) => {
   
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">
-      <Link to="/browse">
-        <button data-cy="browse-button" className="button">Browse</button>
-      </Link>
-      <Link to="/add">
-        <button data-cy="add-button" className="button">Add a Book</button>
-      </Link>
+      <div className="navigation-buttons">
+        <Link to="/browse">
+          <button data-cy="browse-button" className="browse-button">Browse</button>
+        </Link>
+        <Link to="/add">
+          <button data-cy="add-button" className="add-button">Add a Book</button>
+        </Link>
+      </div>
       <Shelf 
         owned={true}
         ownedBooks={owned}

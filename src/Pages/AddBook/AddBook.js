@@ -2,19 +2,19 @@ import React, { useState } from 'react'
 import { gql, useLazyQuery } from '@apollo/client'
 import { useMutation } from '@apollo/client';
 import Result from '../../Components/Result/Result'
-import Modal from 'react-modal'
+// import Modal from 'react-modal'
 
 const AddBook = ({ userId }) => {
   const [bookSearchTerm, setBookSearchTerm] = useState('')
-  const [resultChoice, setResultChoice] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
+  // const [resultChoice, setResultChoice] = useState(false)
+  // const [isOpen, setIsOpen] = useState(false)
   // const [ searchResults, setSearchResults ] = useState([])
   // const [conditionInput, setConditionInput] = useState(undefined)
 
-const toggleConfirmationModal = () => {
-  setResultChoice(true)
-  setIsOpen(true)
-}
+// const toggleConfirmationModal = () => {
+//   setResultChoice(true)
+//   setIsOpen(true)
+// }
 
   const SEARCH_BOOK = gql `
     query SEARCH_BOOK($title: String!) {
@@ -84,7 +84,7 @@ const toggleConfirmationModal = () => {
       }
     })
     refetch()
-    toggleConfirmationModal()
+    // toggleConfirmationModal()
   }
   
   const [
@@ -124,18 +124,8 @@ const toggleConfirmationModal = () => {
       />
       <button data-cy="searched-result-button" className="searched-result-button" disabled={!bookSearchTerm} onClick={(event) => handleSearch(event)}>Search for results</button>
      <div data-cy="searched-books-container" className="searched-books-container">
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={toggleConfirmationModal}
-        contentLabel="My dialog"
-        className="mymodal"
-        overlayClassName="myoverlay"
-        closeTimeoutMS={500}
-        >
-        {!addBookLoading && !addBookError && <p>Success!</p> }
-      </Modal>
         {!bookResults && error && <p>No results found. Please modify your search and try again.</p>}
-        {bookResults && <p>Please add a condition to your book you wish to save and then hit "Add this book to my shelf" button</p>}
+        {bookResults && <p>Please add a condition to the book you wish to save, then click "Add this book to my shelf" button</p>}
         {bookResults}
       </div>
     </div>

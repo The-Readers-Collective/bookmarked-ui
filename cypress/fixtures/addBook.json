@@ -1,21 +1,36 @@
 {
   "data": {
-    "createBook": {
-      "book": {
-        "id": "5",
-        "googleBookId": "E-kdBQAAQBAJ",
-        "isbn13": "9781619634459",
-        "author": "Sarah J. Maas",
-        "bookTitle": "A Court of Thorns and Roses",
-        "bookCover": "http://books.google.com/books/content?id=E-kdBQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-        "pgCount": 356
-        "description": "Placeholding description"
-        "category": "Fiction",
-        "condition": "EXCELLENT",
-        "available": true,
-        "updatedAt": "2022-12-07T18:45:16Z"
-      },
-      "errors": []
-    }
+      "googleBooks": [
+          {
+              "googleBookId": "QCPBDwAAQBAJ",
+              "bookTitle": "Rhythm of War",
+              "bookCover": "http://books.google.com/books/content?id=QCPBDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+              "author": "Brandon Sanderson",
+              "isbn13": "9781429952040",
+              "pgCount": 1374,
+              "description": "An instant #1 New York Times Bestseller and a USA Today and Indie Bestseller! The Stormlight Archive saga continues in Rhythm of War, the eagerly awaited sequel to  ",
+              "category": "Fiction"
+          },
+          {
+              "googleBookId": "QcpBDwAAQBAJ",
+              "bookTitle": "Біле Ікло (з ілюстраціями)",
+              "bookCover": "http://books.google.com/books/content?id=QcpBDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+              "author": "Джек Лондон",
+              "isbn13": "9785040938896",
+              "pgCount": 241,
+              "description": "Безкраї та суворі північні краї накладають .",
+              "category": "Juvenile Fiction"
+          },
+          {
+              "googleBookId": "qCpBDwAAQBAJ",
+              "bookTitle": "Persoonlijkheidsdiagnostiek in de klinische praktijk",
+              "bookCover": "http://books.google.com/books/content?id=qCpBDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+              "author": "W.M. Snellen",
+              "isbn13": "9789036819398",
+              "pgCount": 319,
+              "description": "Dit boek helpt klinische professionals om het uiterste uit hun psychodiagnostische onderzoeksmateriaal te.",
+              "category": "Psychology"
+          }
+      ]
   }
 }

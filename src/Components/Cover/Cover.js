@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import './Cover.css'
 
 const Cover = ({ cover, id, available, owned, deleteBook, updateStatus }) => {
