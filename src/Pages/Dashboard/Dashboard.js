@@ -79,13 +79,13 @@ const Dashboard = ({ setUserId }) => {
     })
   }
 
-  const { loading, error, data, refetch } = useQuery(GET_DASHBOARD, {fetchPolicy:"cache-and-network"})
+  const { loading, error, data } = useQuery(GET_DASHBOARD, {fetchPolicy:"cache-and-network"})
   
   useEffect(() => {
-    if (data && data.user) {
-      setUserId(data.user.id)
-    }
-  }, [data])
+      if (data && data.user) {
+        setUserId(data.user.id)
+      }
+    }, [data])
   
   if (error) return <p>Error : {error.message}</p>
   if (loading) return <p>Loading...</p>
