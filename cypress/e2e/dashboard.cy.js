@@ -16,6 +16,23 @@ describe('Dashboard', () => {
     cy.get('[data-cy="browse-button"]')
   })
 
+it(`should display an error message (500 status code) if user's books are not fetched`, () => {
+      cy.intercept(
+        "POST",
+        "https://bookmarked-api.herokuapp.com/graphql",
+        {
+          statusCode: 500,
+          body: {
+            error: "Not Found",
+          },
+        }
+      )
+      cy.visit("/")
+      // cy.get('[data-cy="searched-books-container"] > p')
+      cy.contains('Error : Response not successful: Received status code 500')
+  });
+
+
   it(`should display a user's bookshelf separated by 'My Books' and 'My Bookmarks'`, () => {
     cy
       .get('[data-cy="shelf-container"]').find('[data-cy="My Books"]')
@@ -42,7 +59,7 @@ describe('Dashboard', () => {
   })
   
   it('should be able to click on a book cover and be led to the Single Book View page', () => {
-    cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', User).as('User')
+    cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', User).as('User').wait('@User')
     cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', SingleBook).as('SingleBook')
     cy.get(':nth-child(2) > .swiper > .swiper-wrapper > .swiper-slide-prev > .cover-container > a > [data-cy="cover"] > [data-cy="cover-image"]').click({force:true}).wait('@SingleBook')
     cy.url().should("include", "http://localhost:3000/9")
