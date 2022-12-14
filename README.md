@@ -96,5 +96,6 @@ mhood24@gmail.com |
 
 ## Acknowledgments 
 - 2207 Turing cohort
+- Tyler Keating, Hotel Engine, our project mentor
 - Michael J. Harrison
 - Juliet Eyraud
