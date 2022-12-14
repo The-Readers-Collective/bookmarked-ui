@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './SearchAllBooks.css'
 
 const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResults }) => {
 
   const clearInputs = () => {
     setResults([])
+    setSearchTitle('')
   }
 
   return (
@@ -19,7 +21,9 @@ const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResult
         >
       </input>
       <button className='submit-button' onClick={event => filteredSearch(event)}>Submit</button>
-      <button className='reset-button' onClick={event => clearInputs(event)}>Reset Search</button>
+      <Link to="/browse">
+        <button className='reset-button' onClick={clearInputs}>Reset Search</button>
+      </Link>
     </form>
   )
 }

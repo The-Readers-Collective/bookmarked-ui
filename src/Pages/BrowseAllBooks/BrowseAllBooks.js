@@ -75,6 +75,7 @@ const BrowseAllBooks = () => {
         searchTitle={searchTitle}
         setSearchTitle={setSearchTitle}
         filteredSearch={filteredSearch}
+        setResults={setResults}
       />
       <div data-cy="all-books-container" className="all-books-container">
         {searchTitle ? searchResults : allBrowsedCovers} 
