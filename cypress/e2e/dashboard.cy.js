@@ -5,7 +5,7 @@ import SingleBook from '../fixtures/SingleView.json'
   describe('Dashboard', () => {
     beforeEach(() => {
       cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', User).as('User')
-      cy.visit('/')
+      cy.visit('http://localhost:3000/')
     })
 
     it('should have a title, tagline, and navigation buttons to browse all books and add a book', () => {
@@ -28,7 +28,7 @@ import SingleBook from '../fixtures/SingleView.json'
 
       cy
         .get('[data-cy="shelf-container"]').find('[data-cy="My Bookmarked Books"]')
-        .get(':nth-child(4) > .swiper > .swiper-wrapper > .swiper-slide-duplicate-active > :nth-child(1) > a > [data-cy="cover"] > [data-cy="cover-image"]')
+        .get(':nth-child(3) > .swiper > .swiper-wrapper > .swiper-slide-next > :nth-child(1) > a > [data-cy="cover"] > [data-cy="cover-image"]')
         .get('[data-cy="cover-image"]').should('be.visible')
     })
 
@@ -42,7 +42,7 @@ import SingleBook from '../fixtures/SingleView.json'
       cy.get('[data-cy="footer"]').contains(`Visit us at The Reader's Collective`)
     })
     
-    it.skipgit ('should be able to click on a book cover and be led to the Single Book View page', () => {
+    it.skip('should be able to click on a book cover and be led to the Single Book View page', () => {
       cy.get(':nth-child(3) > .swiper > .swiper-wrapper > .swiper-slide-next > :nth-child(1) > a > [data-cy="cover"] > [data-cy="cover-image"]').click()
       cy.wait(1000)
       cy.url().should('eq', '/9')
