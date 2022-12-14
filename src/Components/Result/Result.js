@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
+import Modal from 'react-modal'
 
 const Result = ({id, cover, addBookToShelf}) => {
-
+  const [resultChoice, setResultChoice] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const [conditionInput, setConditionInput] = useState(undefined)
-  
+  const [isClicked, setIsClicked] = useState(false)
+
+  const toggleConfirmationModal = () => {
+    setResultChoice(true)
+    setIsOpen(true)
+  }
+
+  const message = isClicked === true ? <p>Success!</p> : null
+
   return (
     <div id={id} className='result' data-cy='result'>
       <img data-cy="book-cover" src={cover} alt="Book Cover" className="book-cover" />
@@ -17,11 +27,29 @@ const Result = ({id, cover, addBookToShelf}) => {
             <option value='EXCELLENT'>Excellent</option>
           </select>
       <button 
-        data-cy='search-add-book-btn' disabled={!conditionInput} onClick={()=> addBookToShelf(id, conditionInput)}> 
+        data-cy='search-add-book-btn' disabled={!conditionInput} onClick={()=> {
+            addBookToShelf(id, conditionInput) 
+            setIsClicked(true)
+            console.log(isClicked)
+            }
+          }
+      > 
         Add this book to my shelf!
       </button>
+      {message}
     </div>
   )
 }
 
 export default Result
+
+{/* <Modal
+  isOpen={isOpen}
+  onRequestClose={toggleConfirmationModal}
+  contentLabel="My dialog"
+  className="mymodal"
+  overlayClassName="myoverlay"
+  closeTimeoutMS={500}
+>
+  {resultChoice && <p>Success!</p> }
+</Modal> */}
