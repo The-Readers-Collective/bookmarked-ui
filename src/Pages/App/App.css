@@ -36,7 +36,8 @@ a:link {
   .delete-btn,
   .searched-result-button,
   .submit-button, 
-  .reset-button {
+  .reset-button,
+  .bookmark-button {
     background-color: #fff;
     border: 1px solid #d5d9d9;
     border-radius: 8px;
@@ -64,7 +65,8 @@ a:link {
   .delete-btn:hover,
   .searched-result-button:hover,
   .submit-button:hover, 
-  .reset-button:hover {
+  .reset-button:hover,
+  .bookmark-button:hover {
     background-color: #f7fafa;
   }
   
@@ -72,7 +74,8 @@ a:link {
   .delete-btn:focus,
   .searched-result-button:focus,
   .submit-button:focus, 
-  .reset-button:focus {
+  .reset-button:focus,
+  .bookmark-button:focus {
     border-color: #008296;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     outline: 0;
@@ -90,7 +93,7 @@ a:link {
 
 .app-info-container {
     display: flex;
-    align-items: flex-end
+    align-items: center;
 }
 
 .app-name-tagline {

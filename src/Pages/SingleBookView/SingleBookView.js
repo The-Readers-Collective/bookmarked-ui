@@ -75,7 +75,7 @@ const SingleBookView = ({fromShelf, id, userId }) => {
             <div data-cy='top-single-book-container' className='top-single-book-container'>
                 <div data-cy='cover-image-container' className='cover-image-container'>
                     <img  data-cy="book-cover"  src={data.book.bookCover} alt="Book Cover" className="book-cover" />
-                    <button data-cy="bookmark-button"  className="bookmark-button" onClick={() => AddBookmark(data.book.id)}>bookmark!</button>
+                    <button data-cy="bookmark-button"  className="bookmark-button" onClick={() => AddBookmark(data.book.id)}>Bookmark!</button>
                 </div>
                 <article className="book-major-details-container">
                     <p data-cy="book-title" className="book-title">{data.book.bookTitle}</p>
