@@ -85,7 +85,7 @@ const Dashboard = ({ setUserId }) => {
       if (data && data.user) {
         setUserId(data.user.id)
       }
-    }, [data])
+    }, [setUserId, data])
   
   if (error) return <p>Error : {error.message}</p>
   if (loading) return <p>Loading...</p>
