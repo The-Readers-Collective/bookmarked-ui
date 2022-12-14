@@ -42,7 +42,7 @@ import SingleBook from '../fixtures/SingleView.json'
       cy.get('[data-cy="footer"]').contains(`Visit us at The Reader's Collective`)
     })
     
-    it.skip('should be able to click on a book cover and be led to the Single Book View page', () => {
+    it.skip ('should be able to click on a book cover and be led to the Single Book View page', () => {
       cy.get(':nth-child(3) > .swiper > .swiper-wrapper > .swiper-slide-next > :nth-child(1) > a > [data-cy="cover"] > [data-cy="cover-image"]').click()
       cy.wait(1000)
       cy.url().should('eq', '/9')

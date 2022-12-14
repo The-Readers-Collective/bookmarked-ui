@@ -71,7 +71,7 @@ const BrowseAllBooks = () => {
    
       return (
         <div data-cy="browse-books-container" className="browse-books-container">
-          <p data-cy="browse-header" className="browse-header">Browse all books</p>
+          <p data-cy="browse-header" className="browse-header">Browse to see what books are available for borrowing!</p>
      
           <SearchAllBooks 
             searchTitle={searchTitle}

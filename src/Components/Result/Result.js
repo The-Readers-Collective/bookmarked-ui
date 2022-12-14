@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Result.css'
 import Modal from 'react-modal'
 
 const Result = ({id, cover, addBookToShelf}) => {
@@ -27,7 +28,7 @@ const Result = ({id, cover, addBookToShelf}) => {
             <option value='EXCELLENT'>Excellent</option>
           </select>
       <button 
-        data-cy='search-add-book-btn' disabled={!conditionInput} onClick={()=> {
+        data-cy='search-add-book-btn' className='search-add-book-button' disabled={!conditionInput} onClick={()=> {
             addBookToShelf(id, conditionInput) 
             setIsClicked(true)
             console.log(isClicked)

@@ -1,21 +1,24 @@
 import BrowsedCollection from '../fixtures/BrowsedCollection.json'
+import User from '../fixtures/Dashboard.json'
+import SingleView from '../fixtures/SingleView.json'
 
 describe('Browsed Collection', () => {
   beforeEach(() => {
-    cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection)
     cy.visit('localhost:3000/browse')
   })
 
     it('should should see a collection of all the users books', () => {
+      cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection)
       cy.get('[data-cy="browse-books-container"]')
         .get('[href="/1"] > div > img').should('be.visible')
         .get('[href="/2"] > div > img').should('be.visible')
     })
 
     it.skip('should be able to hover over a book cover, and click it to view its individual details', () => {
-      cy.get('[data-cy="browse-books-container"]')
-        .get('[href="/1"] > div > img').should('be.visible')
-        .click()
+      cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection)
+      cy.get(':nth-child(1) > a > [data-cy="cover"] > [data-cy="cover-image"]').click().wait(1000)
+      cy.intercept('https://bookmarked-api.herokuapp.com/graphql', SingleView)
+      .visit('localhost:3000/1')
       
     })
 
@@ -32,11 +35,11 @@ describe('Browsed Collection', () => {
         // .click()  
     })
 
-    it.skip('should be able to return back to the main dashboard', () => {
-      cy.get('[data-cy="return-home-text"]')
-      .click().wait(1000)
-      cy.intercept('https://bookmarked-api.herokuapp.com/graphql', User)
-      .url().should("be.equal", 'http://localhost:3000/dashboard')
+    it('should be able to return back to the main dashboard', () => {
+      cy.get('[data-cy="nav-bar"]')
+        .get('[data-cy="return-home-text"]').click().wait(1000)
+        .visit('localhost:3000/')
+        .url().should('include', '/')
     })
 
     it('should be able to see the difference between an available book and an unavailable book', () => {

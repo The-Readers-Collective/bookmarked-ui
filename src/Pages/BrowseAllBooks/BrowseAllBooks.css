@@ -1,6 +1,13 @@
 .all-books-container {
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
+  }
+
+  .browse-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
   }
