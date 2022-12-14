@@ -75,7 +75,7 @@ const App = () => {
         </Switch>
       </main>
       <footer data-cy='footer-container' className='footer-container'>
-        <p data-cy='footer' className='footer'>Visit us at <a href="https://github.com/The-Readers-Collective">The Reader's Collective</a></p>
+        <p data-cy='footer' className='footer'> <a href="https://github.com/The-Readers-Collective">The Reader's Collective</a></p>
       </footer>
     </div>
 
