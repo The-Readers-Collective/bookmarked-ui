@@ -24,6 +24,14 @@ a:link {
      color: black;
   }
 
+  main {
+    border: 8px solid #f28f3b;
+    margin: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+  }
+
   button {
     background-color: #fff;
     border: 1px solid #d5d9d9;
@@ -62,7 +70,6 @@ a:link {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 35px;
     height: 10vh;
     border-bottom: 4px solid #F28F3B;
    
