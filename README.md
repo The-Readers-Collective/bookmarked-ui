@@ -76,7 +76,7 @@ sguzman247@gmail.com |
 [Github](https://github.com/stephanieguzm) |
 [LinkedIn](https://www.linkedin.com/in/stephanie-guzman-sdsw/) |
 
-Scott Gains |
+Scott Gaines |
 scottdgaines@gmail.com |
 [Github](github.com/scottdgaines) |
 [LinkedIn](linkedin.com/in/scottdgaines-fe) |
@@ -87,15 +87,15 @@ mhood24@gmail.com |
 [LinkedIn](linkedin.com/in/marianne-barton-1307) |
 
 
-## Acknowledgments & Project Planning
+## Project Planning
 [Project Board with User Stories](https://github.com/orgs/The-Readers-Collective/projects) |
 [Component Architecture](https://www.figma.com/file/DLwrN8C4tmwetrSpZkiiZl/Bookmarked-React-Component-Architecture?node-id=0%3A1&t=NtXbQqF7s5gWQRki-0) |
-[Project Wireframe](https://www.figma.com/file/OLwLfaLBIzyVEPn4HYAhmD/Bookmarked?node-id=0%3A1&t=hVzugpwQQgKxUuS6-0)
-[youtube-shield](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) |
+[Project Wireframe](https://www.figma.com/file/OLwLfaLBIzyVEPn4HYAhmD/Bookmarked?node-id=0%3A1&t=hVzugpwQQgKxUuS6-0) |
+![youtube-shield](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) |
 [![Turing School](https://img.shields.io/badge/Turing_School-030303?style=for-the-badge)](https://turing.edu/)
 
 ## Acknowledgments 
 - 2207 Turing cohort
 - Tyler Keating, Hotel Engine, our project mentor
 - Michael J. Harrison
-- Juliet Eyraud
+- Juliet Eyraud and Leta Keating
