@@ -90,7 +90,7 @@ a:link {
 
 .app-info-container {
     display: flex;
-    align-items: flex-end
+    align-items: center;
 }
 
 .app-name-tagline {
