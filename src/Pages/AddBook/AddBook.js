@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { gql, useLazyQuery } from '@apollo/client'
 import { useMutation } from '@apollo/client';
 import Result from '../../Components/Result/Result'
+import './AddBook.css'
 // import Modal from 'react-modal'
 
 const AddBook = ({ userId }) => {
@@ -124,8 +125,8 @@ const AddBook = ({ userId }) => {
       />
       <button data-cy="searched-result-button" className="searched-result-button" disabled={!bookSearchTerm} onClick={(event) => handleSearch(event)}>Search for results</button>
      <div data-cy="searched-books-container" className="searched-books-container">
-        {!bookResults && error && <p>No results found. Please modify your search and try again.</p>}
-        {bookResults && <p>Please add a condition to the book you wish to save, then click "Add this book to my shelf" button</p>}
+        {!bookResults && error && <p className='user-msg'>No results found. Please modify your search and try again.</p>}
+        {bookResults && <p className='user-msg'>Please add a condition to the book you wish to save, then click "Add this book to my shelf" button</p>}
         {bookResults}
       </div>
     </div>
