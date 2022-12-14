@@ -5,7 +5,7 @@
 <h2 align="center">Where Book Lovers Gather</h2>
 
 
-### [Deployed Project]
+### [Deployed Project](https://bookmarked-fe.netlify.app/)
 
 ## Overview
 The goal of this project is to create a React application 
