@@ -5,10 +5,12 @@
 <h2 align="center">Where Book Lovers Gather</h2>
 
 
-### [Deployed Project](https://bookmarked-fe.netlify.app/)
 
 ## Overview
 Bookmarked is a digital book-swapping platform, allowing users to add their personal books to be borrowed by others, browse through an entire collection of books, and bookmark books which interest them. It was designed and produced with both a front-end and back-end team of Turing students using React, Ruby on Rails, and GraphQL.
+
+
+### Visit our [deployed project](https://bookmarked-fe.netlify.app/) here.
 
 ## Project Context
 We are Mod 4 students in the Front-End Program at [Turing School of Software and Design](https://frontend.turing.edu/).  Bookmarked is our final Capstone Project.
@@ -17,7 +19,7 @@ Learning Goals for this project included:
 ✔️ Gain competency with GraphQL <br> 
 ✔️ Use an agile process to turn well defined requirements into deployed and production ready software <br>
 ✔️ Practice an advanced, professional git workflow including a Pull Request Review <br>
-✔️ Focus on communication between FE and BE teams in order to complete and deploy features that have been outlined by the project spec <br>
+✔️ Focus on communication and collaboration between FE and BE teams to design and build a working application <br>
 ✔️ Build an application that execute in development, cypress testing, CI, and production environments
 
 The project specs and rubric can be found here : [Project Description](https://mod4.turing.edu/projects/capstone/index.html)
