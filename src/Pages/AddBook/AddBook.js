@@ -51,7 +51,7 @@ const AddBook = ({ userId }) => {
   
   function AddBookToShelf(id, conditionInput) {
     if (addBookError) return <p>Error : {error.message}</p>
-    if (addBookLoading) return <p>Loading...</p>
+    if (addBookLoading) return <p className="loading-message">Loading...</p>
 
     const selectedBook = searchResultData.find(book => book.googleBookId === id)
 
@@ -78,7 +78,7 @@ const AddBook = ({ userId }) => {
   
   const [getSearchResults, { loading, data, error, refetch }] = useLazyQuery(SEARCH_BOOK)
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p className="loading-message">Loading...</p>
   if (data) {
     searchResultData = [...data.googleBooks]
     bookResults = data.googleBooks.map((bookResult) => {

@@ -43,3 +43,7 @@ outline: 0;
 .loading-message {
     font-family: 'Montserrat', sans-serif;
 }
+
+.bookshelves-container {
+    padding-bottom: 20px;
+}

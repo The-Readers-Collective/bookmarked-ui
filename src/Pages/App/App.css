@@ -3,6 +3,7 @@ h1 {
     font-size: 5vh;
     margin-bottom: 0;
     margin-top: 0;
+    text-shadow: 4px 4px 5px #00000080;
 }
 
 h2 {
@@ -26,10 +27,11 @@ a:link {
 
   main {
     border: 8px solid #f28f3b;
-    margin: 5px;
+    margin: 15px;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 85px;
     padding: 20px;
+    /* padding-bottom: 55px; */
   }
 
   .update-btn,
@@ -87,8 +89,8 @@ a:link {
     justify-content: space-between;
     align-items: flex-end;
     height: 12vh;
-    border-bottom: 3px solid #F28F3B;
     padding: 8px;
+    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.3);
   }
 
 .app-info-container {
@@ -115,10 +117,10 @@ a:link {
   .footer {
     font-family: 'Libre Caslon Text', serif;
     font-size: 16px;
-    border-top: 3px solid #F28F3B;
     display: flex; 
     justify-content: center;
     padding: 8px;
+
   }
 
   .logo-image {
@@ -135,4 +137,17 @@ a:link {
   .footer-container,
   .nav-bar {
     background-color: #9A031E;
+  }
+
+  .footer-container {
+    /* border-top: 3px solid #F28F3B;  */
+    box-sizing: border-box;
+    margin: 20px 0 0 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    box-shadow: 0px -2.98256px 7.4564px rgba(0, 0, 0, 0.3);
   }

@@ -79,7 +79,7 @@ const SingleBookView = ({fromShelf, id, userId }) => {
                 </div>
                 <article className="book-major-details-container">
                     <p data-cy="book-title" className="book-title">{data.book.bookTitle}</p>
-                    <p data-cy="book-author" className="book-author">By: {data.book.author}</p>
+                    <p data-cy="book-author" className="book-author">By {data.book.author}</p>
                     <p data-cy="book-synopsis" className="book-synopsis">{data.book.description}</p> 
                 </article>
             </div>
