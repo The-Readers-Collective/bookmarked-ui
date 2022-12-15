@@ -86,6 +86,7 @@ Marianne Barton |
 
 
 ## Project Planning
+[Project Brainstorming](https://miro.com/app/board/uXjVP-8u5gk=/) | 
 [Project Board with User Stories](https://github.com/orgs/The-Readers-Collective/projects) |
 [Component Architecture](https://www.figma.com/file/DLwrN8C4tmwetrSpZkiiZl/Bookmarked-React-Component-Architecture?node-id=0%3A1&t=NtXbQqF7s5gWQRki-0) |
 [Project Wireframe](https://www.figma.com/file/OLwLfaLBIzyVEPn4HYAhmD/Bookmarked?node-id=0%3A1&t=hVzugpwQQgKxUuS6-0) <br>
