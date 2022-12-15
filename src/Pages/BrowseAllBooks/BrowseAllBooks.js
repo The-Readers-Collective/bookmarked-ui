@@ -27,7 +27,7 @@ const BrowseAllBooks = () => {
   const { loading, error, data } = useQuery(GET_BROWSE_ALL_BOOKS)
   
   if (error) return <p>Error : {error.message}</p>
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p className="loading-message">Loading...</p>
   
   if (data) {
     allBrowsedCovers = data.books.map(userBook => {
@@ -49,7 +49,7 @@ const BrowseAllBooks = () => {
   const filteredSearch = (event) => {
     event.preventDefault()
     const filterBooks = bookData.filter((book) => {
-        return book.bookTitle.toUpperCase().includes(searchTitle.toUpperCase())
+      return book.bookTitle.toUpperCase().includes(searchTitle.toUpperCase())
     })
     setResults(filterBooks)
   }
@@ -57,12 +57,12 @@ const BrowseAllBooks = () => {
   const searchResults = results.map((userBook) => {
     return (
       <Cover 
-      id={userBook.id}
-      key={userBook.id} 
-      author={userBook.author} 
-      title={userBook.bookTitle} 
-      cover={userBook.bookCover}
-      available={userBook.available}
+        id={userBook.id}
+        key={userBook.id} 
+        author={userBook.author} 
+        title={userBook.bookTitle} 
+        cover={userBook.bookCover}
+        available={userBook.available}
       />
       )
   })
@@ -75,6 +75,7 @@ const BrowseAllBooks = () => {
         searchTitle={searchTitle}
         setSearchTitle={setSearchTitle}
         filteredSearch={filteredSearch}
+        setResults={setResults}
       />
       <div data-cy="all-books-container" className="all-books-container">
         {searchTitle ? searchResults : allBrowsedCovers} 

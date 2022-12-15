@@ -1,8 +1,8 @@
 .all-books-container {
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
     grid-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .browse-header {
