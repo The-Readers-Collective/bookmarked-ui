@@ -14,7 +14,7 @@ describe('Dashboard', () => {
     cy.get('[data-cy="app-tagline"]').contains('Where Book Lovers Gather')
     cy.get('[data-cy="page-name"]').contains('My Bookshelf')
     cy.get('[data-cy="browse-button"]')
-    cy.get('[data-cy="browse-button"]')
+    cy.get('[data-cy="add-button"]')
   })
 
 it(`should display an error message (500 status code) if user's books are not fetched`, () => {
@@ -72,6 +72,13 @@ describe('Browsed Collection', () => {
   beforeEach(() => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection)
     cy.visit('/browse')
+  })
+
+  it('should have a title, tagline, and navigation button to return home', () => {
+    cy.get('[data-cy="app-title"]').contains('Bookmarked')
+    cy.get('[data-cy="app-tagline"]').contains('Where Book Lovers Gather')
+    cy.get('[data-cy="page-name"]').contains('Browse All Books')
+    cy.get('[data-cy="home-btn"]')
   })
 
   it(`should display an error message (500 status code) if all browsed books are not fetched`, () => {
@@ -189,7 +196,7 @@ describe('SingleView', () => {
   })
 }) 
 
-describe('Browsed Collection', () => {
+describe('Add Book', () => {
   beforeEach(() => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', AddBook)
     cy.visit('localhost:3000/add')

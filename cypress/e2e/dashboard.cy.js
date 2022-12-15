@@ -12,8 +12,8 @@ describe('Dashboard', () => {
     cy.get('[data-cy="app-title"]').contains('Bookmarked')
     cy.get('[data-cy="app-tagline"]').contains('Where Book Lovers Gather')
     cy.get('[data-cy="page-name"]').contains('My Bookshelf')
-    cy.get('[data-cy="browse-button"]')
-    cy.get('[data-cy="browse-button"]')
+    cy.get('[data-cy="browse-button"]').contains('Browse')
+    cy.get('[data-cy="add-button"]').contains('Add a Book')
   })
 
 it(`should display an error message (500 status code) if user's books are not fetched`, () => {

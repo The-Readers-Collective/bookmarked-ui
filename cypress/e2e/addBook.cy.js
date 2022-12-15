@@ -1,11 +1,19 @@
 import AddBook from '../fixtures/AddBook.json'
 
-describe('Browsed Collection', () => {
+describe('Add Book', () => {
   beforeEach(() => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', AddBook)
     cy.visit('localhost:3000/add')
   })
 
+  it('should have a title, tagline, and navigation buttons to return home and browse all books', () => {
+    cy.get('[data-cy="app-title"]').contains('Bookmarked')
+    cy.get('[data-cy="app-tagline"]').contains('Where Book Lovers Gather')
+    cy.get('[data-cy="page-name"]').contains('Add a Book')
+    cy.get('[data-cy="home-btn"]').contains('Return Home')
+    cy.get('[data-cy="browse-btn"]').contains('Browse')
+  })
+  
   it('should be able to search a book by name or author', () => {
     cy.get('[data-cy="add-book-title"]').should('be.visible')
       .get('input')

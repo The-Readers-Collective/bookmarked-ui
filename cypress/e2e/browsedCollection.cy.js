@@ -8,6 +8,13 @@ describe('Browsed Collection', () => {
     cy.visit('/browse')
   })
 
+  it('should have a title, tagline, and navigation button to return home', () => {
+    cy.get('[data-cy="app-title"]').contains('Bookmarked')
+    cy.get('[data-cy="app-tagline"]').contains('Where Book Lovers Gather')
+    cy.get('[data-cy="page-name"]').contains('Browse All Books')
+    cy.get('[data-cy="home-btn"]').contains('Return Home')
+  })
+
   it(`should display an error message (500 status code) if all browsed books are not fetched`, () => {
     cy.intercept(
       "POST",

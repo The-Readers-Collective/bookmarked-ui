@@ -6,6 +6,13 @@ describe('SingleView', () => {
   beforeEach(() => {
     cy.visit('/1')
   })
+
+  it('should have a title, tagline, and navigation buttons to browse all books and add a book', () => {
+    cy.get('[data-cy="app-title"]').contains('Bookmarked')
+    cy.get('[data-cy="app-tagline"]').contains('Where Book Lovers Gather')
+    cy.get('[data-cy="home-btn"]').contains('Return Home')
+    cy.get('[data-cy="browse-btn"]').contains('Browse')
+  })
   
   it(`should display an error message (500 status code) if an individual book cannot be viewed`, () => {
     cy.intercept(
@@ -44,14 +51,14 @@ describe('SingleView', () => {
   it('should be able to return to home', () => {
     cy.get('[data-cy="nav-bar"]')
       .get('[data-cy="return-home-text"]').click().wait(1000)
-      .visit('localhost:3000/')
+      .visit('http://localhost:3000/')
       .url().should('include', '/')
   })
 
   it('should be able to return to browse', () => {
     cy.get('[data-cy="nav-bar"]')
       .get('[data-cy="browse-text"]').click().wait(1000)
-      .visit('localhost:3000/browse')
+      .visit('http://localhost:3000/browse')
       .url().should('include', '/browse')
   })
 }) 
