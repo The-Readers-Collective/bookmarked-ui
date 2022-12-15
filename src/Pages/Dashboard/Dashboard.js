@@ -50,7 +50,7 @@ const Dashboard = ({ setUserId }) => {
 
   function DeleteBook(id) {
     if (deleteError) return <p>Error : {error.message}</p>
-    if (deleteLoading) return <p>Loading...</p>
+    if (deleteLoading) return <p className="loading-message">Loading...</p>
     
     destroyBook({
       variables: {
@@ -65,7 +65,7 @@ const Dashboard = ({ setUserId }) => {
 
   function UpdateStatus(id, available) {
     if (updateError) return <p>Error : {error.message}</p>
-    if (updateLoading) return <p>Loading...</p>
+    if (updateLoading) return <p className="loading-message">Loading...</p>
 
    updateBook({
       variables: {
@@ -88,7 +88,7 @@ const Dashboard = ({ setUserId }) => {
     }, [setUserId, data])
   
   if (error) return <p>Error : {error.message}</p>
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p className="loading-message">Loading...</p>
   
   let owned = []
   let bookmarked = []

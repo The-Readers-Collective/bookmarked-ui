@@ -27,7 +27,7 @@ const BrowseAllBooks = () => {
   const { loading, error, data } = useQuery(GET_BROWSE_ALL_BOOKS)
   
   if (error) return <p>Error : {error.message}</p>
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p className="loading-message">Loading...</p>
   
   if (data) {
     allBrowsedCovers = data.books.map(userBook => {

@@ -103,8 +103,8 @@ const AddBook = ({ userId }) => {
   return (
     <div className='add-book-container' data-cy='add-book-container'>
       <div className="add-book-search-container"> 
-        <h3 className='title' data-cy='add-book-title'>Add your books to your digital bookshelf</h3>
-        <p className="user-msg disclaimer">These books will be available to lend out</p>
+        <h3 className='title' data-cy='add-book-title'>Add your books to your digital bookshelf.</h3>
+        <p className="user-msg disclaimer">These books will be available to lend out.</p>
         <div className="add-book-search-input">
           <input 
             type="text" 

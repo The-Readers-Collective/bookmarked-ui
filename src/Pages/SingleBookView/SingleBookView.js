@@ -47,7 +47,7 @@ const SingleBookView = ({fromShelf, id, userId }) => {
 
     function AddBookmark(id) {
         if (createUserBookError) return <p>Error : {error.message}</p>
-        if (createUserBookLoading) return <p>Loading...</p>
+        if (createUserBookLoading) return <p className="loading-message">Loading...</p>
 
         createUserBook ({
             variables: {
