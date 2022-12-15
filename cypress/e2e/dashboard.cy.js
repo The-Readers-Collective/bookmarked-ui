@@ -28,7 +28,6 @@ it(`should display an error message (500 status code) if user's books are not fe
         }
       )
       cy.visit("/")
-      // cy.get('[data-cy="searched-books-container"] > p')
       cy.contains('Error : Response not successful: Received status code 500')
   });
 
