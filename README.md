@@ -93,11 +93,11 @@ Marianne Barton |
 [Component Architecture](https://www.figma.com/file/DLwrN8C4tmwetrSpZkiiZl/Bookmarked-React-Component-Architecture?node-id=0%3A1&t=NtXbQqF7s5gWQRki-0) |
 [Project Wireframe](https://www.figma.com/file/OLwLfaLBIzyVEPn4HYAhmD/Bookmarked?node-id=0%3A1&t=hVzugpwQQgKxUuS6-0) <br>
 
-Designed Using:
+Designed Using: <br>
 ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) |
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) |
 
-Sources From:
+Sources From: <br>
 ![youtube-shield](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) |
 [![Turing School](https://img.shields.io/badge/Turing_School-030303?style=for-the-badge)](https://turing.edu/)
 
