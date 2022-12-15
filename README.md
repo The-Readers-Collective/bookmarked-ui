@@ -9,7 +9,7 @@
 ## Overview
 Bookmarked is a digital book-swapping platform, allowing users to add and lend out their personal library, browse the other books currently in circulation, and bookmark titles of interest. It was designed and built by a team of both front and back-end students from the Turing School of Software and Design using React, Ruby on Rails, and GraphQL.
 
-### Visit our [deployed project](https://bookmarked-fe.netlify.app/) here.
+### Visit our [deployed project](https://bookmarked-fe.netlify.app/).
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)
