@@ -1,5 +1,3 @@
-import User from '../fixtures/Dashboard.json'
-import BrowsedCollection from '../fixtures/BrowsedCollection.json'
 import SingleView from '../fixtures/SingleView.json'
 
 describe('SingleView', () => {
@@ -52,14 +50,14 @@ describe('SingleView', () => {
     cy.get('[data-cy="nav-bar"]')
       .get('[data-cy="return-home-text"]').click().wait(1000)
       .visit('http://localhost:3000/')
-      .url().should('include', '/')
+      .url().should('eq', 'http://localhost:3000/')
   })
 
   it('should be able to return to browse', () => {
     cy.get('[data-cy="nav-bar"]')
       .get('[data-cy="browse-text"]').click().wait(1000)
       .visit('http://localhost:3000/browse')
-      .url().should('include', '/browse')
+      .url().should('eq', 'http://localhost:3000/browse')
   })
 }) 
 

@@ -3,7 +3,7 @@ import AddBook from '../fixtures/AddBook.json'
 describe('Add Book', () => {
   beforeEach(() => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', AddBook)
-    cy.visit('localhost:3000/add')
+    cy.visit('/add')
   })
 
   it('should have a title, tagline, and navigation buttons to return home and browse all books', () => {
@@ -49,7 +49,7 @@ describe('Add Book', () => {
         },
       }
     )
-    cy.visit("http://localhost:3000/add")
+    cy.visit("/add")
     cy.get('input')
       .type('/')
       .get('[data-cy="searched-result-button"]')
