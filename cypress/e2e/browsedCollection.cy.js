@@ -44,21 +44,16 @@ it(`should display an error message (500 status code) if all browsed books are n
       cy.get('[placeholder="Title"]').type('Calib')
       cy.get('[data-cy="submit-button"]').click({force:true})
       cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '1')
-        // cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection)
-        // .get('[placeholder="Title"]').type('J.R.R. Tolkien')
-        // .get('form > :nth-child(2)')
-        // .click()  
     })
 
-    it.skip('should be able to reset the search', () => {
+    it.skip(`should be able to reset the search and display all users' books`, () => {
       cy.get('[data-cy="browse-books-container"]')
       cy.get('[placeholder="Title"]').type('Calib')
-      cy.get('[data-cy="submit-button"]').click({force:true})
-      cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '1')
-        // cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection)
-        // .get('[placeholder="Title"]').type('J.R.R. Tolkien')
-        // .get('form > :nth-child(2)')
-        // .click()  
+      cy.get('[data-cy="reset-button"]').click({force:true})
+      // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '1') 
+      // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '2') 
+      // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '3') 
+      // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '4') 
     })
 
     it('should be able to return back to the main dashboard', () => {
