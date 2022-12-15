@@ -29,13 +29,12 @@ describe('Browsed Collection', () => {
       .get('[href="/2"] > div > img').should('be.visible')
   })
 
-  it.only(`should be able to click on a book cover to view a book's individual details`, () => {
+  it(`should be able to click on a book cover to view a book's individual details`, () => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection).as('BrowsedCollection').wait('@BrowsedCollection')
     cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', SingleView).as('SingleView')
     cy.get(':nth-child(1) > a > [data-cy="cover"]').click({force:true}).wait('@SingleView')
     cy.url().should("include", "http://localhost:3000/1")
     cy.get('[data-cy="book-title"]').contains(`Caliban's War`)
-    
   })
 
   it('should be able to search through the collection by title or author', () => {
