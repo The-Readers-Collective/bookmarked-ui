@@ -10,7 +10,7 @@
 Bookmarked is a digital book-swapping platform, allowing users to add their personal books to be borrowed by others, browse through an entire collection of books, and bookmark books which interest them. It was designed and produced with both a front-end and back-end team of Turing students using React, Ruby on Rails, and GraphQL.
 
 
-### Visit our [deployed project](https://bookmarked-fe.netlify.app/) here.
+## Visit our [deployed project](https://bookmarked-fe.netlify.app/) here.
 
 ## Project Context
 We are Mod 4 students in the Front-End Program at [Turing School of Software and Design](https://frontend.turing.edu/).  Bookmarked is our final Capstone Project.
@@ -73,7 +73,7 @@ Morgan Berry |
 [LinkedIn](https://www.linkedin.com/in/morgan-lyn-berry/) |
 
 Stephanie Guzman |
-[email](sguzman247@gmail.com)|
+[email](sguzman247@gmail.com) |
 [Github](https://github.com/stephanieguzm) |
 [LinkedIn](https://www.linkedin.com/in/stephanie-guzman-sdsw/) |
 
@@ -91,9 +91,13 @@ Marianne Barton |
 ## Project Planning
 [Project Board with User Stories](https://github.com/orgs/The-Readers-Collective/projects) |
 [Component Architecture](https://www.figma.com/file/DLwrN8C4tmwetrSpZkiiZl/Bookmarked-React-Component-Architecture?node-id=0%3A1&t=NtXbQqF7s5gWQRki-0) |
-[Project Wireframe](https://www.figma.com/file/OLwLfaLBIzyVEPn4HYAhmD/Bookmarked?node-id=0%3A1&t=hVzugpwQQgKxUuS6-0) |
+[Project Wireframe](https://www.figma.com/file/OLwLfaLBIzyVEPn4HYAhmD/Bookmarked?node-id=0%3A1&t=hVzugpwQQgKxUuS6-0) <br>
+
+Designed Using:
 ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) |
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) |
+
+Sources From:
 ![youtube-shield](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) |
 [![Turing School](https://img.shields.io/badge/Turing_School-030303?style=for-the-badge)](https://turing.edu/)
 
