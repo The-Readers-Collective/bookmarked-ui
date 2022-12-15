@@ -23,6 +23,8 @@ Learning Goals for this project included:
 [Link to Project Description](https://mod4.turing.edu/projects/capstone/index.html)
 
 ## Demo
+![2022-12-14 19 35 01](https://user-images.githubusercontent.com/103966650/207759575-a7443b50-b1f6-433d-98be-11fe02d1c96e.gif)
+![2022-12-14 19 31 03](https://user-images.githubusercontent.com/103966650/207759593-08d323e1-aa70-4f96-8fe7-9c0e1e08be42.gif)
 
 
 ## Setup
