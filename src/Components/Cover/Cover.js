@@ -17,7 +17,7 @@ const Cover = ({ cover, id, available, owned, deleteBook, updateStatus }) => {
   return (
     <div className='cover-container'>
       <Link to={`/${id}`}> 
-        <div data-cy='cover' className='cover' id={id} style={!available ? {opacity: '0.2'} : {}}>
+        <div data-cy='cover' className='cover' id={id} style={!available ? {opacity: '0.3'} : {}}>
           <img data-cy='cover-image' className='cover-image' src={cover} alt='book name'/>
         </div>
       </Link>
