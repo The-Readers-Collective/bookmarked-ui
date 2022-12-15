@@ -8,6 +8,7 @@
 ### [Deployed Project](https://bookmarked-fe.netlify.app/)
 
 ## Overview
+Bookmarked is a digital book-swapping platform, allowing users to add their personal books to be borrowed by others, 
 The goal of this project is to create a React application 
 
 ## Project Context
