@@ -8,6 +8,22 @@ describe('Browsed Collection', () => {
     cy.visit('/browse')
   })
 
+it(`should display an error message (500 status code) if all browsed books are not fetched`, () => {
+      cy.intercept(
+        "POST",
+        "https://bookmarked-api.herokuapp.com/graphql",
+        {
+          statusCode: 500,
+          body: {
+            error: "Not Found",
+          },
+        }
+      )
+      cy.visit("/browse")
+      cy.contains('Error : Response not successful: Received status code 500')
+  });
+
+
     it(`should should see a collection of all users' books`, () => {
       cy.get('[data-cy="browse-books-container"]')
         .get('[href="/1"] > div > img').should('be.visible')
