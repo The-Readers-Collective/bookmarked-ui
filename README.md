@@ -102,6 +102,6 @@ Sources From: <br>
 ## Acknowledgments 
 - 2207 Turing cohort
 - Tyler Keating, Project Mentor
-- Leta Kean, Project Manager
+- Leta Keane, Project Manager
 - Michael J. Harrison
 - Juliet Eyraud
