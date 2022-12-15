@@ -4,6 +4,7 @@ import SingleView from '../fixtures/SingleView.json'
 import AddBook from '../fixtures/AddBook.json'
 import DeleteBook from '../fixtures/DeleteBook.json'
 
+
 describe('Add Book', () => {
   beforeEach(() => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', AddBook)
@@ -19,25 +20,21 @@ describe('Add Book', () => {
   })
   
   it('should be able to search a book by name or author', () => {
-    cy.get('[data-cy="add-book-title"]').should('be.visible')
-      .get('input')
-      .type('Rhythm of War')
-      .get('[data-cy="searched-result-button"]')
-      .click()
-      .get('[data-cy="searched-books-container"] > p').should('be.visible')
-      .get(':nth-child(2) > [data-cy="book-cover"]').should('be.visible')
+    cy.get('[data-cy="add-book-title"]').contains('Add your books to your digital bookshelf.')
+    cy.get('[data-cy="add-book-msg"]').contains('These books will be available to lend out.')
+    cy.get('input').type('Rhythm of War')
+    cy.get('[data-cy="searched-result-button"]').click()
+    cy.get('[data-cy="searched-books-container"]').should('exist')
+    cy.get(':nth-child(2) > [data-cy="book-cover"]').should('be.visible')
   })
   
   it('should be able to add condition to a book, and hit the button to add the book to the shelf', () => {
     cy.get('[data-cy="add-book-title"]').should('be.visible')
-      .get('input')
-      .type('Rhythm of War')
-      .get('[data-cy="searched-result-button"]')
-      .click()
-      .get('[data-cy="searched-books-container"] > p').should('be.visible')
-      .get(':nth-child(2) > [data-cy="book-cover"]').should('be.visible')
-      .get(':nth-child(2) > [data-cy="select-search"]')
-      .select(1)
+    cy.get('input').type('Rhythm of War')
+    cy.get('[data-cy="searched-result-button"]').click()
+    cy.get('[data-cy="searched-books-container"]').should('be.visible')
+    cy.get(':nth-child(2) > [data-cy="book-cover"]').should('be.visible')
+    cy.get(':nth-child(2) > [data-cy="select-search"]').select(1)
     cy.get('#QCPBDwAAQBAJ > [data-cy="book-cover"]')
     cy.get('#QcpBDwAAQBAJ > [data-cy="search-add-book-btn"]')
   })
@@ -54,12 +51,13 @@ describe('Add Book', () => {
       }
     )
     cy.visit("/add")
-    cy.get('input')
-      .type('/')
-      .get('[data-cy="searched-result-button"]')
-      .click()
-      .get('[data-cy="searched-books-container"] > p')
-      .contains('No results found.')
+    cy.get('input').type('/')
+    cy.get('[data-cy="searched-result-button"]').click()
+    cy.get('[data-cy="add-book-container"] > :nth-child(2)').contains('No results found. Please modify your search and try again.')
+  })
+
+  it('should display a footer with a link to GitHub', () => {
+    cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
   })
 })
 
@@ -112,14 +110,14 @@ describe('Browsed Collection', () => {
     cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '1')
   })
 
-  it.skip(`should be able to reset the search and display all users' books`, () => {
+  it.only(`should be able to reset the search and display all users' books`, () => {
     cy.get('[data-cy="browse-books-container"]')
     cy.get('[placeholder="Title"]').type('Calib')
     cy.get('[data-cy="reset-button"]').click({force:true})
-    // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '1') 
-    // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '2') 
-    // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '3') 
-    // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '4') 
+    cy.get(':nth-child(1) > a > [data-cy="cover"]').invoke('attr', 'id').should('eq', '1') 
+    cy.get(':nth-child(2) > a > [data-cy="cover"]').invoke('attr', 'id').should('eq', '2') 
+    cy.get(':nth-child(3) > a > [data-cy="cover"]').invoke('attr', 'id').should('eq', '3') 
+    cy.get(':nth-child(4) > a > [data-cy="cover"]').invoke('attr', 'id').should('eq', '4') 
   })
 
   it('should be able to return back to the main dashboard', () => {
@@ -132,8 +130,12 @@ describe('Browsed Collection', () => {
   })
 
   it('should be able to see the difference between an available book and an unavailable book', () => {
-    cy.get(':nth-child(1) > a > [data-cy="cover"]').invoke('attr', 'style').should('not.eq', 'opacity: 0.2;')
-    cy.get(':nth-child(4) > a > [data-cy="cover"]').invoke('attr', 'style').should('eq', 'opacity: 0.2;')
+    cy.get(':nth-child(1) > a > [data-cy="cover"]').invoke('attr', 'style').should('not.eq', 'opacity: 0.3;')
+    cy.get(':nth-child(4) > a > [data-cy="cover"]').invoke('attr', 'style').should('eq', 'opacity: 0.3;')
+  })
+
+  it('should display a footer with a link to GitHub', () => {
+    cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
   })
 })
 
@@ -200,6 +202,9 @@ it(`should display an error message (500 status code) if user's books are not fe
     cy.get('[data-cy="book-title"]').contains(`Caliban's War`)
   })
 
+  it('should display a footer with a link to GitHub', () => {
+    cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
+  })
 }) 
 
 describe('SingleView', () => {
@@ -261,4 +266,9 @@ describe('SingleView', () => {
       .visit('http://localhost:3000/browse')
       .url().should('eq', 'http://localhost:3000/browse')
   })
+
+  it('should display a footer with a link to GitHub', () => {
+    cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
+  })
 }) 
+

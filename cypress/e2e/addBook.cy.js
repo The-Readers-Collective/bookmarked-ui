@@ -34,7 +34,7 @@ describe('Add Book', () => {
     cy.get('#QcpBDwAAQBAJ > [data-cy="search-add-book-btn"]')
   })
 
-  it.only('should display an error message (500 status code) if books are unable to be searched', () => {
+  it('should display an error message (500 status code) if books are unable to be searched', () => {
     cy.intercept(
       "POST",
       "https://bookmarked-api.herokuapp.com/graphql",
