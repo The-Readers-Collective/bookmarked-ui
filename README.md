@@ -7,13 +7,12 @@
 
 
 ## Overview
-Bookmarked is a digital book-swapping platform, allowing users to add their personal books to be borrowed by others, browse through an entire collection of books, and bookmark books which interest them. It was designed and produced with both a front-end and back-end team of Turing students using React, Ruby on Rails, and GraphQL.
-
+Bookmarked is a digital book-swapping platform, allowing users to add and lend out their personal library, browse the other books currently in circulation, and bookmark titles of interest. It was designed and built by a team of both front and back-end students from the Turing School of Software and Design using React, Ruby on Rails, and GraphQL.
 
 ## Visit our [deployed project](https://bookmarked-fe.netlify.app/) here.
 
 ## Project Context
-We are Mod 4 students in the Front-End Program at [Turing School of Software and Design](https://frontend.turing.edu/).  Bookmarked is our final Capstone Project.
+As Mod 4 students in the Front-End program at [Turing School of Software and Design](https://frontend.turing.edu/), Bookmarked is our final Capstone Project-- meaning we have been studying software development for approximately six months at the time of its completion.
 
 Learning Goals for this project included:      
 ✔️ Gain competency with GraphQL <br> 
