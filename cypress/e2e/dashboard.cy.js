@@ -1,6 +1,6 @@
 import User from '../fixtures/Dashboard.json'
 import DeleteBook from '../fixtures/DeleteBook.json'
-import SingleBook from '../fixtures/SingleView.json'
+import SingleView from '../fixtures/SingleView.json'
 
 describe('Dashboard', () => {
   beforeEach(() => {
@@ -59,8 +59,8 @@ it(`should display an error message (500 status code) if user's books are not fe
   
   it(`should be able to click on a book cover and be led to a page to see the book's details`, () => {
     cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', User).as('User').wait('@User')
-    cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', SingleBook).as('SingleBook')
-    cy.get(':nth-child(2) > .swiper > .swiper-wrapper > .swiper-slide-prev > .cover-container > a > [data-cy="cover"] > [data-cy="cover-image"]').click({force:true}).wait('@SingleBook')
+    cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', SingleView).as('SingleView')
+    cy.get(':nth-child(2) > .swiper > .swiper-wrapper > .swiper-slide-prev > .cover-container > a > [data-cy="cover"] > [data-cy="cover-image"]').click({force:true}).wait('@SingleView')
     cy.url().should("include", "http://localhost:3000/9")
     cy.get('[data-cy="book-title"]').contains(`Caliban's War`)
   })
