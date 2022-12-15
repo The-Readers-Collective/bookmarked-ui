@@ -7,6 +7,21 @@ describe('SingleView', () => {
     cy.visit('localhost:3000/1')
   })
   
+it(`should display an error message (500 status code) if an individual book cannot be viewed`, () => {
+      cy.intercept(
+        "POST",
+        "https://bookmarked-api.herokuapp.com/graphql",
+        {
+          statusCode: 500,
+          body: {
+            error: "Not Found",
+          },
+        }
+      )
+      cy.visit("/1")
+      cy.contains('Error : Response not successful: Received status code 500')
+  });
+
   it('should see a book/s author, title, page count, synopsis, condition, genre', () => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', SingleView)
       .visit('localhost:3000/1')
