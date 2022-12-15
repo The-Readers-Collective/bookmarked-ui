@@ -101,7 +101,7 @@ Sources From: <br>
 
 ## Acknowledgments 
 - 2207 Turing cohort
-- Tyler Keating, Hotel Engine, our project mentor
+- Tyler Keating, Project Mentor
 - Leta Kean, Project Manager
 - Michael J. Harrison
 - Juliet Eyraud
