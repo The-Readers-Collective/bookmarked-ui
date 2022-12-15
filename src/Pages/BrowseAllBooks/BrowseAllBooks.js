@@ -49,7 +49,7 @@ const BrowseAllBooks = () => {
   const filteredSearch = (event) => {
     event.preventDefault()
     const filterBooks = bookData.filter((book) => {
-        return book.bookTitle.toUpperCase().includes(searchTitle.toUpperCase())
+      return book.bookTitle.toUpperCase().includes(searchTitle.toUpperCase())
     })
     setResults(filterBooks)
   }
@@ -57,12 +57,12 @@ const BrowseAllBooks = () => {
   const searchResults = results.map((userBook) => {
     return (
       <Cover 
-      id={userBook.id}
-      key={userBook.id} 
-      author={userBook.author} 
-      title={userBook.bookTitle} 
-      cover={userBook.bookCover}
-      available={userBook.available}
+        id={userBook.id}
+        key={userBook.id} 
+        author={userBook.author} 
+        title={userBook.bookTitle} 
+        cover={userBook.bookCover}
+        available={userBook.available}
       />
       )
   })
