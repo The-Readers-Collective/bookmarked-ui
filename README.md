@@ -9,7 +9,13 @@
 ## Overview
 Bookmarked is a digital book-swapping platform, allowing users to add and lend out their personal library, browse the other books currently in circulation, and bookmark titles of interest. It was designed and built by a team of both front and back-end students from the Turing School of Software and Design using React, Ruby on Rails, and GraphQL.
 
-## Visit our [deployed project](https://bookmarked-fe.netlify.app/) here.
+### Visit our [deployed project](https://bookmarked-fe.netlify.app/) here.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)
+![Cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e) 
+![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) 
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) 
 
 ## Project Context
 As Mod 4 students in the Front-End program at [Turing School of Software and Design](https://frontend.turing.edu/), Bookmarked is our final Capstone Project-- meaning we have been studying software development for approximately six months at the time of its completion.
@@ -21,7 +27,7 @@ Learning Goals for this project included:
 ✔️ Focus on communication and collaboration between FE and BE teams to design and build a working application <br>
 ✔️ Build an application that execute in development, cypress testing, CI, and production environments
 
-The project specs and rubric can be found here : [Project Description](https://mod4.turing.edu/projects/capstone/index.html)
+[Project Spec and Rubric](https://mod4.turing.edu/projects/capstone/index.html)
 
 ## Demo
 ![2022-12-14 19 35 01](https://user-images.githubusercontent.com/103966650/207759575-a7443b50-b1f6-433d-98be-11fe02d1c96e.gif)
@@ -40,14 +46,6 @@ The project specs and rubric can be found here : [Project Description](https://m
   npm start
   ```
 4. Enter the following url in your browser: http://localhost:3000/
-
-## Technologies Used
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)
-![Cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e) 
-![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) 
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) 
 
 ## Future Features
 - [x] Adding and deleting followers
