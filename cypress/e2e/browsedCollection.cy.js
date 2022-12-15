@@ -51,14 +51,14 @@ describe('Browsed Collection', () => {
     cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '1')
   })
 
-  it.skip(`should be able to reset the search and display all users' books`, () => {
+  it.only(`should be able to reset the search and display all users' books`, () => {
     cy.get('[data-cy="browse-books-container"]')
     cy.get('[placeholder="Title"]').type('Calib')
     cy.get('[data-cy="reset-button"]').click({force:true})
-    // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '1') 
-    // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '2') 
-    // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '3') 
-    // cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '4') 
+    cy.get(':nth-child(1) > a > [data-cy="cover"]').invoke('attr', 'id').should('eq', '1') 
+    cy.get(':nth-child(2) > a > [data-cy="cover"]').invoke('attr', 'id').should('eq', '2') 
+    cy.get(':nth-child(3) > a > [data-cy="cover"]').invoke('attr', 'id').should('eq', '3') 
+    cy.get(':nth-child(4) > a > [data-cy="cover"]').invoke('attr', 'id').should('eq', '4') 
   })
 
   it('should be able to return back to the main dashboard', () => {
