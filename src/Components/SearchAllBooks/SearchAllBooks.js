@@ -20,9 +20,9 @@ const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResult
         onChange={event => setSearchTitle(event.target.value)}    
         >
       </input>
-      <button className='submit-button' onClick={event => filteredSearch(event)}>Submit</button>
+      <button data-cy='submit-button' className='submit-button' onClick={event => filteredSearch(event)}>Submit</button>
       <Link to="/browse">
-        <button className='reset-button' onClick={clearInputs}>Reset Search</button>
+        <button  data-cy='reset-button' className='reset-button' onClick={clearInputs}>Reset Search</button>
       </Link>
     </form>
   )

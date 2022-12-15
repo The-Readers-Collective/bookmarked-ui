@@ -38,8 +38,8 @@ const App = () => {
           </div>
         </div>
         <div data-cy='nav-links' className='nav-links'>
-          <h3>{homeLink}</h3>
-          <h3>{browseLink}</h3>
+          <h3 data-cy='home-btn'>{homeLink}</h3>
+          <h3 data-cy='browse-btn'>{browseLink}</h3>
         </div>
       </nav>
       <main>
