@@ -31,7 +31,6 @@ a:link {
     margin-top: 15px;
     margin-bottom: 85px;
     padding: 20px;
-    /* padding-bottom: 55px; */
   }
 
   .update-btn,
@@ -143,7 +142,6 @@ a:link {
   }
 
   .footer-container {
-    /* border-top: 3px solid #F28F3B;  */
     box-sizing: border-box;
     margin: 20px 0 0 0;
     position: fixed;
