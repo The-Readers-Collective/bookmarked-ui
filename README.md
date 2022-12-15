@@ -8,8 +8,7 @@
 ### [Deployed Project](https://bookmarked-fe.netlify.app/)
 
 ## Overview
-Bookmarked is a digital book-swapping platform, allowing users to add their personal books to be borrowed by others, 
-The goal of this project is to create a React application 
+Bookmarked is a digital book-swapping platform, allowing users to add their personal books to be borrowed by others, browse through an entire collection of books, and bookmark books which interest them. It was designed and produced with both a front-end and back-end team of Turing students using React, Ruby on Rails, and GraphQL.
 
 ## Project Context
 We are Mod 4 students in the Front-End Program at [Turing School of Software and Design](https://frontend.turing.edu/).  Bookmarked is our final Capstone Project.
@@ -24,8 +23,6 @@ Learning Goals for this project included:
 [Link to Project Description](https://mod4.turing.edu/projects/capstone/index.html)
 
 ## Demo
-![2022-12-14 19 35 01](https://user-images.githubusercontent.com/103966650/207759145-f04f546e-605f-4489-b469-93c3cdd99417.gif)
-![2022-12-14 19 31 03](https://user-images.githubusercontent.com/103966650/207758768-12fc9aca-c2dc-4737-be32-6b634db0e729.gif)
 
 
 ## Setup
@@ -70,22 +67,22 @@ Learning Goals for this project included:
 
 ## Developed by:
 Morgan Berry |
-Morganlyn.berry@gmail.com |
+[email](Morganlyn.berry@gmail.com) |
 [Github](https://github.com/Mlberry0205) |
 [LinkedIn](https://www.linkedin.com/in/morgan-lyn-berry/) |
 
 Stephanie Guzman |
-sguzman247@gmail.com |
+[email](sguzman247@gmail.com)|
 [Github](https://github.com/stephanieguzm) |
 [LinkedIn](https://www.linkedin.com/in/stephanie-guzman-sdsw/) |
 
 Scott Gaines |
-scottdgaines@gmail.com |
+[email](scottdgaines@gmail.com) |
 [Github](github.com/scottdgaines) |
 [LinkedIn](linkedin.com/in/scottdgaines-fe) |
 
 Marianne Barton |
-mhood24@gmail.com |
+[email](mhood24@gmail.com) |
 [Github](github.com/mhbarton ) |
 [LinkedIn](linkedin.com/in/marianne-barton-1307) |
 
