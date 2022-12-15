@@ -4,7 +4,7 @@ import SingleView from '../fixtures/SingleView.json'
 
 describe('SingleView', () => {
   beforeEach(() => {
-    cy.visit('localhost:3000/1')
+    cy.visit('/1')
   })
   
 it(`should display an error message (500 status code) if an individual book cannot be viewed`, () => {
@@ -24,7 +24,7 @@ it(`should display an error message (500 status code) if an individual book cann
 
   it('should see a book/s author, title, page count, synopsis, condition, genre', () => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', SingleView)
-      .visit('localhost:3000/1')
+      .visit('/1')
       .get('[data-cy="book-cover"]')
       .get('[data-cy="book-title"]')
       .get('[data-cy="book-author"]')
@@ -37,7 +37,7 @@ it(`should display an error message (500 status code) if an individual book cann
 
   it('should be able to bookmark the single book the viewer is viewing', () => {
     cy.intercept('https://bookmarked-api.herokuapp.com/graphql', SingleView)
-      .visit('localhost:3000/1')
+      .visit('/1')
       .get('[data-cy="bookmark-button"]')
   })
 
