@@ -4,28 +4,28 @@ import Shelf from '../../Components/Shelf/Shelf'
 import { useQuery, useMutation, gql } from '@apollo/client'
 import './Dashboard.css'
 
-const Dashboard = ({ setUserId, id, available }) => {
+const Dashboard = ({ setUserId }) => {
 
   const GET_DASHBOARD = gql`
-  query getDashboardBooks {
-    user(id: 1) {
-      id
-      name
-      userBooks {
-        bookId
-        status
-        book {
-          id
-          bookTitle
-          bookCover
-          author
-          isbn13
-          available
+    query getDashboardBooks {
+      user(id: 1) {
+        id
+        name
+        userBooks {
+          bookId
+          status
+          book {
+            id
+            bookTitle
+            bookCover
+            author
+            isbn13
+            available
+          }
         }
       }
     }
-  }
-`;
+  `;
 
   const DELETE_BOOK = gql`
     mutation destroyBook($input: DestroyBookInput!) {
@@ -36,21 +36,21 @@ const Dashboard = ({ setUserId, id, available }) => {
   `;
 
   const TOGGLE_AVAILABLE = gql `
-  mutation updateBook($input: UpdateBookInput!) {
-    updateBook(input: $input) {
-      book {
-        id
-        available
+    mutation updateBook($input: UpdateBookInput!) {
+      updateBook(input: $input) {
+        book {
+          id
+          available
+        }
       }
     }
-  }
-  `
+  `;
 
   const [ destroyBook, { deleteError, deleteLoading }] = useMutation(DELETE_BOOK, {refetchQueries: [GET_DASHBOARD]} )
 
   function DeleteBook(id) {
     if (deleteError) return <p>Error : {error.message}</p>
-    if (deleteLoading) return <p>Loading...</p>
+    if (deleteLoading) return <p className="loading-message">Loading...</p>
     
     destroyBook({
       variables: {
@@ -65,7 +65,7 @@ const Dashboard = ({ setUserId, id, available }) => {
 
   function UpdateStatus(id, available) {
     if (updateError) return <p>Error : {error.message}</p>
-    if (updateLoading) return <p>Loading...</p>
+    if (updateLoading) return <p className="loading-message">Loading...</p>
 
    updateBook({
       variables: {
@@ -79,16 +79,16 @@ const Dashboard = ({ setUserId, id, available }) => {
     })
   }
 
-  const { loading, error, data, refetch } = useQuery(GET_DASHBOARD, {fetchPolicy:"cache-and-network"})
+  const { loading, error, data } = useQuery(GET_DASHBOARD, {fetchPolicy:"cache-and-network"})
   
   useEffect(() => {
-    if (data && data.user) {
-      setUserId(data.user.id)
-    }
-  }, [data])
+      if (data && data.user) {
+        setUserId(data.user.id)
+      }
+    }, [setUserId, data])
   
   if (error) return <p>Error : {error.message}</p>
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p className="loading-message">Loading...</p>
   
   let owned = []
   let bookmarked = []
@@ -100,7 +100,6 @@ const Dashboard = ({ setUserId, id, available }) => {
     })
   }
 
-  
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">
       <div className="navigation-buttons">

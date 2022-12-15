@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { v4 } from 'uuid'
 
 const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, updateStatus }) => {
 
@@ -47,10 +46,10 @@ const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, u
                   slidesPerView: 2,
                 },
                 600: {
-                  slidesPerView: 4,
+                  slidesPerView: 3,
                 },
                 839: {
-                  slidesPerView: 6,
+                  slidesPerView: 4,
                 },
                 1000: {
                   slidesPerView: 7,
