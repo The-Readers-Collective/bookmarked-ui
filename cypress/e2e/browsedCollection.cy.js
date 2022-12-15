@@ -14,11 +14,12 @@ describe('Browsed Collection', () => {
         .get('[href="/2"] > div > img').should('be.visible')
     })
 
-    it.skip('should be able to hover over a book cover, and click it to view its individual details', () => {
+    it(`should be able to click on a book cover to view a book's individual details`, () => {
       cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection)
-      cy.get(':nth-child(1) > a > [data-cy="cover"] > [data-cy="cover-image"]').click().wait(1000)
-      cy.intercept('https://bookmarked-api.herokuapp.com/graphql', SingleView)
-      .visit('/1')
+      cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', SingleView).as('SingleView')
+      cy.get(':nth-child(1) > a > [data-cy="cover"] > [data-cy="cover-image"]').click({force:true}).wait('@SingleView')
+      cy.url().should("include", "http://localhost:3000/1")
+      cy.get('[data-cy="book-title"]').contains(`Caliban's War`)
       
     })
 
@@ -36,10 +37,12 @@ describe('Browsed Collection', () => {
     })
 
     it('should be able to return back to the main dashboard', () => {
+      cy.intercept('https://bookmarked-api.herokuapp.com/graphql', BrowsedCollection).as('BrowsedCollection').wait('@BrowsedCollection')
+      cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', User).as('User')
       cy.get('[data-cy="nav-bar"]')
-        .get('[data-cy="return-home-text"]').click().wait(1000)
-        .visit('/')
-        .url().should('include', '/')
+      cy.get('[data-cy="return-home-text"]').click({force:true})
+      cy.url().should('eq', 'http://localhost:3000/')
+      cy.get('[data-cy="page-name"]').contains('My Bookshelf')
     })
 
     it('should be able to see the difference between an available book and an unavailable book', () => {

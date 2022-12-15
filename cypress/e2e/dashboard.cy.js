@@ -57,7 +57,7 @@ it(`should display an error message (500 status code) if user's books are not fe
     cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
   })
   
-  it('should be able to click on a book cover and be led to the Single Book View page', () => {
+  it(`should be able to click on a book cover and be led to a page to see the book's details`, () => {
     cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', User).as('User').wait('@User')
     cy.intercept('POST', 'https://bookmarked-api.herokuapp.com/graphql', SingleBook).as('SingleBook')
     cy.get(':nth-child(2) > .swiper > .swiper-wrapper > .swiper-slide-prev > .cover-container > a > [data-cy="cover"] > [data-cy="cover-image"]').click({force:true}).wait('@SingleBook')
