@@ -59,5 +59,9 @@ describe('SingleView', () => {
       .visit('http://localhost:3000/browse')
       .url().should('eq', 'http://localhost:3000/browse')
   })
+
+  it('should display a footer with a link to GitHub', () => {
+    cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
+  })
 }) 
 

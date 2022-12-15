@@ -65,5 +65,8 @@ it(`should display an error message (500 status code) if user's books are not fe
     cy.get('[data-cy="book-title"]').contains(`Caliban's War`)
   })
 
+  it('should display a footer with a link to GitHub', () => {
+    cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
+  })
 }) 
 

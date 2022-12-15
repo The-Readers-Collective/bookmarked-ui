@@ -57,4 +57,8 @@ describe('Add Book', () => {
       .get('[data-cy="searched-books-container"] > p')
       .contains('No results found.')
   })
+
+  it('should display a footer with a link to GitHub', () => {
+    cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
+  })
 })

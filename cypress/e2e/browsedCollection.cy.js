@@ -74,4 +74,8 @@ describe('Browsed Collection', () => {
     cy.get(':nth-child(1) > a > [data-cy="cover"]').invoke('attr', 'style').should('not.eq', 'opacity: 0.3;')
     cy.get(':nth-child(4) > a > [data-cy="cover"]').invoke('attr', 'style').should('eq', 'opacity: 0.3;')
   })
+
+  it('should display a footer with a link to GitHub', () => {
+    cy.get('[data-cy="footer"]').contains(`The Reader's Collective`)
+  })
 })
