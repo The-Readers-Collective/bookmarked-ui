@@ -110,7 +110,7 @@ describe('Browsed Collection', () => {
     cy.get('[data-cy="cover"]').invoke('attr', 'id').should('eq', '1')
   })
 
-  it.only(`should be able to reset the search and display all users' books`, () => {
+  it(`should be able to reset the search and display all users' books`, () => {
     cy.get('[data-cy="browse-books-container"]')
     cy.get('[placeholder="Title"]').type('Calib')
     cy.get('[data-cy="reset-button"]').click({force:true})
@@ -153,21 +153,20 @@ describe('Dashboard', () => {
     cy.get('[data-cy="add-button"]').contains('Add a Book')
   })
 
-it(`should display an error message (500 status code) if user's books are not fetched`, () => {
-      cy.intercept(
-        "POST",
-        "https://bookmarked-api.herokuapp.com/graphql",
-        {
-          statusCode: 500,
-          body: {
-            error: "Not Found",
-          },
-        }
-      )
-      cy.visit("/")
-      cy.contains('Error : Response not successful: Received status code 500')
+  it(`should display an error message (500 status code) if user's books are not fetched`, () => {
+    cy.intercept(
+      "POST",
+      "https://bookmarked-api.herokuapp.com/graphql",
+      {
+        statusCode: 500,
+        body: {
+          error: "Not Found",
+        },
+      }
+    )
+    cy.visit("/")
+    cy.contains('Error : Response not successful: Received status code 500')
   });
-
 
   it(`should display a user's bookshelf separated by 'My Books' and 'My Bookmarks'`, () => {
     cy
