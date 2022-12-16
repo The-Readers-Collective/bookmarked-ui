@@ -23,7 +23,8 @@ const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResult
       </input>
       <button data-cy='submit-button' className='submit-button' onClick={event => {
         filteredSearch(event)
-        setResultsRequested(true)}}
+        setResultsRequested(true)}
+        }
       >
         Submit
       </button>
