@@ -3,6 +3,7 @@ import './Result.css'
 
 const Result = ({id, cover, addBookToShelf}) => {
   const [conditionInput, setConditionInput] = useState(undefined)
+  const [added, setAdded] = useState(false)
 
   return (
     <div id={id} className='result' data-cy='result'>
@@ -16,13 +17,12 @@ const Result = ({id, cover, addBookToShelf}) => {
           <option value='GOOD'>Good</option>
           <option value='EXCELLENT'>Excellent</option>
         </select>
-      <button 
-        data-cy='search-add-book-btn' className='search-add-book-button' disabled={!conditionInput} onClick={()=> {
-            addBookToShelf(id, conditionInput) 
-            }
-          }
+      <button data-cy='search-add-book-btn' className='search-add-book-button' disabled={!conditionInput} onClick={() => {
+        addBookToShelf(id, conditionInput) 
+        setAdded(true)}
+      }
       > 
-        Add to Shelf
+        {added ? "Success!" : "Add to Shelf"}
       </button>
     </div>
   )
