@@ -3,6 +3,7 @@ import { gql, useQuery } from '@apollo/client'
 import Cover from '../../Components/Cover/Cover.js'
 import './BrowseAllBooks.css'
 import React, { useState } from 'react';
+import FilterByRadius from '../../Components/FilterByRadius/FilterByRadius';
 
 const BrowseAllBooks = () => {
   const [searchTitle, setSearchTitle] = useState('')
@@ -73,7 +74,7 @@ const BrowseAllBooks = () => {
    
   return (
     <div data-cy="browse-books-container" className="browse-books-container">
-      <p data-cy="browse-header" className="browse-header">Browse to see what books are available for borrowing!</p>
+      <p data-cy="browse-header" className="browse-header">Browse to see what books are available for borrowing</p>
   
       <SearchAllBooks 
         searchTitle={searchTitle}
@@ -82,6 +83,8 @@ const BrowseAllBooks = () => {
         setResults={setResults}
         setResultsRequested={setResultsRequested}
       />
+      <p className='browse-header'>or filter by distance</p>
+      <FilterByRadius />
       <div data-cy="all-books-container" className="all-books-container">
         {searchTitle ? searchResults : allBrowsedCovers} 
       </div> 

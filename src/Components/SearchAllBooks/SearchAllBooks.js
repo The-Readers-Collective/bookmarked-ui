@@ -13,7 +13,7 @@ const SearchAllBooks = ({ searchTitle, setSearchTitle, filteredSearch, setResult
   return (
     <form>
       <input 
-        type="text" 
+        type='text' 
         placeholder='Title'
         name='title'
         value={searchTitle}

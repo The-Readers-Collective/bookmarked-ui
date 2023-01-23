@@ -37,6 +37,7 @@ a:link {
   .delete-btn,
   .searched-result-button,
   .submit-button, 
+  .radius-button,
   .reset-button,
   .bookmark-button {
     background-color: #fff;
@@ -66,6 +67,7 @@ a:link {
   .delete-btn:hover,
   .searched-result-button:hover,
   .submit-button:hover, 
+  .radius-button:hover,
   .reset-button:hover,
   .bookmark-button:hover {
     background-color: #f7fafa;
@@ -75,6 +77,7 @@ a:link {
   .delete-btn:focus,
   .searched-result-button:focus,
   .submit-button:focus, 
+  .radius-button:focus,
   .reset-button:focus,
   .bookmark-button:focus {
     border-color: #008296;
