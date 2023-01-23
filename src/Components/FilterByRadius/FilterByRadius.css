@@ -1,0 +1,12 @@
+.radius {
+    display: flex;
+    justify-content: center;
+}
+
+.radius-text {
+    font-family: 'Montserrat', sans-serif;
+}
+
+select {
+    border-radius: 5px;
+}
