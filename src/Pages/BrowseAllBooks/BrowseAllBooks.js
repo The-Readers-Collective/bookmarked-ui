@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 const BrowseAllBooks = () => {
   const [searchTitle, setSearchTitle] = useState('')
   const [results, setResults] = useState([])
+  const [resultsRequested, setResultsRequested] = useState(false)
 
   const GET_BROWSE_ALL_BOOKS = gql`
     query GetBrowseAllBooks {
@@ -52,7 +53,10 @@ const BrowseAllBooks = () => {
       return book.bookTitle.toUpperCase().includes(searchTitle.toUpperCase())
     })
     setResults(filterBooks)
+
   }
+ 
+  const message = <p className="loading-message">Looks like we have no matching results! Double check your search query, or check back later.</p>
 
   const searchResults = results.map((userBook) => {
     return (
@@ -76,10 +80,12 @@ const BrowseAllBooks = () => {
         setSearchTitle={setSearchTitle}
         filteredSearch={filteredSearch}
         setResults={setResults}
+        setResultsRequested={setResultsRequested}
       />
       <div data-cy="all-books-container" className="all-books-container">
         {searchTitle ? searchResults : allBrowsedCovers} 
       </div> 
+      {!searchResults.length && resultsRequested && message}
     </div>
   )
 } 
