@@ -7,4 +7,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 128px;
+}
+
+.cover-text {
+    margin: 0;
+    align-content: center;
 }

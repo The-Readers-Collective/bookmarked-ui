@@ -1,13 +1,14 @@
 .swiper-button-prev::after,
 .swiper-button-next::after { 
-    color: #EBBA18; 
+	color: #EBBA18; 
 }
 
 .shelf-container {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .shelf-name {
-    margin: 10px;
-    margin-bottom: 15px;
+	margin: 10px;
+	margin-bottom: 15px;
+	font-family: 'Libre Caslon Text', serif;
 }

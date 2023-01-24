@@ -27,7 +27,7 @@ const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, u
     )
   }) 
 
-  const shelfName = myShelfBooks ? "My Books" : "My Bookmarked Books"
+  const shelfName = myShelfBooks ? "My Books" : "My Wishlist"
   
   return (
     <div data-cy="shelf-container" className="shelf-container">
