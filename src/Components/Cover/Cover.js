@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Cover.css'
 
-const Cover = ({ cover, title, author, id, available, owned, deleteBook, updateStatus }) => {
+const Cover = ({ cover, title, author, id, available, owned, deleteBook, updateStatus}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -23,7 +23,7 @@ const Cover = ({ cover, title, author, id, available, owned, deleteBook, updateS
           <p data-cy='cover-author' className='cover-text'>{author}</p>
         </div>
       </Link>
-      { owned && <button data-cy='update-available-btn' className='update-btn' onClick={(event) => handleSubmit(event)}>Update Availability</button>} 
+      { owned && <button data-cy='update-available-btn' className='update-btn' onClick={(event) => handleSubmit(event)}>On Loan</button>} 
       { owned && <button data-cy='delete-book-btn' className='delete-btn' onClick={() => deleteBook(id)}>Delete</button>}
     </div>
   )

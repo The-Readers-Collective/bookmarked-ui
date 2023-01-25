@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Shelf from '../../Components/Shelf/Shelf'
 import { useMutation, gql } from '@apollo/client'
 import './Dashboard.css'
@@ -67,14 +66,6 @@ const Dashboard = ({ books }) => {
   
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">
-      <div className="navigation-buttons">
-        <Link to="/browse">
-          <button data-cy="browse-button" className="browse-button">Browse</button>
-        </Link>
-        <Link to="/add">
-          <button data-cy="add-button" className="add-button">Add a Book</button>
-        </Link>
-      </div>
       <div className='shelves-container'>
         <Shelf 
           owned={true}
