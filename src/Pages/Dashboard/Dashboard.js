@@ -110,17 +110,19 @@ const Dashboard = ({ setUserId }) => {
           <button data-cy="add-button" className="add-button">Add a Book</button>
         </Link>
       </div>
-      <Shelf 
-        owned={true}
-        ownedBooks={owned}
-        myShelfBooks={true}
-        deleteBook={DeleteBook}
-        updateStatus={UpdateStatus}
-      />
-      <Shelf 
-        bookmarkedBooks={bookmarked}
-        owned={false}
-      />
+      <div className='shelves-container'>
+        <Shelf 
+          owned={true}
+          ownedBooks={owned}
+          myShelfBooks={true}
+          deleteBook={DeleteBook}
+          updateStatus={UpdateStatus}
+          />
+        <Shelf 
+          bookmarkedBooks={bookmarked}
+          owned={false}
+        />
+      </div>
     </div>
   )
 }

@@ -25,10 +25,10 @@ a:link {
   }
 
   main {
-    margin: 15px;
-    margin-top: 15px;
-    margin-bottom: 85px;
     padding: 20px;
+    margin-left: calc(10vw - 10px);
+    margin-right: calc(10vw - 10px);
+    padding-bottom: 40px;
   }
 
   .update-btn,
@@ -78,7 +78,7 @@ a:link {
   .radius-button:focus,
   .reset-button:focus,
   .bookmark-button:focus {
-    border-color: #008296;
+    border-color: #578b8a;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     outline: 0;
   }
@@ -127,7 +127,6 @@ a:link {
   }
 
   .logo-image {
-    height: 11vh;
     margin-right: 5px;
   }
 
@@ -143,7 +142,7 @@ a:link {
   }
 
   .footer-container {
-    background-color: #008296;
+    background-color: #578b8a;
     box-sizing: border-box;
     margin: 20px 0 0 0;
     position: fixed;
