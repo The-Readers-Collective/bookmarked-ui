@@ -55,7 +55,6 @@ const AddBook = ({ userId }) => {
 
     const selectedBook = searchResultData.find(book => book.googleBookId === id)
 
-
     createBook({
       variables: {
         input: {
@@ -73,7 +72,7 @@ const AddBook = ({ userId }) => {
         }
       }
     })
-    refetch()
+     refetch()
   }
   
   const [getSearchResults, { loading, data, error, refetch }] = useLazyQuery(SEARCH_BOOK)
