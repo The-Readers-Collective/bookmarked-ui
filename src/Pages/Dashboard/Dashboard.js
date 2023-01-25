@@ -67,14 +67,6 @@ const Dashboard = ({ books }) => {
   
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">
-      <div className="navigation-buttons">
-        <Link to="/browse">
-          <button data-cy="browse-button" className="browse-button">Browse</button>
-        </Link>
-        <Link to="/add">
-          <button data-cy="add-button" className="add-button">Add a Book</button>
-        </Link>
-      </div>
       <div className='shelves-container'>
         <Shelf 
           owned={true}
