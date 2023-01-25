@@ -43,9 +43,6 @@ const GET_SINGLE_BOOK = gql`
     }
 `;
 
-//isAvailable ??
-//alphabatize properties
-
 const GET_BROWSE_ALL_BOOKS = gql`
     query GetBrowseAllBooks {
         users {
@@ -61,8 +58,6 @@ const GET_BROWSE_ALL_BOOKS = gql`
         }
     }
 `;
-//going through every user to get every book they have
-//querying whole database, then filtering those results on the front-end based on user's inputs of author, title, and genre
 
 const GET_SEARCH_BOOKS = gql`
     query GetSearchBooks {
@@ -75,7 +70,5 @@ const GET_SEARCH_BOOKS = gql`
         }
     }
 `;
-//from mothership google book api
-//category === genre
 
 export { GET_DASHBOARD, GET_SINGLE_BOOK, GET_BROWSE_ALL_BOOKS, GET_SEARCH_BOOKS }
