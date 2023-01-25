@@ -57,8 +57,11 @@ if (data) {
         </div>
         <div data-cy='nav-links' className='nav-links'>
           <NavLink data-cy="about-text" className='link' to="/">About</NavLink>
+          <p className='divider-hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
           <Link data-cy="browse-text" className='link' to="/browse">Browse</Link>
+          <p className='divider-hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
           <Link data-cy="add-text" className='link' to="/add">Add</Link>
+          <p className='divider-hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
           <Link data-cy="manage-text" className='link' to="/manage">Manage</Link>
         </div>
       </nav>
