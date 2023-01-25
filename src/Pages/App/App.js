@@ -1,6 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
-import { Link, Route, Switch, useLocation } from 'react-router-dom'
+import React, { useState, useEffect} from 'react'
+import { NavLink, Link, Route, Switch, useLocation } from 'react-router-dom'
+import { useQuery, gql } from '@apollo/client'
 import Dashboard from '../Dashboard/Dashboard'
 import BrowseAllBooks from '../BrowseAllBooks/BrowseAllBooks'
 import SingleBookView from '../SingleBookView/SingleBookView'
@@ -14,29 +14,62 @@ const App = () => {
   let location = useLocation()
   let pageName;
   const [ userId, setUserId ] = useState(0)
-  const homeLink = location.pathname !== "/" && <Link data-cy="return-home-text" to="/">Return Home</Link>
-  const browseLink = location.pathname !== "/browse" && location.pathname !== "/" && <Link data-cy="browse-text" to="/browse">Browse</Link>
 
-  if (location.pathname === "/") {
-    pageName = "My Bookshelf"
-  } else if (location.pathname === "/browse") {
-    pageName = "Browse All Books"
-  } else if (location.pathname === "/add") {
-    pageName = "Add a Book"
-  } 
+  // if (location.pathname === "/") {
+  //   pageName = "My Bookshelf"
+  // } else if (location.pathname === "/browse") {
+  //   pageName = "Browse All Books"
+  // } else if (location.pathname === "/add") {
+  //   pageName = "Add a Book"
+  // } 
 
+  const GET_DASHBOARD = gql`
+  query getDashboardBooks {
+    user(id: 1) {
+      id
+      name
+      userBooks {
+        bookId
+        status
+        book {
+          id
+          bookTitle
+          bookCover
+          author
+          isbn13
+          available
+        }
+      }
+    }
+  }
+`;
+
+const { loading, error, data } = useQuery(GET_DASHBOARD, {fetchPolicy:"cache-and-network", pollInterval: 500})
+
+useEffect(() => {
+  if (data && data.user) {
+    setUserId(data.user.id)
+  }
+}, [setUserId, data])
+
+if (error) return <p>Error : {error.message}</p>
+if (loading) return <p className="loading-message">Loading...</p>
+
+if (data) {
   return (
     <div>
       <nav data-cy='nav-bar' className='nav-bar'>
         <div className='app-info'>
           <img data-cy='logo-image' className='logo-image' src={logo} alt='logo design' />
           <div data-cy='app-info-container' className='app-info-container'>
-          <h3 data-cy='page-name' className='page-name'>{pageName}</h3>
+          <h3 data-cy='page-name' className='page-name'>Denver</h3>
           </div>
         </div>
         <div data-cy='nav-links' className='nav-links'>
-          <h3 data-cy='home-btn'>{homeLink}</h3>
-          <h3 data-cy='browse-btn'>{browseLink}</h3>
+          <NavLink data-cy="about-text" className='link' to="/">About</NavLink>
+          <Link data-cy="browse-text" className='link' to="/browse">Browse</Link>
+          <Link data-cy="add-text" className='link' to="/add">Add</Link>
+          <Link data-cy="manage-text" className='link' to="/manage">Manage</Link>
         </div>
       </nav>
       <main>
@@ -47,7 +80,8 @@ const App = () => {
           }/>
           <Route exact path="/manage" render={() => 
             <Dashboard 
-              setUserId={setUserId}
+              books={data.user.userBooks}
+              userId={userId}
             />
           }/>
           <Route path="/browse" render={() => 
@@ -70,7 +104,9 @@ const App = () => {
         <p data-cy='footer' className='footer'> <a href="https://github.com/The-Readers-Collective">The Reader's Collective</a></p>
       </footer>
     </div>
-  )
-}
+  )}
+        }
+
+
 
 export default App

@@ -1,31 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Shelf from '../../Components/Shelf/Shelf'
-import { useQuery, useMutation, gql } from '@apollo/client'
+import { useMutation, gql } from '@apollo/client'
 import './Dashboard.css'
+import { GET_DASHBOARD } from '../../queries'
 
-const Dashboard = ({ setUserId }) => {
-
-  const GET_DASHBOARD = gql`
-    query getDashboardBooks {
-      user(id: 1) {
-        id
-        name
-        userBooks {
-          bookId
-          status
-          book {
-            id
-            bookTitle
-            bookCover
-            author
-            isbn13
-            available
-          }
-        }
-      }
-    }
-  `;
+const Dashboard = ({ books }) => {
 
   const DELETE_BOOK = gql`
     mutation destroyBook($input: DestroyBookInput!) {
@@ -49,7 +29,7 @@ const Dashboard = ({ setUserId }) => {
   const [ destroyBook, { deleteError, deleteLoading }] = useMutation(DELETE_BOOK, {refetchQueries: [GET_DASHBOARD]} )
 
   function DeleteBook(id) {
-    if (deleteError) return <p>Error : {error.message}</p>
+    if (deleteError) return <p>Error : {deleteError.message}</p>
     if (deleteLoading) return <p className="loading-message">Loading...</p>
     
     destroyBook({
@@ -64,7 +44,7 @@ const Dashboard = ({ setUserId }) => {
   const [ updateBook, { updateError, updateLoading }] = useMutation(TOGGLE_AVAILABLE)
 
   function UpdateStatus(id, available) {
-    if (updateError) return <p>Error : {error.message}</p>
+    if (updateError) return <p>Error : {updateError.message}</p>
     if (updateLoading) return <p className="loading-message">Loading...</p>
 
    updateBook({
@@ -78,28 +58,13 @@ const Dashboard = ({ setUserId }) => {
       }
     })
   }
-
-  const { loading, error, data } = useQuery(GET_DASHBOARD, {fetchPolicy:"cache-and-network"})
-  
-  useEffect(() => {
-      if (data && data.user) {
-        setUserId(data.user.id)
-      }
-    }, [setUserId, data])
-  
-  if (error) return <p>Error : {error.message}</p>
-  if (loading) return <p className="loading-message">Loading...</p>
   
   let owned = []
   let bookmarked = []
-  
-  if (data) {
-    const books = data.user.userBooks
     books.forEach(book => {
       book.status === 'OWNED' ? owned.push(book) : bookmarked.push(book)
     })
-  }
-
+  
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">
       <div className="navigation-buttons">
