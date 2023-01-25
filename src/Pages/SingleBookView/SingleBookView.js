@@ -77,6 +77,7 @@ const [isBookmarked, setIsBookmarked] = useState(false)
             <div data-cy='top-single-book-container' className='top-single-book-container'>
                 <div data-cy='cover-image-container' className='cover-image-container'>
                     <img  data-cy="book-cover"  src={data.book.bookCover} alt="Book Cover" className="book-cover" />
+                    <p data-cy="book-cover-text" className="book-cover-text">Condition: {data.book.condition.toLowerCase()}</p>
                     <button data-cy="bookmark-button"  className="bookmark-button" onClick={() => {
                         AddBookmark(data.book.id)
                         setIsBookmarked(true)}
@@ -96,8 +97,6 @@ const [isBookmarked, setIsBookmarked] = useState(false)
                 <p data-cy="book-details" className="book-details">Page Count: {data.book.pgCount}</p> 
                 <p className='divider hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
                 <p data-cy="book-details" className="book-details">ISBN: {data.book.isbn13}</p> 
-                <p className='divider hidden'>&nbsp;&nbsp; | &nbsp; &nbsp;</p>
-                <p data-cy="book-details" className="book-details">Condition: {data.book.condition}</p>
             </article>
         </div>
     )

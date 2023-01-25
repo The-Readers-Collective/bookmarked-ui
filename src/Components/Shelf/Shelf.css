@@ -1,13 +1,18 @@
-.swiper-button-prev::after,
-.swiper-button-next::after { 
-    color: #EBBA18; 
-}
-
 .shelf-container {
-    margin-bottom: 20px;
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	grid-gap: 20px;
+	margin-bottom: 20px;
 }
 
 .shelf-name {
-    margin: 10px;
-    margin-bottom: 15px;
+	margin: 10px;
+	margin-bottom: 15px;
+	font-family: 'Libre Caslon Text', serif;
+}
+
+.shelf-text {
+	margin: 20px;
 }

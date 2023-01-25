@@ -6,7 +6,8 @@ import BrowseAllBooks from '../BrowseAllBooks/BrowseAllBooks'
 import SingleBookView from '../SingleBookView/SingleBookView'
 import AddBook from '../AddBook/AddBook'
 import PageNotFound from '../PageNotFound/PageNotFound'
-import logo from '../../Images/bookmarked-logo.png'
+import About from '../About/About'
+import logo from '../../Images/bm_logo.svg'
 import './App.css'
 
 const App = () => {
@@ -30,11 +31,7 @@ const App = () => {
         <div className='app-info'>
           <img data-cy='logo-image' className='logo-image' src={logo} alt='logo design' />
           <div data-cy='app-info-container' className='app-info-container'>
-            <div data-cy='app-name' className='app-name-tagline'>
-              <h1 data-cy='app-title'>Bookmarked</h1>
-              <h2 data-cy='app-tagline'>Where Book Lovers Gather</h2>
-            </div>
-            <h3 data-cy='page-name' className='page-name'>{pageName}</h3>
+          <h3 data-cy='page-name' className='page-name'>{pageName}</h3>
           </div>
         </div>
         <div data-cy='nav-links' className='nav-links'>
@@ -45,6 +42,10 @@ const App = () => {
       <main>
         <Switch>
           <Route exact path="/" render={() => 
+            <About 
+            />
+          }/>
+          <Route exact path="/manage" render={() => 
             <Dashboard 
               setUserId={setUserId}
             />
