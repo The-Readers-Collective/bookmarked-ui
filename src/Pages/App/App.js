@@ -11,17 +11,7 @@ import logo from '../../Images/bm_logo.svg'
 import './App.css'
 
 const App = () => {
-  let location = useLocation()
-  let pageName;
   const [ userId, setUserId ] = useState(0)
-
-  // if (location.pathname === "/") {
-  //   pageName = "My Bookshelf"
-  // } else if (location.pathname === "/browse") {
-  //   pageName = "Browse All Books"
-  // } else if (location.pathname === "/add") {
-  //   pageName = "Add a Book"
-  // } 
 
   const GET_DASHBOARD = gql`
   query getDashboardBooks {
