@@ -77,6 +77,7 @@ const Dashboard = ({ books }) => {
         <Shelf 
           bookmarkedBooks={bookmarked}
           owned={false}
+          deleteBook={DeleteBook}
         />
       </div>
     </div>
