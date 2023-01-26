@@ -140,7 +140,8 @@ input[type=text]  {
  } 
 
  .page-name {
-    padding-left: 5px;
+    padding-left: 15px;
+    font-family: 'Libre Caslon Text', serif;
  }
 
 .nav-links {
