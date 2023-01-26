@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Result.css'
 
-const Result = ({id, cover, addBookToShelf}) => {
-  let initialText = "Add to Shelf"
+const Result = ({id, cover, addBookToShelf, added, targetBook}) => {
   const [conditionInput, setConditionInput] = useState(undefined)
-  const [added, setAdded] = useState(initialText)
 
-  const handleClick = () => {
-    console.log('hello')
-    addBookToShelf(id, conditionInput)
+  const handleClick = (id) => {
+    addBookToShelf(id, conditionInput, true)
   }
-  
-  useEffect(() => {
-    setAdded("Added") 
-  }, [])
   
   return (
     <div id={id} className='result' data-cy='result'>
@@ -27,10 +20,9 @@ const Result = ({id, cover, addBookToShelf}) => {
           <option value='GOOD'>Good</option>
           <option value='EXCELLENT'>Excellent</option>
         </select>
-      <button data-cy='search-add-book-btn' className='search-add-book-button' disabled={!conditionInput} onClick={handleClick}
+      <button data-cy='search-add-book-btn' className='search-add-book-button' disabled={!conditionInput} onClick={() => handleClick(id)}
       > 
-      {added}
-      {console.log(added)}
+      { added && targetBook.includes(id) ? "Successfully Added" : "Add Book"}
       </button>
     </div>
   )
