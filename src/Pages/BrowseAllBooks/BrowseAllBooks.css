@@ -3,6 +3,7 @@
     grid-gap: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .browse-header {
