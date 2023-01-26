@@ -30,6 +30,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    transition: all 0.2s;
     vertical-align: middle;
     width: 180px;
 }

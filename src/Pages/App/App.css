@@ -64,7 +64,8 @@ a:link {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
-    width: 12vw;
+    transition: all 0.2s;
+    width: 110px;
     height: 30px;
   }
   
