@@ -6,6 +6,8 @@ import './AddBook.css'
 
 const AddBook = ({ userId }) => {
   const [bookSearchTerm, setBookSearchTerm] = useState('')
+  const [added, setAdded] = useState(false)
+  const [targetBook, setTargetBook] = useState([])
 
   const SEARCH_BOOK = gql `
     query SEARCH_BOOK($title: String!) {
@@ -49,12 +51,15 @@ const AddBook = ({ userId }) => {
 
   const [createBook, { addBookLoading, addBookError}] = useMutation(ADD_BOOK)
   
-  function AddBookToShelf(id, conditionInput) {
+  function AddBookToShelf(id, conditionInput, boolean) {
     if (addBookError) return <p>Error : {error.message}</p>
     if (addBookLoading) return <p className="loading-message">Loading...</p>
 
     const selectedBook = searchResultData.find(book => book.googleBookId === id)
 
+    setAdded(boolean)
+    setTargetBook([...targetBook, id])
+    
     createBook({
       variables: {
         input: {
@@ -87,6 +92,8 @@ const AddBook = ({ userId }) => {
           key={Math.random()} 
           cover={bookResult.bookCover}
           addBookToShelf={AddBookToShelf}
+          added={added}
+          targetBook={targetBook}
         />
       )
     })
