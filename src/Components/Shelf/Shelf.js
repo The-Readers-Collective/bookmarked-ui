@@ -15,6 +15,7 @@ const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, u
           deleteBook={deleteBook}
           updateStatus={updateStatus}
           owned={owned}
+          wishlist={bookmarkedBooks}
         />
     )
   }) 
