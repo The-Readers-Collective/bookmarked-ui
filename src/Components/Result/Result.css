@@ -1,15 +1,13 @@
 .search-add-book-button {
     background-color: #fff;
-    border: 1px solid #d5d9d9;
-    border-radius: 8px;
+    border: 1px solid #578b8a;
+    border-radius: 5px;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     box-sizing: border-box;
-    color: #0f1111;
+    color: #578b8a;
     cursor: pointer;
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
-    font-size: 17px;
-    line-height: 22px;
     margin: 10px;
     padding: 0 10px 0 11px;
     position: relative;
@@ -19,17 +17,22 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
-    width: 150px;
+    width: 12vw;
+    height: 30px;
 }
 
 .search-add-book-button:hover {
-background-color: #f7fafa;
+    border-color: #578b8a;
+    background-color: #578b89;
+    color: white;
 }
 
 .search-add-book-button:focus {
-border-color: #008296;
-box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-outline: 0;
+    border-color: #578b8a;
+    background-color: #578b89;
+    color: white;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    outline: 0;
 }
 
 select, 
@@ -37,6 +40,7 @@ option {
     font-family: 'Montserrat', sans-serif;
     height: 30px;
     width: 175px;
+    margin: 3px;
 }
 
 .result {

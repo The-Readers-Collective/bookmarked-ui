@@ -118,7 +118,7 @@ const AddBook = ({ userId }) => {
             value={bookSearchTerm}
             onChange={(event) => setBookSearchTerm(event.target.value)}
           />
-          <button data-cy="searched-result-button" className="searched-result-button" disabled={!bookSearchTerm} onClick={(event) => handleSearch(event)}>Search for Results</button>
+          <button data-cy="searched-result-button" className="searched-result-button" disabled={!bookSearchTerm} onClick={(event) => handleSearch(event)}>Search</button>
         </div>
       </div>
         {!bookResults && error && <p className='user-msg'>No results found. Please modify your search and try again.</p>}

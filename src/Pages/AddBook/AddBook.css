@@ -4,10 +4,6 @@
     justify-content: center;
 }
 
-input {
-    font-family: 'Montserrat', sans-serif; 
-}
-
 .disclaimer {
     margin-top: 0px;
 }
@@ -16,17 +12,19 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .add-book-search-input {
     margin-top: 15px;
     display: flex;
     flex-direction: row;
+    height: 30px;
 }
 
 .searched-result-button {
     font-size: 18px !important;
-    width: 200px !important;
+    width: 10vw;
 }
 
 .searched-books-container {
@@ -34,4 +32,5 @@ input {
     grid-gap: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
