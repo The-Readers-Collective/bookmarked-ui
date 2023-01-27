@@ -18,5 +18,6 @@
 
 .update-btn,
 .delete-btn {
-  width: 120px !important;
+    width: 120px !important;
+    transition: all 0.2s;
 }

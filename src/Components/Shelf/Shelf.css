@@ -5,6 +5,7 @@
 	align-items: flex-start;
 	grid-gap: 20px;
 	margin-bottom: 65px;
+	justify-content: center;
 }
 
 .shelf-name {

@@ -6,17 +6,17 @@
     text-align: center;
 }
 
-.about-directions {
-    font-weight:bold;
+.about-title {
+    font-family: 'Libre Caslon Text', serif;
 }
 
-.about-buttons {
-    background-color: #fff;
+.cta-buttons {
+    background-color: #578b89;;
     border: 2px solid #578b89;
     border-radius: 8px;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     box-sizing: border-box;
-    color: #0f1111;
+    color: white;
     cursor: pointer;
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
@@ -30,16 +30,32 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    transition: all 0.2s;
     vertical-align: middle;
     width: 180px;
 }
 
-.about-buttons:hover {
-    background-color: #578b89;
+.cta-buttons:hover {
+    background-color: #fff;
+    color: #578b89;
 }
 
-.about-buttons:focus {
-    border-color: #008296;
+.cta-buttons:focus {
+    border-color: #578b89;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     outline: 0;
+}
+
+.cta-section {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.cta-item {
+    margin: 10px;
+}
+
+.cta-title {
+    font-family: 'Libre Caslon Text', serif;
 }

@@ -21,7 +21,6 @@ const Cover = ({ cover, title, author, id, available, owned, deleteBook, updateS
         <div data-cy='cover' className='cover' id={id} style={!available ? {opacity: '0.3'} : {}}>
           <img data-cy='cover-image' className='cover-image' src={cover} alt='book name'/>
           <p data-cy='cover-title' className='cover-text'>{title}</p>
-          <p data-cy='cover-author' className='cover-text'>{author}</p>
         </div>
       </Link>
       { owned && <button data-cy='update-available-btn' className='update-btn' onClick={(event) => 
