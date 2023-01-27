@@ -2,12 +2,11 @@ import React from 'react'
 import Cover from '../Cover/Cover'
 import './Shelf.css'
 
-const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, updateStatus }) => {
+const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, updateStatus, removeBook }) => {
 
   const bookCovers = (books) => books.map(book => {
     return (
         <Cover 
-          fromShelf={true}
           cover={book.book.bookCover}
           id={book.book.id}
           key={Math.random()}
@@ -16,6 +15,7 @@ const Shelf = ({ myShelfBooks, ownedBooks, bookmarkedBooks, owned, deleteBook, u
           updateStatus={updateStatus}
           owned={owned}
           wishlist={bookmarkedBooks}
+          removeBook={removeBook}
         />
     )
   }) 

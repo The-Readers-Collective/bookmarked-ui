@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Cover.css'
 
-const Cover = ({ cover, title, author, id, available, owned, deleteBook, updateStatus, wishlist}) => {
+const Cover = ({ cover, title, id, available, owned, deleteBook, updateStatus, wishlist, removeBook}) => {
 
 
   const handleSubmit = (event) => {

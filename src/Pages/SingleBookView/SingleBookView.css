@@ -1,5 +1,6 @@
 .book-synopsis,
-.book-details {
+.book-details,
+.confirmation-message {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -33,6 +34,11 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.confirmation-message {
+ text-align: center;
+}
+
 .cover-image-container {
     display: flex;
     flex-direction: column;
