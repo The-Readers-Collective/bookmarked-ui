@@ -18,8 +18,8 @@ const Cover = ({ cover, title, id, available, owned, deleteBook, updateStatus, w
   return (
     <div className='cover-container'>
       <Link to={`/${id}`}> 
+        {!available && <div className='unavailable-overlay'><p className='unavailable-text cover-text'>Not Available</p></div>}
         <div data-cy='cover' id={id} className={`cover ${!available ? 'unavailable' : ''}`}>
-          {!available && <div className='unavailable-overlay'><p className='unavailable-text cover-text'>Not Available</p></div>}
           <img data-cy='cover-image' className='cover-image' src={cover} alt='book name'/>
           <p data-cy='cover-title' className='cover-text'>{title}</p>
         </div>
