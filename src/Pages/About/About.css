@@ -50,6 +50,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;;
 }
 
 .cta-item {
@@ -58,4 +59,18 @@
 
 .cta-title {
     font-family: 'Libre Caslon Text', serif;
+}
+
+@media (max-width: 640px) {
+    .cta-section {
+        flex-direction: column;
+    }
+
+    .cta-title {
+        margin: 0;
+    }
+
+    .cta-item {
+        margin: 15px;
+    }
 }
