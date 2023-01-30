@@ -86,8 +86,11 @@ if (data) {
               userId={userId}
             />
           }/>
-          <Route exact path='/:id' render={({match}) => 
-            <SingleBookView id={match.params.id} userId={userId} />
+          <Route exact path="/:id" render={({match}) => 
+            <SingleBookView 
+              id={match.params.id} 
+              userId={userId} 
+              books={data.user.userBooks} />
           }/>
           <Route path='*' render={() => 
             <PageNotFound />

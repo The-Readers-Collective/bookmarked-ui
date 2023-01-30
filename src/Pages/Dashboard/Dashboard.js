@@ -63,6 +63,13 @@ const Dashboard = ({ books }) => {
     books.forEach(book => {
       book.status === 'OWNED' ? owned.push(book) : bookmarked.push(book)
     })
+
+  // function removeBookmarkedBook(id) {
+  //   bookmarked = bookmarked.filter(book => {
+  //     return id != book.bookId
+  //   })
+  //   return bookmarked
+  // }
   
   return (
     <div data-cy="bookshelves-container" className="bookshelves-container">
@@ -78,6 +85,7 @@ const Dashboard = ({ books }) => {
           bookmarkedBooks={bookmarked}
           owned={false}
           deleteBook={DeleteBook}
+          // removeBook={removeBookmarkedBook}
         />
       </div>
     </div>

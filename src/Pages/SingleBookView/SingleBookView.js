@@ -2,8 +2,15 @@ import React, { useState } from 'react'
 import { gql, useMutation, useQuery } from '@apollo/client'
 import './SingleBookView.css'
 
-const SingleBookView = ({fromShelf, id, userId }) => {
-const [isBookmarked, setIsBookmarked] = useState(false)
+const SingleBookView = ({ id, userId, books }) => {
+    const [isBookmarked, setIsBookmarked] = useState(false)
+    let managed = false
+
+    books.forEach(book => {
+        if (book.bookId === id) {
+        managed = true
+        }
+    })
 
     const GET_SINGLE_BOOK = gql`
         query getSingleBook ($id: ID!){
@@ -68,22 +75,21 @@ const [isBookmarked, setIsBookmarked] = useState(false)
     if (error) return <p>Error : {error.message}</p>
     if (loading) return <p>Loading...</p>
 
-    if (fromShelf) {
-        return <button>Delete</button>
-    }
-
     return (
         <div data-cy='single-book-container' className='single-book-container'>
             <div data-cy='top-single-book-container' className='top-single-book-container'>
                 <div data-cy='cover-image-container' className='cover-image-container'>
                     <img  data-cy="book-cover"  src={data.book.bookCover} alt="Book Cover" className="book-cover" />
                     <p data-cy="book-cover-text" className="book-cover-text">Condition: {data.book.condition.toLowerCase()}</p>
+                   { !managed ?
                     <button data-cy="bookmark-button"  className="bookmark-button" onClick={() => {
                         AddBookmark(data.book.id)
                         setIsBookmarked(true)}
-                    }>
+                        }>
                         {isBookmarked ? "Success!" : "Bookmark!"}
-                    </button>
+                    </button> :
+                    <p className="confirmation-message">This book is currently on your bookshelf</p>
+                    }
                 </div>
                 <article className="book-major-details-container">
                     <p data-cy="book-title" className="book-title">{data.book.bookTitle}</p>
