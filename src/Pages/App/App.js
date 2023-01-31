@@ -50,7 +50,7 @@ if (data) {
     <div>
       <nav className='top-nav nav-bar'>
         <div className='app-info'>
-          <img data-cy='logo-image' className='logo-image' src={logo} alt='logo design'/>
+          <Link to='/'><img data-cy='logo-image' className='logo-image' src={logo} alt='logo design'/></Link>
           <div data-cy='app-info-container' className='app-info-container'>
             <h3 data-cy='page-name' className='page-name'>Denver</h3>
           </div>
@@ -98,7 +98,7 @@ if (data) {
         </Switch>
       </main>
       <footer data-cy='footer-container' className='footer-container'>
-        <p data-cy='footer' className='footer'> <a href='https://github.com/The-Readers-Collective'>The Reader's Collective</a></p>
+        <p data-cy='footer' className='footer'>&#169; <a href='https://github.com/The-Readers-Collective'>The Reader's Collective</a></p>
       </footer>
     </div>
   )}
