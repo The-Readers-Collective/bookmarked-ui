@@ -30,9 +30,13 @@ Learning Goals for this project included:
 [Project Spec and Rubric](https://mod4.turing.edu/projects/capstone/index.html)
 
 ## Demo
+### MVP
 ![2022-12-14 19 35 01](https://user-images.githubusercontent.com/103966650/207759575-a7443b50-b1f6-433d-98be-11fe02d1c96e.gif)
-
 ![2022-12-14 19 31 03](https://user-images.githubusercontent.com/103966650/207759593-08d323e1-aa70-4f96-8fe7-9c0e1e08be42.gif)
+
+### Iteration 2
+![2023-11-17 10 50 15](https://github.com/The-Readers-Collective/bookmarked-ui/assets/103966650/ee071746-5dbf-4821-a497-a5142c96e442)
+![2023-11-17 10 55 07](https://github.com/The-Readers-Collective/bookmarked-ui/assets/103966650/50de3e59-9346-4953-91d4-432617930b9c)
 
 ## Setup
 1. From your terminal, `cd` back to your parent directory
@@ -48,20 +52,22 @@ Learning Goals for this project included:
 4. Enter the following url in your browser: http://localhost:3000/
 
 ## Future Features
-- [x] Adding and deleting followers
-- [x] Add a Google map API to locate how far a book is for exchage
-- [x] Message a user if a bookmarked is avaiable for borrowing
-- [ ] Alert the user if a bookmarked book that was previously unavailable is now available
+- Enable a user to create an account
+- Enable a user to follow and unfollow other user's accounts
+- Add a Google map API to allow for approximate book location from a given location
+- Implement messaging to enable for book exchanges
+- Alert users if a bookmarked book that was previously unavailable is now available
 
 ## Dev Notes
 ### Wins
-- [x] Excellent group dynamic and communication
-- [x] Researching GraphQL queries and mutations
-- [X] Problem solving
+- Excellent group dynamic and communication
+- Effective research and implementation of GraphQL queries and mutations
+- Creative problem solving and bug resolution
+- Implementation of UI redesign with an emphasis on a better user experience
 
 ### Opportunities for growth
-- [x] Understanding mutations
-- [x] Learning Cypress syntax when using GraphQL
+- Implementation of GraphQL mutations
+- Effectively using Cypress syntax with GraphQL
 
 ## Developed by:
 Morgan Berry |
